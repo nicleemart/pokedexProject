@@ -22,9 +22,8 @@ require 'csv'
 		CSV.open("pokedex.csv", "w") do |csv|
 			
 			new_pokemon.each do |record|  
-				csv.push(record) 
 
-				csv << record
+				csv << record.split(",")
 			end
 
 		end
