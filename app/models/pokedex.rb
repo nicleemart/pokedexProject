@@ -41,5 +41,15 @@ class Pokedex
 		return pokemon_array
 	end
 
+	def Pokedex.pokedex_list_of_favorites(all_records)
+		all_records = Pokedex.pokedex_all_records
+		favorite_pokemon = []
+		all_records.each do |pokemon|
+			if pokemon[7] == "yes"
+				favorite_pokemon.push(pokemon)
+			end
+		end
+		return favorite_pokemon
+	end
 end
 
