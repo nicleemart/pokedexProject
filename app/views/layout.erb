@@ -7,16 +7,25 @@
 </head>
 
 <body>
-	<div class="navigation">
-		<a href="/">Home</a><br>
-		<a href="/add">Add Pokemon</a><br>
-		<a href="/viewall">View Pokemon</a>
-	</div>
+	<div class="main">
+		<div class="navigation">
+			<a href="/" class="navigation__link">Home</a><br>
+			<a href="/add" class="navigation__link">Add Pokemon</a><br>
+			<a href="/viewall" class="navigation__link">View All Pokemon</a>
+		</div>
 
 
 <!-- The `yield` below is where the contents of a view file are put. -->
 <!-- Then the combined layout + view is sent back to the client. -->
 <%= yield %>
 
+		<div class="searchBox">
+			<div class="search">
+				<form>
+					<input type="text" placeholder="Search Pokemon..." class="search__input" required><span class="search__icon"><img src="/images/searchIcon.png"></span>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
