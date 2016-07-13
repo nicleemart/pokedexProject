@@ -42,7 +42,7 @@ class Pokedex
 	end
 
 	def Pokedex.pokedex_list_of_favorites(all_records)
-		
+		all_records = Pokedex.pokedex_all_records
 		favorite_pokemon = []
 		all_records.each do |pokemon|
 			if pokemon[7] == "yes"
@@ -53,12 +53,3 @@ class Pokedex
 	end
 end
 
-new_pokemon1 = Pokedex.pokedex_save_record(["Charmander",5,2,"male","fire",35,30,"yes","Charmander","Charmeleon","Charizard"])
-new_pokemon2 = Pokedex.pokedex_save_record(["Test",5,2,"male","fire",35,30,"no","Charmander","Charmeleon","Charizard"])
-new_pokemon3 = Pokedex.pokedex_save_record(["Blastoise",5,2,"male","water",35,30,"yes","Charmander","Charmeleon","Charizard"])
-
-all_records = Pokedex.pokedex_all_records
-favorite_pokemon = Pokedex.pokedex_list_of_favorites(all_records)
-
-puts favorite_pokemon
-favorite_pokemon.
