@@ -2,6 +2,22 @@ require 'test_helper'
 
 class PokedexTest < Minitest::Test
 
+	def setup
+		super
+
+		require 'csv'
+		new_pokemon = ["Charmander,5,2,male,fire,35,30,yes,Charmander,Charmeleon,Charizard", "Charmander,5,2,male,fire,35,30,yes,Charmander,Charmeleon,Charizard","Charmander,5,2,male,fire,35,30,yes,Charmander,Charmeleon,Charizard","Squirtle,3,4,female,water,40,32,no,Squirtle,Wartortle,Blastoise"]
+		CSV.open("pokedex.csv", "w") do |csv|
+			
+			new_pokemon.each do |record|  
+
+				csv << record.split(",")
+			end
+
+		end
+	end
+
+
 	def test_favorite_pokemon
 
 		all_records = Pokedex.pokedex_all_records
@@ -32,7 +48,7 @@ class PokedexTest < Minitest::Test
 	def test_all_records()
 
 		test_array = Pokedex.pokedex_all_records()
-		assert_equal(5, test_array.count)
+		assert_equal(4, test_array.count)
 
 	end
 
