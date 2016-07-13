@@ -12,7 +12,7 @@ class PokedexTest < Minitest::Test
 
 	def test_find_record
 
-		pokedex_array = ["Charmander,5,2,male,fire,35,30,yes,Charmander,Charmeleon,Charizard", "Squirtle,3,4,female,water,40,32,no,Squirtle,Wartortle,Blastoise"]
+		pokemon_array = ["Charmander,5,2,male,fire,35,30,yes,Charmander,Charmeleon,Charizard", "Squirtle,3,4,female,water,40,32,no,Squirtle,Wartortle,Blastoise"]
 		name_pokemon = "Squirtle"
 		name_test = Pokedex.pokedex_find_record(name_pokemon,pokemon_array)
 
@@ -24,7 +24,7 @@ class PokedexTest < Minitest::Test
 	def test_all_records()
 
 		test_array = Pokedex.pokedex_all_records()
-		assert_equal(3, test_array.count)
+		assert_equal(5, test_array.count)
 
 	end
 end

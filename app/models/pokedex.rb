@@ -43,7 +43,3 @@ class Pokedex
 
 end
 
-new_pokemon = Pokedex.pokedex_save_record(["Squirtle, 30, 2, green, grass, testing, this, method"])
-all_records = Pokedex.pokedex_all_records()
-puts all_records
-
