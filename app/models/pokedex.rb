@@ -12,6 +12,8 @@ class Pokedex
 		CSV.open("pokedex.csv", "a") do |csv|
 			#Add the Array to the file
 			csv << new_pokemon
+		end
+
 	end
 
 
@@ -33,9 +35,16 @@ class Pokedex
 		pokedex_array.each do |record|
 
 			index = record.index(',')
+			name_array = record[0,index]
+
+			if name_pokemon == name_array
+				return record
+			end
 			
 
 		end
+
+		return false
 
 
 	end
