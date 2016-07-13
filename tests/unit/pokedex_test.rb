@@ -2,6 +2,14 @@ require 'test_helper'
 
 class PokedexTest < Minitest::Test
 
+	def test_favorite_pokemon
+
+		all_records = Pokedex.pokedex_all_records
+		favorite_pokemon = Pokedex.pokedex_list_of_favorites(all_records)
+
+		assert_equal(3, favorite_pokemon.count)
+	end
+
 	def test_add_record
 
 		new_pokemon = ["Charmander",5,2,"male","fire",35,30,"yes","Charmander","Charmeleon","Charizard"]
@@ -24,7 +32,9 @@ class PokedexTest < Minitest::Test
 	def test_all_records()
 
 		test_array = Pokedex.pokedex_all_records()
-		assert_equal(2, test_array.count)
+		assert_equal(5, test_array.count)
 
 	end
+
+
 end

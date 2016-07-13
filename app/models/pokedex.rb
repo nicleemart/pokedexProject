@@ -51,5 +51,13 @@ class Pokedex
 		end
 		return favorite_pokemon
 	end
+
+	def Pokedex.pokedex_random_favorite(favorite_pokemon)
+		all_records = Pokedex.pokedex_all_records
+		favorite_pokemon = Pokedex.pokedex_list_of_favorites(all_records)
+
+		random_favorite = favorite_pokemon.sample
+		return random_favorite
+	end
 end
 
