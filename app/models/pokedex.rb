@@ -27,4 +27,17 @@ class Pokedex
 			return list
 		end
 	end
+
+	def Pokedex.pokedex_find_record(name_pokemon,pokedex_array)
+
+		pokedex_array.each do |record|
+
+			index = record.index(',')
+			
+
+		end
+
+
+	end
+
 end
