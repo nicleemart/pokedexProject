@@ -16,20 +16,6 @@ class Pokedex
 
 	end
 
-
-#Read all record in pokedex.csv and put into file.
-	def Pokedex.pokedex_all_records()
-		require 'csv'
-		list = Array.new
-		file = 'pokedex.csv'
-
-		CSV.foreach(file) do |record|
-
-			list << record
-			return list
-		end
-	end
-
 	def Pokedex.pokedex_find_record(name_pokemon,pokedex_array)
 
 		pokedex_array.each do |record|
@@ -40,13 +26,24 @@ class Pokedex
 			if name_pokemon == name_array
 				return record
 			end
-			
-
 		end
-
 		return false
+	end
 
+	def Pokedex.pokedex_all_records()
+		require 'csv'
+		pokemon_array = []
+		file = 'pokedex.csv'
+		CSV.foreach(file) do |record|
 
+			 pokemon_array.push(record)
+		end
+		return pokemon_array
 	end
 
 end
+
+new_pokemon = Pokedex.pokedex_save_record(["Squirtle, 30, 2, green, grass, testing, this, method"])
+all_records = Pokedex.pokedex_all_records()
+puts all_records
+
