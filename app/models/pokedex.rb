@@ -4,8 +4,8 @@
 
 class Pokedex
 
-#This method saves a new Pokemon's information in a text file as an Array
-#new_pokemon = the Array of traits gathered from the user (via form)
+	#This method saves a new Pokemon's information in a text file as an Array
+	#new_pokemon = the Array of traits gathered from the user (via form)
 	def Pokedex.pokedex_save_record(new_pokemon)
 		require 'csv'
 		#Open the file the new data will be saved in
@@ -41,11 +41,18 @@ class Pokedex
 		return pokemon_array
 	end
 
+	#This method adds all "favorite" Pokemon to an Array (returns Array)
+	#all_records = Array containing all Pokemon in the Pokedex returned from pokedex_all_records()
 	def Pokedex.pokedex_list_of_favorites(all_records)
+		#all_records contains complete list of Pokemon as an Array
 		all_records = Pokedex.pokedex_all_records
+		#Will contain all the favorite Pokemon
 		favorite_pokemon = []
+		#Iterate through each Pokemon
 		all_records.each do |pokemon|
+			#Check if the Pokemon is a favorite
 			if pokemon[7] == "yes"
+				#If so then add the Pokemon to Array
 				favorite_pokemon.push(pokemon)
 			end
 		end
