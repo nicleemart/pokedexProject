@@ -1,3 +1,23 @@
+body {
+	font-family: Arial;
+	background-color: #DC0A2D;
+	color: #232323;
+	padding: 0;
+	margin: 0;
+}
+a:link{
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: none;
+}
+a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.navigation{
+	background-color: #28AAFD;
+	width: 150px;
+}
 .header{
-	color: blue;
 }
