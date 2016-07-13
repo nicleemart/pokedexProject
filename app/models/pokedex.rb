@@ -30,14 +30,19 @@ class Pokedex
 		return false
 	end
 
+	#This method adds all the Pokemon in the Pokedex file to an Array (returns Array)
 	def Pokedex.pokedex_all_records()
 		require 'csv'
+		#Array to add all Pokemon to
 		pokemon_array = []
+		#Assign the file name to a variable
 		file = 'pokedex.csv'
+		#For each line (Array) in the Pokedex file
 		CSV.foreach(file) do |record|
-
+			#Add each one to the empty Array
 			 pokemon_array.push(record)
 		end
+		#Return Array containing all of the Pokemon from the Pokedex
 		return pokemon_array
 	end
 
@@ -65,6 +70,10 @@ class Pokedex
 
 		random_favorite = favorite_pokemon.sample
 		return random_favorite
+	end
+
+	def Pokedex.pokedex_edit_pokemon()
+
 	end
 end
 
