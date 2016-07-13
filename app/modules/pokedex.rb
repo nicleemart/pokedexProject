@@ -1,3 +1,7 @@
+#pokedex.csv file format  name,height,weight,gender,type,cp,hp,
+#favorite,evolution1,evolution2,evolution3
+
+
 class Pokedex
 
 #This method saves a new Pokemon's information in a text file as an Array
@@ -20,7 +24,6 @@ class Pokedex
 		CSV.foreach(file) do |record|
 
 			list << record
-			p list
 			return list
 		end
 	end
