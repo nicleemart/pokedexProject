@@ -28,9 +28,5 @@ MyApp.get "/view" do
 
 	end
 
-
-
-
-
 	erb :"pokedex/view"
 end

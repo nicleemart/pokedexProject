@@ -3,8 +3,6 @@ MyApp.get "/edit" do
 	@no_pokemon_error = "Visit the Add Pokemon page to start building your Pokedex"
 	if @pokedex_array.empty? == true
 		return @no_pokemon_error
-	else
-		
 	end
 	erb :"pokedex/edit"
 end
