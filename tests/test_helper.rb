@@ -14,8 +14,3 @@ class Minitest::Test
 end
 
 require File.expand_path '../../main.rb', __FILE__
-
-
-		
-
-		

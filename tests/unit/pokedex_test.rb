@@ -42,7 +42,7 @@ class PokedexTest < Minitest::Test
 
 
 		assert_equal(name_pokemon,name_test[0])
-		print name_test
+
 	end
 
 
@@ -68,6 +68,20 @@ class PokedexTest < Minitest::Test
 		search_results = Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
 		
 		assert_equal(search_results, ["Squirtle", "3", "4", "female", "water", "40", "32", "no", "Squirtle", "Wartortle", "Blastoise"])
+	end
+
+	def test_delete_record()
+
+		name_pokemon = "Squirtle"
+
+		all_records = Pokedex.pokedex_all_records()
+
+		Pokedex.pokedex_delete_record(all_records,name_pokemon)
+
+		all_records = Pokedex.pokedex_all_records()
+
+		assert_equal(3,all_records.count)
+
 	end
 
 

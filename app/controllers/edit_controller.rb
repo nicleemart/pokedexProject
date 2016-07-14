@@ -14,6 +14,13 @@ MyApp.get "/edit" do
 			@cp = @found_array[5]
 			@hp = @found_array[6]
 			@favorite = @found_array[7]
+
+			if @favorite == "on"
+				@favorite = "checked"
+			else
+				@favorite = ""
+			end
+
 	else
 		@title = "No Pokemon Found"
 	end
