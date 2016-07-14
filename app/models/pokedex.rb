@@ -20,8 +20,8 @@ class Pokedex
 
 		pokedex_array.each do |record|
 
-			index = record.index(',')
-			name_array = record[0,index]
+			
+			name_array = record[0]
 
 			if name_pokemon == name_array
 				return record
