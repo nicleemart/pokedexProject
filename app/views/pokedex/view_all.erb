@@ -5,6 +5,19 @@
 	Your Pokemon
 </div>
 
+<% if @search_results != false %>
+	<% @search_results.each do |result| %>
+		<div>
+			<p><%= result %>
+		</div>
+	<% end %>
+	
+<% if @search_results.empty? == true %>
+	<div>
+		<p><%= @search_error %>
+	</div>
+	<% end %>
+
 <% if @all_pokemon.empty? == true %>
 
 	<div>
@@ -19,6 +32,8 @@
 
 	<% end %>
 <% end %>
+
+
 
 
 <a href="/view">View Individual Pokemon</a>

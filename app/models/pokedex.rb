@@ -36,11 +36,10 @@ class Pokedex
 			pokemon.each do |trait|
 				if trait == search_input
 					return pokemon
-				else
-					return false
 				end
 			end
 		end
+		return false
 	end
 
 	#This method adds all the Pokemon in the Pokedex file to an Array (returns Array)

@@ -6,20 +6,17 @@ MyApp.get "/" do
 	erb :"pokedex/home"
 end
 
-# MyApp.get "/:search/view" do
-# 	@pokemon_array = Pokedex.pokedex_all_records()
-# 	@search_input = params[:search]
-# 	@search_results = Pokedex.pokedex_find_by_trait(@pokemon_array, @search_input)
-# 	@search_error = "The Pokemon you're searching for does not exist.\n
-# 					Are you sure you spelled things right?\n
-# 					Capitilization matters!"
+MyApp.get "/viewall" do
+	@pokemon_array = Pokedex.pokedex_all_records()
+	@search_input = params[:search]
+	@search_results = Pokedex.pokedex_find_by_trait(@pokemon_array, @search_input)
+	@search_error = "The Pokemon you're searching for does not exist.\n
+					Are you sure you spelled things right?\n
+					Capitilization matters!"
 
-# 	if @search_results == false
-# 		return @search_error
+	# if @search_results == false
+	# 	@search_results = @search_error
+	# end
 
-# 	else
-# 		return @search_results
-# 	end
-
-# 	erb :"pokedex/view"
-# end
+	erb :"pokedex/viewall"
+end
