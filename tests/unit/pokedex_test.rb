@@ -6,7 +6,7 @@ class PokedexTest < Minitest::Test
 		super
 
 		require 'csv'
-		new_pokemon = ["Charmander,5,2,male,fire,35,30,yes,Charmander,Charmeleon,Charizard", "Charmander,5,2,male,fire,35,30,yes,Charmander,Charmeleon,Charizard","Charmander,5,2,male,fire,35,30,yes,Charmander,Charmeleon,Charizard","Squirtle,3,4,female,water,40,32,no,Squirtle,Wartortle,Blastoise"]
+		new_pokemon = ["Charmander,5,2,male,fire,35,30,on,Charmander,Charmeleon,Charizard", "Charmander,5,2,male,fire,35,30,on,Charmander,Charmeleon,Charizard","Charmander,5,2,male,fire,35,30,on,Charmander,Charmeleon,Charizard","Squirtle,3,4,female,water,40,32,no,Squirtle,Wartortle,Blastoise"]
 		CSV.open("pokedex.csv", "w") do |csv|
 			
 			new_pokemon.each do |record|  
@@ -28,7 +28,7 @@ class PokedexTest < Minitest::Test
 
 	def test_add_record
 
-		new_pokemon = ["Charmander",5,2,"male","fire",35,30,"yes","Charmander","Charmeleon","Charizard"]
+		new_pokemon = ["Charmander",5,2,"male","fire",35,30,"on","Charmander","Charmeleon","Charizard"]
 
 		Pokedex.pokedex_save_record(new_pokemon)
 	end
@@ -51,6 +51,23 @@ class PokedexTest < Minitest::Test
 		test_array = Pokedex.pokedex_all_records()
 		assert_equal(4, test_array.count)
 
+	end
+
+	def test_search_name
+		pokemon_array = Pokedex.pokedex_all_records()
+		search_input = "Squirtle"
+		search_results = Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
+		
+		assert_equal(search_results, ["Squirtle", "3", "4", "female", "water", "40", "32", "no", "Squirtle", "Wartortle", "Blastoise"])
+		
+	end
+
+	def test_search_type
+		pokemon_array = Pokedex.pokedex_all_records()
+		search_input = "water"
+		search_results = Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
+		
+		assert_equal(search_results, ["Squirtle", "3", "4", "female", "water", "40", "32", "no", "Squirtle", "Wartortle", "Blastoise"])
 	end
 
 
