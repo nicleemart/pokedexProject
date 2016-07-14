@@ -15,8 +15,11 @@ a:visited{
 	text-decoration: none;
 }
 a:hover{
-	color: #DEDEDE;
+	color: blue;
 	text-decoration: none;
+}
+.navigation:hover{
+	background-color: #DEDEDE;
 }
 .main{
 	display: flex;
@@ -26,9 +29,9 @@ a:hover{
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
-	background-color: #41E0F9;
 	align-items: center;
 	justify-content: space-around;
+	background-color: #41E0F9;
 	width: 15%;
 	height: 125px;
 }
@@ -36,9 +39,7 @@ a:hover{
 }
 .navigation__border{
 	border-bottom: black 3px solid;
-}
-.navigation__link--noBorder{
-	border: none;
+	width: 100%;
 }
 .center{
 	display: flex;
