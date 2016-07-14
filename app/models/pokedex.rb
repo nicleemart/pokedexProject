@@ -29,6 +29,19 @@ class Pokedex
 		end
 		return false
 	end
+	#search_input = params[:search] (whatever text is put into the search box)
+	def Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
+		pokemon_array = Pokedex.pokedex_all_records()
+		pokemon_array.each do |pokemon|
+			pokemon.each do |trait|
+				if trait == search_input
+					return pokemon
+				else
+					return false
+				end
+			end
+		end
+	end
 
 	#This method adds all the Pokemon in the Pokedex file to an Array (returns Array)
 	def Pokedex.pokedex_all_records()
@@ -72,8 +85,9 @@ class Pokedex
 		return random_favorite
 	end
 
-	def Pokedex.pokedex_edit_pokemon()
+	# def Pokedex.pokedex_add_pokemon(pokemon_traits)
+	# 	pokemon_traits = 
 
-	end
+	# end
 end
 

@@ -1,6 +1,6 @@
 body {
-	font-family: Arial;
-	background-color: #DC0A2D;
+	font-family: Helvetica;
+	background-color: #CE3358;
 	color: #232323;
 	padding: 0;
 	margin: 0;
@@ -11,6 +11,7 @@ a:link{
 	text-decoration: none;
 }
 a:visited{
+	color: #FFFFFF;
 	text-decoration: none;
 }
 a:hover{
@@ -22,9 +23,10 @@ a:hover{
 	align-items: stretch;
 }
 .navigation{
+	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
-	background-color: #28AAFD;
+	background-color: #41E0F9;
 	align-items: center;
 	justify-content: center;
 	width: 12%;
@@ -33,22 +35,27 @@ a:hover{
 .navigation__link{
 	border-bottom: black 3px solid;
 }
+.center{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 76%;
+}
 .header{
 	display: flex;
 }
-.center{
-	display: flex;
-	width: 76%;
-}
 .searchBox{
 	width: 12%;
-}
-.search {
+	height: 100vh;
 	display: flex;
 	flex: 1;
 	align-items: flex-end;
+}
+.search {
+	display: flex;
 	border-bottom: solid white 3px;
 	width: 150px;
+	margin-bottom: 20px;
 }
 .search__input{
 	background: transparent;
@@ -56,4 +63,5 @@ a:hover{
 }
 ::-webkit-input-placeholder {
 	color: #232323;
+	font-size: 12px;
 	}
