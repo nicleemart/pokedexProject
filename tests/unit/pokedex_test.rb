@@ -82,10 +82,6 @@ class PokedexTest < Minitest::Test
 
 		assert_equal(3,all_records.count)
 
-		
-
-
-
 	end
 
 
