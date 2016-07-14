@@ -14,10 +14,6 @@ MyApp.get "/searchresults" do
 					Are you sure you spelled things right?\n
 					Capitilization matters!"
 
-	# if @search_results == false
-	# 	@search_results = @search_error
-	# end
-
 	erb :"pokedex/search_results"
 end
 
