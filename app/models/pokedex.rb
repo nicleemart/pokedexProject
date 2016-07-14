@@ -26,16 +26,23 @@ class Pokedex
 		end
 		return false
 	end
+	#This method searches the Pokedex for any matching words put into the search (returns Array)
 	#search_input = params[:search] (whatever text is put into the search box)
 	def Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
+		#pokemon_array represents all Pokemon in the Pokedex
 		pokemon_array = Pokedex.pokedex_all_records()
+		#Iterate over each of the Pokemon in the Pokedex
 		pokemon_array.each do |pokemon|
+			#Iterate over each trait of each of those Pokemon
 			pokemon.each do |trait|
+				#If any of the traits match the search input
 				if trait == search_input
+					#Return those Pokemon
 					return pokemon
 				end
 			end
 		end
+		#If there aren't any matches found in the Pokedex then return false
 		return false
 	end
 
@@ -73,14 +80,32 @@ class Pokedex
 		return favorite_pokemon
 	end
 
+	#This method selects a favorite randomly to be displayed on the home page (returns Array)
+	#favorite_pokemon = Array of favorited Pokemon returned from pokedex_list_of_favorites
 	def Pokedex.pokedex_random_favorite(favorite_pokemon)
+		#all_records is the Array of all the Pokemon in the Pokedex
 		all_records = Pokedex.pokedex_all_records
+		#favorite_pokemon is the Array of favorited Pokemon
 		favorite_pokemon = Pokedex.pokedex_list_of_favorites(all_records)
-
+		#Select a random Pokemon from the favorites Array
 		random_favorite = favorite_pokemon.sample
 		return random_favorite
 	end
 
+	def Pokedex.pokedex_delete_record(all_records,name_pokemon)
+
+		file = 'pokedex.csv'
+	
+		CSV.open(file, "w") do |csv|
+
+			all_records.each do |record |
+
+				if record[0] != name_pokemon
+					csv << record
+				end
+			end
+		end	
+	end
 	# def Pokedex.pokedex_add_pokemon(pokemon_traits)
 	# 	pokemon_traits = 
 
