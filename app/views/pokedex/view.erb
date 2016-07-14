@@ -3,17 +3,17 @@
 
 <div class="header">
 <!-- This will be embedded Ruby that will call the name of the Pokemon that is being viewed -->
-	Pokemon Name
+	<%= @name %>
 </div>
 <!-- Pokemon image goes here -->
 <!-- Pokemon evolution path goes here -->
 <div class="infoBox">
-	Height:<br>
-	Weight:<br>
-	Gender:<br>
-	Type:<br>
-	CP: <br>
-	HP: <br>	
-	Favorite? <br>
+	Height: <%=  @height %><br>
+	Weight: <%= @weight %><br>
+	Gender: <%= @gender %><br>
+	Type: <%= @type %><br>
+	CP: <%= @cp %><br>
+	HP: <%= @hp %><br>	
+	Favorite? <%= @favorite %><br>
 </div>
 <a href="/edit">Edit Information</a>
