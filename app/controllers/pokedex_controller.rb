@@ -5,3 +5,15 @@ MyApp.get "/" do
 	@no_pokemon_error = "Visit the Add Pokemon page to start building your Pokedex"
 	erb :"pokedex/home"
 end
+
+MyApp.get "/:search" do
+	@pokemon_array = Pokedex.pokedex_all_records()
+	@search_input = params[:search].
+	@search_results = Pokedex.pokedex_find_by_trait(@pokemon_array, @search_input)
+	@search_error = "The Pokemon you're searching for does not exist.\n
+					Are you sure you spelled things right?"
+
+	if @search_results == false
+		return @search_error
+	end
+end

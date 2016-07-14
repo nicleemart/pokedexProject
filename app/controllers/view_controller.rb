@@ -6,7 +6,8 @@ MyApp.get "/view" do
 	type = params[:type]
 	cp = params[:cp]
 	hp = params[:hp]
-	
+	favorite = params[:favorite]
+
 	puts name
 
 	if height != ""
@@ -18,6 +19,7 @@ MyApp.get "/view" do
 	new_pokemonarray << type
 	new_pokemonarray << cp
 	new_pokemonarray << hp
+	new_pokemonarray << favorite
 
 	Pokedex.pokedex_save_record(new_pokemonarray)
 	end
