@@ -69,7 +69,7 @@ class Pokedex
 		#Iterate through each Pokemon
 		all_records.each do |pokemon|
 			#Check if the Pokemon is a favorite
-			if pokemon[7] == "yes"
+			if pokemon[7] == "on"
 				#If so then add the Pokemon to Array
 				favorite_pokemon.push(pokemon)
 			end

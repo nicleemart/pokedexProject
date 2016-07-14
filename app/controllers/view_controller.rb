@@ -24,9 +24,5 @@ MyApp.get "/view" do
 	Pokedex.pokedex_save_record(new_pokemonarray)
 	end
 
-
-
-
-
 	erb :"pokedex/view"
 end
