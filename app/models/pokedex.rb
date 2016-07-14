@@ -81,6 +81,20 @@ class Pokedex
 		return random_favorite
 	end
 
+	def Pokedex.pokedex_delete_record(all_records,name_pokemon)
+
+		file = 'pokedex.csv'
+	
+		CSV.open(file, "w") do |csv|
+
+			all_records.each do |record |
+
+				if record[0] != name_pokemon
+					csv << record
+				end
+			end
+		end	
+	end
 	# def Pokedex.pokedex_add_pokemon(pokemon_traits)
 	# 	pokemon_traits = 
 
