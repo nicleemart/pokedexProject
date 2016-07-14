@@ -13,7 +13,14 @@
 <% else %>
 
 	<div>
-	<%= @random_favorite %>
+		<h1>Name: <%= @random_favorite[0] %></h1>
+		<h3>Height: <%= @random_favorite[1] %></h3>
+		<h3>Weight: <%= @random_favorite[2] %></h3>
+		<h3>Gender: <%= @random_favorite[3] %></h3>
+		<h3>Type: <%= @random_favorite[4] %></h3>
+		<h3>CP: <%= @random_favorite[5] %></h3>
+		<h3>HP: <%= @random_favorite[6] %></h3>
+		<h3>Favorite: <%= @random_favorite[7] %></h3>
 	</div>
 
 <% end %>
