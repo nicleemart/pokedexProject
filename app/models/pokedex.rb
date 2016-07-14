@@ -19,11 +19,8 @@ class Pokedex
 	def Pokedex.pokedex_find_record(name_pokemon,pokedex_array)
 
 		pokedex_array.each do |record|
-
-			index = record.index(',')
-			name_array = record[0,index]
-
-			if name_pokemon == name_array
+			
+			if name_pokemon == record[0]
 				return record
 			end
 		end
