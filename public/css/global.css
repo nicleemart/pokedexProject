@@ -13,25 +13,35 @@ a:link{
 a:visited{
 	text-decoration: none;
 }
-a:hover {
+a:hover{
 	color: #DEDEDE;
 	text-decoration: none;
 }
-.main {
+.main{
 	display: flex;
-	flex-direction: column;
 	align-items: stretch;
 }
 .navigation{
+	display: flex;
+	flex-direction: column;
 	background-color: #28AAFD;
-	width: 150px;
+	align-items: center;
+	justify-content: center;
+	width: 12%;
+	height: 150px;
 }
 .navigation__link{
-	border: black 2px solid;
+	border-bottom: black 3px solid;
 }
 .header{
+	display: flex;
+}
+.center{
+	display: flex;
+	width: 76%;
 }
 .searchBox{
+	width: 12%;
 }
 .search {
 	display: flex;
