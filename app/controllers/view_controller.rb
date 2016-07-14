@@ -29,6 +29,7 @@ require 'active_support/all'
 
 	elsif params[:name].present? != false
 
+
 		@pokedex_array = Pokedex.pokedex_all_records()
 		
 		@found_array= Pokedex.pokedex_find_record(@name,@pokedex_array)
@@ -45,9 +46,6 @@ require 'active_support/all'
 	else
 			@name = "No Pokemon Found"
 	end
-
-
-
 
 	erb :"pokedex/view"
 end
