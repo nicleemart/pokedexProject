@@ -28,8 +28,12 @@ require 'active_support/all'
 	@new_pokemonarray << @hp
 	@new_pokemonarray << @favorite
 
+	@pokedex_array = Pokedex.pokedex_all_records()
+	Pokedex.pokedex_delete_record(@pokedex_array,@name)
 	Pokedex.pokedex_save_record(@new_pokemonarray)
 
+
+#Check if name params is present and displays the pokemon stats. 
 	elsif params[:name].present? != false
 
 
@@ -49,6 +53,12 @@ require 'active_support/all'
 		end
 	else
 			@name = "No Pokemon Found"
+	end
+
+	if @favorite == "on"
+		@favorite = "yes"
+	else
+		@favorite = "no"
 	end
 
 	erb :"pokedex/view"
