@@ -16,13 +16,8 @@
 <% else %>
 	<% @all_pokemon.each do |pokemon| %>
 	<div>
-		<p><%= pokemon %></p>
+		<p><a href="/view?name=<%= pokemon[0] %>"><%=pokemon[0] %></a></p>
 	</div>
 
 	<% end %>
 <% end %>
-
-
-
-
-<a href="/view">View Individual Pokemon</a>
