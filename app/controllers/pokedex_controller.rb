@@ -6,7 +6,7 @@ MyApp.get "/" do
 	erb :"pokedex/home"
 end
 
-MyApp.get "/viewall" do
+MyApp.get "/searchresults" do
 	@pokemon_array = Pokedex.pokedex_all_records()
 	@search_input = params[:search]
 	@search_results = Pokedex.pokedex_find_by_trait(@pokemon_array, @search_input)
@@ -18,5 +18,6 @@ MyApp.get "/viewall" do
 	# 	@search_results = @search_error
 	# end
 
-	erb :"pokedex/viewall"
+	erb :"pokedex/search_results"
 end
+

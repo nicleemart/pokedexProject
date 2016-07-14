@@ -1,0 +1,28 @@
+<% @title="Search Results" %>
+
+<div class="header">
+	Search Results
+</div>
+
+<% if @search_results != false %>
+	<% @search_results.each do |result| %>
+		<div>
+			<p>Name: <%= result %></p>
+			<p>Name: <%= result %></p>
+			<p>Name: <%= result %></p>
+			<p>Name: <%= result %></p>
+			<p>Name: <%= result %></p>
+			<p>Name: <%= result %></p>
+			<p>Name: <%= result %></p>
+			<p>Name: <%= result %></p>
+		</div>
+	<% end %>
+<% end %>
+	
+<% if @search_results == false %>
+	<div>
+		<p><%= @search_error %></p>
+	</div>
+<% end %>
+
+<a href="/view">View Individual Pokemon</a>
