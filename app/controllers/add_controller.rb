@@ -1,15 +1,28 @@
 MyApp.get "/add" do 
 
-	@new_pokemon = Pokedex.new
-	@new_pokemon.name = params[:name]
-	@new_pokemon.height = params[:height]
-	@new_pokemon.weight = params[:weight]
-	@new_pokemon.gender = params[:gender]
-	@new_pokemon.type = params[:type]
-	@new_pokemon.cp = params[:cp]
-	@new_pokemon.hp = params[:hp]
-	@new_pokemon.favorite = params[:favorite]
+	name = params[:name]
+	height = params[:height]
+	gender = params[:gender]
+	type = params[:type]
+	cp = params[:cp]
+	hp = params[:hp]
+	favorite = params[:favorite]
 
-	Pokedex.pokedex_save_record(@new_pokemon)
+	puts name
+
+	if height != ""
+	
+	new_pokemonarray = []
+	new_pokemonarray << name
+	new_pokemonarray << height
+	new_pokemonarray << gender
+	new_pokemonarray << type
+	new_pokemonarray << cp
+	new_pokemonarray << hp
+	new_pokemonarray << favorite
+
+	Pokedex.pokedex_save_record(new_pokemonarray)
+	end
+	
 	erb :"pokedex/add"
 end

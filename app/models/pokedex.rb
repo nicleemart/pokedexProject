@@ -85,9 +85,9 @@ class Pokedex
 		return random_favorite
 	end
 
-	def Pokedex.pokedex_add_pokemon(pokemon_traits)
-		pokemon_traits = 
+	# def Pokedex.pokedex_add_pokemon(pokemon_traits)
+	# 	pokemon_traits = 
 
-	end
+	# end
 end
 
