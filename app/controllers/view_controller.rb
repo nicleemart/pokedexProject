@@ -32,7 +32,7 @@ require 'active_support/all'
 
 		@pokedex_array = Pokedex.pokedex_all_records()
 		
-		@found_array= Pokedex.pokedex_find_record(@name,@pokedex_array)
+		@found_array = Pokedex.pokedex_find_record(@name,@pokedex_array)
 
 		if @found_array != false
 
