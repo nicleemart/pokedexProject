@@ -29,11 +29,13 @@ class Pokedex
 	#search_input = params[:search] (whatever text is put into the search box)
 	def Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
 		pokemon_array = Pokedex.pokedex_all_records()
+		search_results = []
 		pokemon_array.each do |pokemon|
 			pokemon.each do |trait|
 				if trait == search_input
-					return pokemon
+					search_results.push(pokemon)
 				end
+				return search_results
 			end
 		end
 		return false
