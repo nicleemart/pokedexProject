@@ -5,4 +5,20 @@
 	Your Pokemon
 </div>
 
+<% if @all_pokemon.empty? == true %>
+
+	<div>
+		<h2>Visit the Add Pokemon page to start building your Pokedex</h2>
+	</div>
+
+<% else %>
+	<% @all_pokemon.each do |pokemon| %>
+	<div>
+		<p><%= pokemon %></p>
+	</div>
+
+	<% end %>
+<% end %>
+
+
 <a href="/view">View Individual Pokemon</a>
