@@ -7,13 +7,13 @@
 
 <!-- This form should autofill data from the previous page -->
 <form>
-	Name: <input type="text" name="name"><br>
-	Height: <input type="text" name="height"><br>
-	Weight: <input type="text" name="weight"><br>
-	Gender: <input type="text" name="gender"><br>
-	Type: <input type="text" name="type"><br>
-	CP: <input type="text" name="cp"><br>
-	HP: <input type="text" name="hp"><br>
+	Name: <input type="text" name="name" value= <%= @name %>><br>
+	Height: <input type="text" name="height" value= <%=  @height %>><br>
+	Weight: <input type="text" name="weight" value= <%=  @weight %>><br>
+	Gender: <input type="text" name="gender" value= <%=  @gender %>><br>
+	Type: <input type="text" name="type" value= <%=  @type %>><br>
+	CP: <input type="text" name="cp" value= <%=  @cp %>><br>
+	HP: <input type="text" name="hp" value= <%=  @hp %>><br>
 	Favorite? <input type="checkbox" name="favorite"><br>
 	<input type="submit" value="Submit">
 </form>

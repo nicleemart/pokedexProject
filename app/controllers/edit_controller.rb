@@ -1,8 +1,22 @@
 MyApp.get "/edit" do 
+
+
+	@name = params[:name]
 	@pokedex_array = Pokedex.pokedex_all_records()
-	@no_pokemon_error = "Visit the Add Pokemon page to start building your Pokedex"
-	if @pokedex_array.empty? == true
-		return @no_pokemon_error
+	@found_array = Pokedex.pokedex_find_record(@name,@pokedex_array)
+
+	if @found_array != false
+
+			@height = @found_array[1]
+			@weight = @found_array[2]
+			@gender = @found_array[3]
+			@type = @found_array[4]
+			@cp = @found_array[5]
+			@hp = @found_array[6]
+	else
+		@title = "No Pokemon Found"
 	end
+
+	
 	erb :"pokedex/edit"
 end
