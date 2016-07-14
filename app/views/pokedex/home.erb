@@ -4,7 +4,19 @@
 	Header
 </div>
 
-<div>
-<%= @random_favorite %>
-</div>
+<% if @all_pokemon.empty? == true %>
+
+	<div>
+		<h2><%= @no_pokemon_error %></h2>
+	</div>
+
+<% else %>
+
+	<div>
+	<%= @random_favorite %>
+	</div>
+
+<% end %>
+
+
 <!-- Random Pokemon image from database of user's favorites -->
