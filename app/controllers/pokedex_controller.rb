@@ -5,4 +5,6 @@ MyApp.get "/" do
 	@random_favorite = Pokedex.pokedex_random_favorite(@favorites_list,@file)
 	@no_pokemon_error = "Visit the Add Pokemon page to start building your Pokedex"
 	erb :"pokedex/home"
+
+	
 end
