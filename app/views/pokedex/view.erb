@@ -12,31 +12,37 @@
 	</div>
 
 
+	<div class="evolutions">
+		<div class="evolutions__text">
+			Evolution Path
+		</div>
 	<% if @stage1.blank? == false %>
-
-			<div>
+		<div class="banana">
+			<div class="evolutions__image">
 			<!-- Image of Pokemon being viewed -->
-				<img class="viewImage" src="/images2/<%= @stage1 %>.png" />
+				<img class="evoImage" src="/images2/<%= @stage1 %>.png" />
 			</div>
 
 	<% end 
 
 		if @stage2.blank? == false  %>
 
-			<div>
+			<div class="evolutions__image">
 			<!-- Image of Pokemon being viewed -->
-				<img class="viewImage" src="/images2/<%= @stage2 %>.png" />
+				<img class="evoImage" src="/images2/<%= @stage2 %>.png" />
 			</div>
 	<%  end 
 
 		if @stage3.blank? == false%>
 
-			<div>
+			<div class="evolutions__image">
 			<!-- Image of Pokemon being viewed -->
-				<img class="viewImage" src="/images2/<%= @stage3 %>.png" />
+				<img class="evoImage" src="/images2/<%= @stage3 %>.png" />
 			</div>
+		</div>
 
 	<% end %>
+	</div>
 
 <div class="statsContainer">
 
@@ -132,4 +138,6 @@
 	
 </div>
 
-<a href="/edit?name=<%= @name %>">Edit Information</a>
+	<div class="editText">
+		<a href="/edit?name=<%= @name %>">Edit Information</a>
+	</div>
