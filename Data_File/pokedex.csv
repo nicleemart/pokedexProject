@@ -44,3 +44,13 @@ Wartortle,80,100,Male,Water,230,320,on,Squirtle,Wartortle,Blastoise
 Kadabra,78,110,Male,Psychic,147,140,on,Abra,Kadabra,Alakazam
 Alakazam,120,273,Male,Psychic,329,311,on,Abra,Kadabra,Alakazam
 Poliwhirl,28,39,Male,Water,348,243,on,Poliwag,Poliwhirl,Poliwrath
+Poliwrath,67,44,Male,Water,322,411,on,Poliwag,Poliwhirl,Poliwrath
+Ninetales,79,59,Female,Fire,327,123,on,Vulpix,Ninetales,""
+Sandslash,22,45,Male,Ground,79,98,on,Sandshrew,Sandslash,""
+Kakuna,33,23,Male,Bug,68,88,on,Weedle,Kakuna,Beedrill
+Beedrill,78,22,Male,Bug,699,873,on,Weedle,Kakuna,Beedrill
+Gloom,34,87,Female,Poison,77,80,on,Oddish,Gloom,Vileplume
+Vileplume,55,34,Male,Poison,120,143,on,Oddish,Gloom,Vileplume
+Pidgeotto,56,23,Male,Flying,100,120,on,Pidgey,Pidgeotto,Pidgeot
+Pidgeot,79,67,Male,Flying,98,189,,Pidgey,Pidgeotto,Pidgeot
+Parasect,299,89,Female,Grass,733,644,on,Paras,Parasect,""
