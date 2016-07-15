@@ -1,7 +1,7 @@
-<% @title="Personal Pokedex" %>
+<% @title="Personal Pok&eacute;dex" %>
 
 <div class="header">
-	Personal Pokedex
+	Personal Pok&eacute;dex
 </div>
 
 <% if @all_pokemon.empty? == true %>
@@ -12,16 +12,16 @@
 
 <% else %>
 
-	<div class="random">
+	<div class="infoBox">
 	<!-- Random Pokemon image from database of user's favorites -->
-		<div class="random__text">Name: <%= @random_favorite[0] %></div>
-		<div class="random__text">Height: <%= @random_favorite[1] %></div>
-		<div class="random__text">Weight: <%= @random_favorite[2] %></div>
-		<div class="random__text">Gender: <%= @random_favorite[3] %></div>
-		<div class="random__text">Type: <%= @random_favorite[4] %></div>
-		<div class="random__text">CP: <%= @random_favorite[5] %></div>
-		<div class="random__text">HP: <%= @random_favorite[6] %></div>
-		<div class="random__text">Favorite: <%= @random_favorite[7] %></div>
+		<div class="infoBox__text">Name: <%= @random_favorite[0] %></div>
+		<div class="infoBox__text">Height: <%= @random_favorite[1] %></div>
+		<div class="infoBox__text">Weight: <%= @random_favorite[2] %></div>
+		<div class="infoBox__text">Gender: <%= @random_favorite[3] %></div>
+		<div class="infoBox__text">Type: <%= @random_favorite[4] %></div>
+		<div class="infoBox__text">CP: <%= @random_favorite[5] %></div>
+		<div class="infoBox__text">HP: <%= @random_favorite[6] %></div>
+		<div class="infoBox__text">Favorite: <%= @random_favorite[7] %></div>
 	</div>
 
 <% end %>
