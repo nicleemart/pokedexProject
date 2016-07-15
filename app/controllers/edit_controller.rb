@@ -1,8 +1,8 @@
 MyApp.get "/edit" do 
 
-
+	@file = 'Data_File/pokedex.csv'
 	@name = params[:name]
-	@pokedex_array = Pokedex.pokedex_all_records()
+	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	@found_array = Pokedex.pokedex_find_record(@name,@pokedex_array)
 
 	if @found_array != false
