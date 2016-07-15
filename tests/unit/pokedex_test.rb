@@ -31,6 +31,12 @@ class PokedexTest < Minitest::Test
 		new_pokemon = ["Charmander",5,2,"male","fire",35,30,"on","Charmander","Charmeleon","Charizard"]
 
 		Pokedex.pokedex_save_record(new_pokemon)
+
+		test_array = Pokedex.pokedex_all_records()
+
+		assert_equal(5,test_array.count)
+
+
 	end
 	
 

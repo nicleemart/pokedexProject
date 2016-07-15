@@ -17,7 +17,6 @@ require 'active_support/all'
 #and will need to save record and display the info. 	
 	if params[:height].present? != false
 	
-
 	@new_pokemonarray = []
 	@new_pokemonarray << @name
 	@new_pokemonarray << @height
