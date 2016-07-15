@@ -1,5 +1,5 @@
 <!-- This page will display a user's Pokemon's specific details as they are stored in the database. From this page, a user will be able to get a page where they can edit these details. -->
-<% @title="View Your Pokemon" %>
+<% @title="View Your Pok&eacute;mon" %>
 
 <div class="header">
 <!-- This will be embedded Ruby that will call the name of the Pokemon that is being viewed -->
@@ -8,12 +8,56 @@
 <!-- Pokemon image goes here -->
 <!-- Pokemon evolution path goes here -->
 <div class="infoBox">
-	<div class="infoBox__text">Height: <%=  @height %></div>
-	<div class="infoBox__text">Weight: <%= @weight %></div>
-	<div class="infoBox__text">Gender: <%= @gender %></div>
-	<div class="infoBox__text">Type: <%= @type %></div>
-	<div class="infoBox__text">CP: <%= @cp %></div>
-	<div class="infoBox__text">HP: <%= @hp %></div>	
-	<div class="infoBox__text">Favorite? <%= @favorite %></div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Height:
+		</div> 
+		<%=  @height %> in
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Weight:
+		</div>
+		<%= @weight %> lbs
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Gender:
+		</div>
+		<%= @gender %>
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Type:
+		</div>
+		<%= @type %>
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			CP:
+		</div> 
+		<%= @cp %>
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			HP:
+		</div>
+		<%= @hp %>
+	</div>	
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Favorite?
+		</div>
+		<%= @favorite %>
+	</div>
+	
 </div>
+
 <a href="/edit?name=<%= @name %>">Edit Information</a>

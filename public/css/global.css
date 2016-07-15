@@ -1,6 +1,7 @@
 body {
 	font-family: Helvetica;
 	background-color: #CE3358;
+	font-size: 14px;
 	color: #232323;
 	padding: 0;
 	margin: 0;
@@ -15,50 +16,43 @@ a:visited{
 	text-decoration: none;
 }
 a:hover{
-	color: blue;
+	color: #F7BF2E;
 	text-decoration: none;
-}
-.navigation:hover{
-	background-color: #DEDEDE;
 }
 .main{
 	display: flex;
 	align-items: stretch;
 }
-.navigation{
-	margin-top: 20px;
+.container{
 	display: flex;
 	flex-direction: column;
+	width: 15%;
+}
+.navigation{
+	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	flex-direction: column;
+	margin-top: 20px;
 	background-color: #41E0F9;
-	width: 15%;
-	height: 125px;
-}
-.navigation__link{
+	width: 100%;
+	height: 80px;
+	border-radius: 0px 20px 20px 0px;
 }
 .navigation__border{
 	border-bottom: black 3px solid;
 	width: 100%;
 }
-.center{
+.searchBox{
+	width: 80%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	width: 73%;
-	margin-top: 20px;
-}
-.searchBox{
-	width: 12%;
-	height: 100vh;
-	display: flex;
-	flex: 1;
-	align-items: flex-end;
+	padding-left: 5px;
 }
 .search{
-	display: flex;
 	border-bottom: solid white 3px;
-	margin-bottom: 20px;
+	margin-top: 20px;
+	display: flex;
 }
 .search__input{
 	background: transparent;
@@ -66,18 +60,50 @@ a:hover{
 }
 ::-webkit-input-placeholder {
 	color: #232323;
-	font-size: 12px;
+	font-size: 13px;
 	}
-.header{
-	display: flex;
-}
-.random{
+.center{
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	width: 85%;
+	margin-top: 20px;
 }
-.random__text{
+.header{
+	display: flex;
+	font-size: 20px;
+	padding-bottom: 10px;
 }
 .form{
 	display: flex;
 	flex-direction: column;
+	background-color: #DEDEDE;
+}
+.form__input{
+	display: flex;
+	flex-direction: row;
+	font-weight: bold;
+}
+input.form {
+    border: 0;
+    border-bottom: solid white 3px;
+    background: transparent;
+  	margin: 5px;
+  	padding-top: 5px;
+}
+.infoBox{
+	display: flex;
+	flex-direction: column;
+	background-color: #DEDEDE;
+	padding: 20px;
+	border-radius: 20px;
+}
+.infoBox__text{
+	display: flex;
+	flex-direction: row;
+	padding: 5px;
+}
+.infoBox__title{
+	font-weight: bold;
+	padding-right: 3px;
 }
