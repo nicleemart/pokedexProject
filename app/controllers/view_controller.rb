@@ -1,5 +1,8 @@
 MyApp.get "/view" do 
 require 'active_support/all'
+
+@title="View Your Pok&eacute;mon"
+
 @file = 'Data_File/pokedex.csv'
 	
 	@name = params[:name]

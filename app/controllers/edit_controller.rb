@@ -1,6 +1,6 @@
 MyApp.get "/edit" do 
 
-	@title="Edit Pokemon Info"
+	@title="Edit Pok&eacute;mon Info"
 
 	@file = 'Data_File/pokedex.csv'
 	@name = params[:name]

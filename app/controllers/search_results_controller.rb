@@ -1,4 +1,5 @@
 MyApp.get "/searchresults" do
+	@title = "Pok&eacute;mon Search Results"
 	@file = 'Data_File/pokedex.csv'
 	@pokemon_array = Pokedex.pokedex_all_records(@file)
 	@search_input = params[:search]
