@@ -74,37 +74,39 @@
 
 		<div class="stats">
 			<div class="stats__title--fixedWidth">
+				Stage One:
+			</div>
+			<div class="stats__info">
+				<input type="text" name="stage1" class="form" value= <%=  @stage1 %>>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
+				Stage Two:
+			</div>
+			<div class="stats__info">
+				<input type="text" name="stage2" class="form" value= <%=  @stage2 %>>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
+				Stage Three:
+			</div>
+			<div class="stats__info">
+				<input type="text" name="stage3" class="form" value= <%=  @stage3 %>>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Favorite:
 			</div>
 			<div class="stats__info">
-				<input type="checkbox" name="favorite" <%=  @favorite %>>
+				<input type="checkbox" name="favorte" <%= @favorite %>>
 			</div>
-
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
-				Stage One:
-			</div>
-			<input type="text" name="stage1" class="form" value= <%=  @stage1 %>>
 		</div>
-
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
-				Stage Two:
-			</div>
-			<input type="text" name="stage2" class="form" value= <%=  @stage2 %>>
-		</div>
-
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
-				Stage Three:
-			</div>
-			<input type="text" name="stage3" class="form" value= <%=  @stage3 %>>
-		</div>
-
-		<div class="infoBox__text">
-			<div class="infoBox__title">
-				Favorite?
-
 
 	<input type="submit" value="Submit">
 	</form>
