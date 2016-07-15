@@ -60,10 +60,13 @@ a:hover{
 	background: transparent;
 	border: none;
 }
-::-webkit-input-placeholder {
+::-webkit-input-placeholder{
 	color: #30FB05;
 	font-size: 13px;
 	}
+.form::-webkit-input-placeholder{
+	color: #232323;
+}
 .center{
 	display: flex;
 	flex-direction: column;
@@ -90,6 +93,7 @@ input.form {
   	margin: 5px;
   	padding-top: 5px;
   	min-width: 100%;
+  	color: black;
 }
 .statsContainer{
 	display: flex;
