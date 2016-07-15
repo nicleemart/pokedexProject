@@ -7,7 +7,7 @@ class PokedexTest < Minitest::Test
 
 		require 'csv'
 		file = 'tests/unit/pokedex.csv'
-		new_pokemon = ["Charmander,5,2,male,fire,35,30,on,Charmander,Charmeleon,Charizard", "Charmander,5,2,male,fire,35,30,on,Charmander,Charmeleon,Charizard","Charmander,5,2,male,fire,35,30,on,Charmander,Charmeleon,Charizard","Squirtle,3,4,female,water,40,32,no,Squirtle,Wartortle,Blastoise"]
+		new_pokemon = ["ACharmander,5,2,male,fire,35,30,on,BCharmander,Charmeleon,Charizard", "Charmander,5,2,male,fire,35,30,on,Charmander,Charmeleon,Charizard","Charmander,5,2,male,fire,35,30,on,Charmander,Charmeleon,Charizard","Squirtle,3,4,female,water,40,32,no,Squirtle,Wartortle,Blastoise"]
 		CSV.open(file, "w") do |csv|
 			
 			new_pokemon.each do |record|  
@@ -40,6 +40,15 @@ class PokedexTest < Minitest::Test
 		assert_equal(5,test_array.count)
 
 
+		#Testing to sort alphabitically
+		# test_array.sort! { |a, b| a[0].to_i <=> b[0].to_i }
+		# test_array.uniq!(&:first)
+
+		# test_array do |line|
+		# 	puts line
+		end
+
+
 	end
 	
 
@@ -53,6 +62,8 @@ class PokedexTest < Minitest::Test
 
 
 		assert_equal(name_pokemon,name_test[0])
+
+
 
 	end
 
@@ -80,7 +91,7 @@ class PokedexTest < Minitest::Test
 		search_input = "fire"
 		search_results = Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
 		
-		assert_equal(search_results, [["Charmander", "5", "2", "male", "fire", "35", "30", "on", "Charmander", "Charmeleon", "Charizard"], ["Charmander", "5", "2", "male", "fire", "35", "30", "on", "Charmander", "Charmeleon", "Charizard"], ["Charmander", "5", "2", "male", "fire", "35", "30", "on", "Charmander", "Charmeleon", "Charizard"]])
+		assert_equal(search_results, [["ACharmander", "5", "2", "male", "fire", "35", "30", "on", "BCharmander", "Charmeleon", "Charizard"], ["Charmander", "5", "2", "male", "fire", "35", "30", "on", "Charmander", "Charmeleon", "Charizard"], ["Charmander", "5", "2", "male", "fire", "35", "30", "on", "Charmander", "Charmeleon", "Charizard"]])
 	end
 
 	def test_delete_record()
