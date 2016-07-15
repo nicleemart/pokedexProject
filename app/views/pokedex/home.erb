@@ -14,14 +14,61 @@
 
 	<div class="infoBox">
 	<!-- Random Pokemon image from database of user's favorites -->
-		<div class="infoBox__text">Name: <%= @random_favorite[0] %></div>
-		<div class="infoBox__text">Height: <%= @random_favorite[1] %></div>
-		<div class="infoBox__text">Weight: <%= @random_favorite[2] %></div>
-		<div class="infoBox__text">Gender: <%= @random_favorite[3] %></div>
-		<div class="infoBox__text">Type: <%= @random_favorite[4] %></div>
-		<div class="infoBox__text">CP: <%= @random_favorite[5] %></div>
-		<div class="infoBox__text">HP: <%= @random_favorite[6] %></div>
-		<div class="infoBox__text">Favorite: <%= @random_favorite[7] %></div>
+		<div class="infoBox__text">
+			<div class="infoBox__title">
+				Name:
+			</div> 
+			<%= @random_favorite[0] %>
+		</div>
+
+		<div class="infoBox__text">
+			<div class="infoBox__title">
+				Height:
+			</div>
+			<%= @random_favorite[1] %><
+		/div>
+
+		<div class="infoBox__text">
+			<div class="infoBox__title">
+				Weight:
+			</div> 
+			<%= @random_favorite[2] %>
+		</div>
+
+		<div class="infoBox__text">
+			<div class="infoBox__title">
+				Gender:
+			</div>
+			<%= @random_favorite[3] %>
+		</div>
+
+		<div class="infoBox__text">
+			<div class="infoBox__title">
+				Type:
+			</div>
+			<%= @random_favorite[4] %>
+		</div>
+
+		<div class="infoBox__text">
+			<div class="infoBox__title">
+				CP:
+			</div> 
+			<%= @random_favorite[5] %>
+		</div>
+
+		<div class="infoBox__text">
+			<div class="infoBox__title">
+				HP:
+			</div>
+			<%= @random_favorite[6] %>
+		</div>
+
+		<div class="infoBox__text">
+			<div class="infoBox__title">
+				Favorite:
+			</div>
+			<%= @random_favorite[7] %>
+		</div>
 	</div>
 
 <% end %>

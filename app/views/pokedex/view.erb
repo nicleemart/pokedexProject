@@ -8,13 +8,55 @@
 <!-- Pokemon image goes here -->
 <!-- Pokemon evolution path goes here -->
 <div class="infoBox">
-	<div class="infoBox__text">Height: <%=  @height %></div>
-	<div class="infoBox__text">Weight: <%= @weight %></div>
-	<div class="infoBox__text">Gender: <%= @gender %></div>
-	<div class="infoBox__text">Type: <%= @type %></div>
-	<div class="infoBox__text">CP: <%= @cp %></div>
-	<div class="infoBox__text">HP: <%= @hp %></div>	
-	<div class="infoBox__text">Favorite? <%= @favorite %></div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Height:
+		</div> 
+		<%=  @height %>
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Weight:
+		</div>
+		<%= @weight %>
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Gender:
+		</div>
+		<%= @gender %>
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Type:
+		</div>
+		<%= @type %>
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			CP:
+		</div> 
+		<%= @cp %>
+	</div>
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			HP:
+		</div>
+		<%= @hp %>
+	</div>	
+
+	<div class="infoBox__text">
+		<div class="infoBox__title">
+			Favorite?
+		</div>
+		<%= @favorite %>
+	</div>
 </div>
 
 <a href="/edit?name=<%= @name %>">Edit Information</a>
