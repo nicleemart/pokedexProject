@@ -9,7 +9,7 @@ if @search_results.count > 0
 
 	@search_results.each do |record|
 	%>
-
+	<div class="searchResults">
 		<div>
 			<img class="viewImage" src="/images2/<%= record[0] %>.png" />
 		</div>
@@ -89,6 +89,7 @@ if @search_results.count > 0
 			</div>
 
 		</div>
+	</div>
 	<a href="/view?name=<%= record[0] %>">View Individual Pok&eacute;mon</a>
 <%	end 
 	

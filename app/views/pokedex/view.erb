@@ -1,6 +1,4 @@
 <!-- This page will display a user's Pokemon's specific details as they are stored in the database. From this page, a user will be able to get a page where they can edit these details. -->
-<% @title="View Your Pok&eacute;mon" %>
-
 <div class="header">
 <!-- Name of Pokemon being viewed -->
 	<%= @name %>
@@ -100,6 +98,7 @@
 		</div>
 	</div>	
 
+<% if !@stage1.blank? %>
 	<div class="stats">
 		<div class="stats__title">
 			Stage One:
@@ -108,7 +107,9 @@
 			<%= @stage1 %>
 		</div>
 	</div>	
+<% end %>
 
+<% if !@stage2.blank? %>
 	<div class="stats">
 		<div class="stats__title">
 			Stage Two:
@@ -117,7 +118,9 @@
 			<%= @stage2 %>
 		</div>
 	</div>	
+<% end %>
 
+<% if !@stage3.blank? %>
 	<div class="stats">
 		<div class="stats__title">
 			Stage Three:
@@ -125,15 +128,27 @@
 		<div class="stats__info">
 			<%= @stage3 %>
 		</div>
-	</div>	
+	</div>
+<% end %>	
 
 	<div class="stats">
 		<div class="stats__title">
 			Favorite?
 		</div>
+
+	<% if @favorite == "yes" %>
+
+		<div class="stats__info">
+			<img class="favoriteHeart" src="/images2/heart.png" alt="Heart" />
+		</div>
+
+	<% else %>
+
 		<div class="stats__info">
 			<%= @favorite %>
 		</div>
+
+	<% end %>
 	</div>
 	
 </div>
