@@ -96,6 +96,7 @@ input.form {
 	background-color: #DEDEDE;
 	padding: 20px;
 	border-radius: 20px;
+	border: solid 2px black;
 }
 .stats{
 	display: flex;
@@ -159,11 +160,6 @@ input.form {
 .editText{
 	font-size: 20px;
 	padding: 10px;
-}
-.searchResults{
-	display: flex;
-	flex-direction: row;
-	flex-flow: wrap;
 }
 .favoriteHeart{
 	height: 15px;
