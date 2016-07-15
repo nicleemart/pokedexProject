@@ -71,7 +71,7 @@ a:hover{
 }
 .header{
 	display: flex;
-	font-size: 20px;
+	font-size: 24px;
 	padding-bottom: 10px;
 }
 .form{
@@ -106,4 +106,12 @@ input.form {
 .infoBox__title{
 	font-weight: bold;
 	padding-right: 3px;
+}
+.viewAllPokemon{
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+}
+.viewAllPokemon__link{
+	padding-left: 10px;
 }
