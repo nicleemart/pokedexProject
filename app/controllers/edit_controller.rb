@@ -14,6 +14,9 @@ MyApp.get "/edit" do
 			@cp = @found_array[5]
 			@hp = @found_array[6]
 			@favorite = @found_array[7]
+			@stage1 = @found_array[8]
+			@stage2 = @found_array[9]
+			@stage3 = @found_array[10]
 
 			if @favorite == "on"
 				@favorite = "checked"
