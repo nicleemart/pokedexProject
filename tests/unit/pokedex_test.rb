@@ -68,7 +68,7 @@ class PokedexTest < Minitest::Test
 		file = 'tests/unit/pokedex.csv'
 		pokemon_array = Pokedex.pokedex_all_records(file)
 		search_input = "Squirtle"
-		search_results = Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
+		search_results = Pokedex.pokedex_find_record(search_input,pokemon_array)
 		
 		assert_equal(search_results, ["Squirtle", "3", "4", "female", "water", "40", "32", "no", "Squirtle", "Wartortle", "Blastoise"])
 		
@@ -77,10 +77,10 @@ class PokedexTest < Minitest::Test
 	def test_search_type
 		file = 'tests/unit/pokedex.csv'
 		pokemon_array = Pokedex.pokedex_all_records(file)
-		search_input = "water"
+		search_input = "fire"
 		search_results = Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
 		
-		assert_equal(search_results, ["Squirtle", "3", "4", "female", "water", "40", "32", "no", "Squirtle", "Wartortle", "Blastoise"])
+		assert_equal(search_results, [["Charmander", "5", "2", "male", "fire", "35", "30", "on", "Charmander", "Charmeleon", "Charizard"], ["Charmander", "5", "2", "male", "fire", "35", "30", "on", "Charmander", "Charmeleon", "Charizard"], ["Charmander", "5", "2", "male", "fire", "35", "30", "on", "Charmander", "Charmeleon", "Charizard"]])
 	end
 
 	def test_delete_record()

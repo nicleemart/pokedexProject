@@ -30,7 +30,7 @@ class Pokedex
 	#search_input = params[:search] (whatever text is put into the search box)
 	def Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
 		#pokemon_array represents all Pokemon in the Pokedex
-		#pokemon_array = Pokedex.pokedex_all_records()
+		results_array = []
 		#Iterate over each of the Pokemon in the Pokedex
 		pokemon_array.each do |pokemon|
 			#Iterate over each trait of each of those Pokemon
@@ -38,12 +38,12 @@ class Pokedex
 				#If any of the traits match the search input
 				if trait == search_input
 					#Return those Pokemon
-					return pokemon
+					results_array << pokemon
 				end
 			end
 		end
 		#If there aren't any matches found in the Pokedex then return false
-		return false
+		return results_array
 	end
 
 	#This method adds all the Pokemon in the Pokedex file to an Array (returns Array)
