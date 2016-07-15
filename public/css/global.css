@@ -60,10 +60,13 @@ a:hover{
 	background: transparent;
 	border: none;
 }
-::-webkit-input-placeholder {
-	color: #232323;
+::-webkit-input-placeholder{
+	color: #30FB05;
 	font-size: 13px;
 	}
+.form::-webkit-input-placeholder{
+	color: #232323;
+}
 .center{
 	display: flex;
 	flex-direction: column;
@@ -74,7 +77,8 @@ a:hover{
 }
 .header{
 	display: flex;
-	font-size: 24px;
+	font-size: 30px;
+	color: #f4f3f3;
 	padding-bottom: 10px;
 }
 .form__input{
@@ -89,6 +93,7 @@ input.form {
   	margin: 5px;
   	padding-top: 5px;
   	min-width: 100%;
+  	color: black;
 }
 .statsContainer{
 	display: flex;
@@ -138,4 +143,26 @@ input.form {
 	height: 180px;
 	padding: 20px;
 	padding-left: 60px;
+}
+.evolutions{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+}
+.evolutions__text{
+	font-size: 22px;
+}
+.banana{
+	display: flex;
+	flex-direction: row;
+}
+.evoImage{
+	width: 75px;
+	height: 75px;
+	padding: 5px;
+}
+.editText{
+	font-size: 20px;
+	padding: 10px;
 }
