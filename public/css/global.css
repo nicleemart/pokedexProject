@@ -75,8 +75,13 @@ a:hover{
 	padding-bottom: 10px;
 }
 .form{
+	display: flex;
+	flex-direction: column;
+	background-color: #DEDEDE;
 }
 .form__input{
+	display: flex;
+	flex-direction: row;
 	font-weight: bold;
 }
 input.form {
@@ -84,7 +89,7 @@ input.form {
     border-bottom: solid white 3px;
     background: transparent;
   	margin: 5px;
-  	padding: 5px;
+  	padding-top: 5px;
 }
 .infoBox{
 	display: flex;
