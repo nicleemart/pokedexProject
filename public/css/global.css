@@ -14,7 +14,7 @@ a:link{
 	text-decoration: none;
 }
 a:visited{
-	color: #FFFFFF;
+	color: #196A9E;
 	text-decoration: none;
 }
 a:hover{
@@ -68,6 +68,7 @@ a:hover{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	width: 85%;
 	margin-top: 20px;
 }
@@ -87,6 +88,7 @@ input.form {
     background: transparent;
   	margin: 5px;
   	padding-top: 5px;
+  	min-width: 100%;
 }
 .statsContainer{
 	display: flex;
@@ -126,13 +128,11 @@ input.form {
 .viewAllPokemon__link{
 	padding-left: 10px;
 }
-
 .pokemonImage {
 	width: 100px;
 	height: 100px;
 	padding: 15px;
 }
-
 .viewImage {
 	width: 180px;
 	height: 180px;
