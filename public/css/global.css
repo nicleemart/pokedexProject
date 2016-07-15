@@ -61,7 +61,7 @@ a:hover{
 	border: none;
 }
 ::-webkit-input-placeholder {
-	color: #232323;
+	color: #30FB05;
 	font-size: 13px;
 	}
 .center{
@@ -157,4 +157,8 @@ input.form {
 	width: 75px;
 	height: 75px;
 	padding: 5px;
+}
+.editText{
+	font-size: 20px;
+	padding: 10px;
 }
