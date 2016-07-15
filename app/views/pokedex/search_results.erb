@@ -10,17 +10,80 @@
 		<img class="viewImage" src="/images2/<%= @search_results[0] %>.png" />
 	</div>
 	
-	<div class="infoBox">
-	<!-- Random Pokemon image from database of user's favorites -->
+	<div class="statsContainer">
 		
-		<div class="infoBox__text">Name: <span><%= @search_results[0] %></span></div>
-		<div class="infoBox__text">Height: <span><%= @search_results[1] %></span></div>
-		<div class="infoBox__text">Weight: <span><%= @search_results[2] %></span></div>
-		<div class="infoBox__text">Gender: <span><%= @search_results[3] %></span></div>
-		<div class="infoBox__text">Type: <span><%= @search_results[4] %></span></div>
-		<div class="infoBox__text">CP: <span><%= @search_results[5] %></span></div>
-		<div class="infoBox__text">HP: <span><%= @search_results[6] %></span></div>
-		<div class="infoBox__text">Favorite: <span><%= @search_results[7] %></span></div>
+		<div class="stats">
+			<div class="stats__title">
+				Name:
+			</div>
+			<div class="stats__info">
+				<%= @search_results[0] %>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title">
+				Height:
+			</div>
+			<div class="stats__info">
+				<%= @search_results[1] %>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title">
+				Weight:
+			</div>
+			<div class="stats__info">
+				<%= @search_results[2] %>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title">
+				Gender:
+			</div>
+			<div class="stats__info">
+				<%= @search_results[3] %>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title">
+				Type:
+			</div>
+			<div class="stats__info">
+				<%= @search_results[4] %>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title">
+				CP:
+			</div>
+			<div class="stats__info">
+				<%= @search_results[5] %>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title">
+				HP:
+			</div>
+			<div class="stats__info">
+				<%= @search_results[6] %>
+			</div>
+		</div>
+
+		<div class="stats">
+			<div class="stats__title">
+				Favorite:
+			</div>
+			<div class="stats__info">
+				<%= @search_results[7] %>
+			</div>
+		</div>
+
 	</div>
 
 <% end %>
@@ -31,4 +94,4 @@
 	</div>
 <% end %>
 
-<a href="/view">View Individual Pok&eacute;mon</a>
+<a href="/view?name=<%= @search_results[0] %>">View Individual Pok&eacute;mon</a>

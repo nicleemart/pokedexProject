@@ -8,18 +8,36 @@
 
 	<div>
 	<!-- Image of Pokemon being viewed -->
-		<img class="viewImage" src="/images2/<%= @stage1 %>.png" />
+		<img class="viewImage" src="/images2/<%= @name %>.png" />
 	</div>
 
-	<div>
-	<!-- Image of Pokemon being viewed -->
-		<img class="viewImage" src="/images2/<%= @stage2 %>.png" />
-	</div>
 
-	<div>
-	<!-- Image of Pokemon being viewed -->
-		<img class="viewImage" src="/images2/<%= @stage3 %>.png" />
-	</div>
+	<% if @stage1.blank? == false %>
+
+			<div>
+			<!-- Image of Pokemon being viewed -->
+				<img class="viewImage" src="/images2/<%= @stage1 %>.png" />
+			</div>
+
+	<% end 
+
+		if @stage2.blank? == false  %>
+
+			<div>
+			<!-- Image of Pokemon being viewed -->
+				<img class="viewImage" src="/images2/<%= @stage2 %>.png" />
+			</div>
+	<%  end 
+
+		if @stage3.blank? == false%>
+
+			<div>
+			<!-- Image of Pokemon being viewed -->
+				<img class="viewImage" src="/images2/<%= @stage3 %>.png" />
+			</div>
+
+	<% end %>
+
 <div class="statsContainer">
 
 	<div class="infoBox__text">
