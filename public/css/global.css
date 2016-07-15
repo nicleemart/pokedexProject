@@ -1,6 +1,7 @@
 body {
 	font-family: Helvetica;
 	background-color: #CE3358;
+	font-size: 14px;
 	color: #232323;
 	padding: 0;
 	margin: 0;
@@ -15,7 +16,7 @@ a:visited{
 	text-decoration: none;
 }
 a:hover{
-	color: #DEDEDE;
+	color: #F7BF2E;
 	text-decoration: none;
 }
 .main{
@@ -30,8 +31,8 @@ a:hover{
 	margin-top: 20px;
 	background-color: #41E0F9;
 	width: 15%;
-	height: 125px;
-	border-radius: 0px 25px 25px 0px;
+	height: 80px;
+	border-radius: 0px 20px 20px 0px;
 }
 .navigation__border{
 	border-bottom: black 3px solid;
@@ -77,7 +78,11 @@ a:hover{
 	display: flex;
 	flex-direction: column;
 }
-.form{
-	display: flex;
-	justify-content: space-between;
+.infoBox{
+	background-color: #DEDEDE;
+	padding: 20px;
+	border-radius: 20px;
+}
+.infoBox__text{
+	padding: 5px;
 }
