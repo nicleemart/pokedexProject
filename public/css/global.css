@@ -165,3 +165,7 @@ input.form {
 	flex-direction: row;
 	flex-flow: wrap;
 }
+.favoriteHeart{
+	height: 15px;
+	width: 15px;
+}
