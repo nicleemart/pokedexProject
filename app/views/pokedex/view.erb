@@ -2,17 +2,16 @@
 <% @title="View Your Pok&eacute;mon" %>
 
 <div class="header">
-<!-- This will be embedded Ruby that will call the name of the Pokemon that is being viewed -->
+<!-- Name of Pokemon being viewed -->
 	<%= @name %>
 </div>
-<!-- Pokemon image goes here -->
 
 	<div>
+	<!-- Image of Pokemon being viewed -->
 		<img class="viewImage" src="/images2/<%= @name %>.png" />
 	</div>
-<!-- Pokemon evolution path goes here -->
 
-<div class="infoBox">
+<div class="statsContainer">
 
 	<div class="infoBox__text">
 		<div class="infoBox__title">

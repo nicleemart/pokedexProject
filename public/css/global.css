@@ -1,6 +1,8 @@
 body {
 	font-family: Helvetica;
 	background-color: #CE3358;
+	background-image: url("/images2/red_background.jpg");
+	background-size: cover;
 	font-size: 14px;
 	color: #232323;
 	padding: 0;
@@ -91,7 +93,7 @@ input.form {
   	margin: 5px;
   	padding-top: 5px;
 }
-.infoBox{
+.statsContainer{
 	display: flex;
 	flex-direction: column;
 	background-color: #DEDEDE;
