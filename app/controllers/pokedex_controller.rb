@@ -1,4 +1,7 @@
-MyApp.get "/" do 
+MyApp.get "/" do
+
+	@title="Personal Pok&eacute;dex"
+
 	@file = 'Data_File/pokedex.csv'
 	@all_pokemon = Pokedex.pokedex_all_records(@file)
 	@favorites_list = Pokedex.pokedex_list_of_favorites(@all_pokemon,@file)

@@ -1,5 +1,7 @@
 MyApp.get "/edit" do 
 
+	@title="Edit Pok&eacute;mon Info"
+
 	@file = 'Data_File/pokedex.csv'
 	@name = params[:name]
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
