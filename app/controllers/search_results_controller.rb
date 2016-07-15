@@ -7,5 +7,14 @@ MyApp.get "/searchresults" do
 					Are you sure you spelled things right?\n
 					Capitilization matters!"
 
+	@search_results.each do |pokemon|
+		if pokemon[7] == "on"
+			pokemon[7] = "yes"
+
+		else
+			pokemon[7] = "no"
+		end
+	end
+
 	erb :"pokedex/search_results"
 end

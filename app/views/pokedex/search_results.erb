@@ -83,9 +83,19 @@ if @search_results.count > 0
 				<div class="stats__title">
 					Favorite:
 				</div>
+			<% if @record[7] == "yes" %>
+
 				<div class="stats__info">
-					<%= record[7] %>
+					<img class="favoriteHeart" src="/images2/heart.png" alt="Heart" />
 				</div>
+
+			<% else %>
+
+				<div class="stats__info">
+					<%= @record[7] %>
+				</div>
+
+			<% end %>
 			</div>
 
 		</div>
