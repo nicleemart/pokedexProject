@@ -20,17 +20,17 @@ require 'active_support/all'
 	if params[:height].present? != false
 	
 	@new_pokemonarray = []
-	@new_pokemonarray << @name
+	@new_pokemonarray << @name.capitalize
 	@new_pokemonarray << @height
 	@new_pokemonarray << @weight
-	@new_pokemonarray << @gender
-	@new_pokemonarray << @type
+	@new_pokemonarray << @gender.capitalize
+	@new_pokemonarray << @type.capitalize
 	@new_pokemonarray << @cp
 	@new_pokemonarray << @hp
 	@new_pokemonarray << @favorite
-	@new_pokemonarray << @stage1
-	@new_pokemonarray << @stage2
-	@new_pokemonarray << @stage3
+	@new_pokemonarray << @stage1.capitalize
+	@new_pokemonarray << @stage2.capitalize
+	@new_pokemonarray << @stage3.capitalize
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)
