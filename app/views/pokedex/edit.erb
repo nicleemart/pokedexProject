@@ -9,83 +9,103 @@
 <div class="statsContainer">
 	<form action="/view">
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Name: 
 			</div>
-			<input type="text" name="name" class="form" value= <%= @name %>>
+			<div class="stats__info">
+				<input type="text" name="name" class="form" value= <%= @name %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Height:
 			</div>
-			<input type="text" name="height" class="form" value= <%=  @height %>>
+			<div class="stats__info">
+				<input type="text" name="height" class="form" value= <%=  @height %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Weight:
 			</div>
-			<div class="infoBox__input">
+			<div class="stats__info">
 				<input type="text" name="weight" class="form" value= <%=  @weight %>>
 			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Gender:
 			</div>
-			<input type="text" name="gender" class="form" value= <%=  @gender %>>
+			<div class="stats__info">
+				<input type="text" name="gender" class="form" value= <%=  @gender %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Type:
 			</div>
-			<input type="text" name="type" class="form" value= <%=  @type %>>
+			<div class="stats__info">
+				<input type="text" name="type" class="form" value= <%=  @type %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				CP:
 			</div>
-			<input type="text" name="cp" class="form" value= <%=  @cp %>>
+			<div class="stats__info">
+				<input type="text" name="cp" class="form" value= <%=  @cp %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				HP:
 			</div>
-			<input type="text" name="hp" class="form" value= <%=  @hp %>>
+			<div class="stats__info">
+				<input type="text" name="hp" class="form" value= <%=  @hp %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Stage One:
 			</div>
-			<input type="text" name="stage1" class="form" value= <%=  @stage1 %>>
+			<div class="stats__info">
+				<input type="text" name="stage1" class="form" value= <%=  @stage1 %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Stage Two:
 			</div>
-			<input type="text" name="stage2" class="form" value= <%=  @stage2 %>>
+			<div class="stats__info">
+				<input type="text" name="stage2" class="form" value= <%=  @stage2 %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text--column">
-			<div class="infoBox__title">
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
 				Stage Three:
 			</div>
-			<input type="text" name="stage3" class="form" value= <%=  @stage3 %>>
+			<div class="stats__info">
+				<input type="text" name="stage3" class="form" value= <%=  @stage3 %>>
+			</div>
 		</div>
 
-		<div class="infoBox__text">
-			<div class="infoBox__title">
-				Favorite?
+		<div class="stats">
+			<div class="stats__title--fixedWidth">
+				Favorite:
 			</div>
-			<input type="checkbox" name="favorite" <%=  @favorite %>>
+			<div class="stats__info">
+				<input type="checkbox" name="favorte" <%= @favorite %>>
+			</div>
 		</div>
 
 	<input type="submit" value="Submit">
