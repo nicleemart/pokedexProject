@@ -84,7 +84,11 @@ if @search_results.count > 0
 					Favorite:
 				</div>
 				<div class="stats__info">
-					<%= record[7] %>
+				<% if record[7] == "on" %>
+					<img class="favoriteHeart" src="/images2/heart.png" alt="Heart" />
+					<% else %>
+					<%= "no" %>
+					<% end %>
 				</div>
 			</div>
 
