@@ -5,11 +5,20 @@
 </div>
 
 <% if @search_results != false %>
-	<% @search_results.each do |result| %>
-		<div>
-			<p><%= result %></p>
-		</div>
-	<% end %>
+
+	<div class="infoBox">
+	<!-- Random Pokemon image from database of user's favorites -->
+		<img class="viewImage" src="/images/<%= @search_results[0] %>.png" />
+		<div class="infoBox__text">Name: <span><%= @search_results[0] %></span></div>
+		<div class="infoBox__text">Height: <span><%= @search_results[1] %></span></div>
+		<div class="infoBox__text">Weight: <span><%= @search_results[2] %></span></div>
+		<div class="infoBox__text">Gender: <span><%= @search_results[3] %></span></div>
+		<div class="infoBox__text">Type: <span><%= @search_results[4] %></span></div>
+		<div class="infoBox__text">CP: <span><%= @search_results[5] %></span></div>
+		<div class="infoBox__text">HP: <span><%= @search_results[6] %></span></div>
+		<div class="infoBox__text">Favorite: <span><%= @search_results[7] %></span></div>
+	</div>
+
 <% end %>
 	
 <% if @search_results == false %>
