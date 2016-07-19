@@ -3,7 +3,12 @@
 require "httparty"
 require "pry"
 
+@name = "squirtle"
+@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
+@id = @pokemon["id"]
+@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
 
+binding.pry
 
 class Pokedex
 
