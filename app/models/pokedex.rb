@@ -1,5 +1,8 @@
 #pokedex.csv file format  name,height,weight,gender,type,cp,hp,
 #favorite,evolution1,evolution2,evolution3
+require "httparty"
+require "pry"
+
 
 
 class Pokedex
