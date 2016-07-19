@@ -5,9 +5,9 @@ require "pry"
 
 
 
-	# name = "bulbasaur"
-	# http = "http://pokeapi.co/api/v2/pokemon/"
-	# http << name
+	# num = "1"
+	# http = "http://pokeapi.co/api/v2/evolution-chain/"
+	# http << num
 	# pokemon_info = HTTParty.get(http)
 
 	# binding.pry

@@ -25,6 +25,7 @@ require 'active_support/all'
 
 	@height = @api_hash["height"]
 	@weight = @api_hash["weight"]
+	@idnum = @api_hash["id"]
 	
 	@new_pokemonarray = []
 	@new_pokemonarray << @name.capitalize
