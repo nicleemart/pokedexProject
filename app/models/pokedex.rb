@@ -4,11 +4,11 @@ require "httparty"
 require "pry"
 
 @name = "gloom"
-# @pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
-# @ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
-# @id = @pokemon["id"]
-# @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-# binding.pry
+@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
+@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
+@id = @pokemon["id"]
+@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+binding.pry
 
 
 class Pokedex
