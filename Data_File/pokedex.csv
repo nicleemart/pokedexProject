@@ -24,7 +24,6 @@ Diglett,22,14,Male,Ground,45,55,on,Diglett,Dugtrio,""
 Spearow,45,36,Female,Flying,38,44,on,Spearow,Fearow,""
 Psyduck,23,45,Male,Water,38,388,on,Psyduck,Golduck,""
 Ekans,33,15,Male,Poison,45,93,on,Ekans,Arbok,""
-Growlithe,58,98,Female,Fire,38,25,on,Growlithe,Arcanine,""
 Ivysaur,55,37,Female,Poison,59,200,on,Bulbasaur,Ivysaur,Venusaur
 Venusaur,60,100,Female,Poison,600,867,on,Bulbasaur,Ivysaur,Venusaur
 Metapod,50,78,Male,Bug,49,88,on,Caterpie,Metapod,Butterfree
@@ -54,3 +53,4 @@ Vileplume,55,34,Male,Poison,120,143,on,Oddish,Gloom,Vileplume
 Pidgeotto,56,23,Male,Flying,100,120,on,Pidgey,Pidgeotto,Pidgeot
 Pidgeot,79,67,Male,Flying,98,189,,Pidgey,Pidgeotto,Pidgeot
 Parasect,299,89,Female,Grass,733,644,on,Paras,Parasect,""
+Growlithe,58,98,Male,Fire,38,25,,Growlithe,Arcanine,""
