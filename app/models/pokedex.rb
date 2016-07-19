@@ -3,15 +3,17 @@
 require "httparty"
 require "pry"
 
-@name = "gloom"
-@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
-@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
-@id = @pokemon["id"]
-@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-binding.pry
+
+
 
 
 class Pokedex
+
+	def Pokedex.evolution_id(species)
+		species2 = species.split("n/")
+		id = species2[1].split("/")
+		return id.join('')
+	end
 
 	def Pokedex.ability_names(pokemon)
 		ability_names = []
@@ -136,5 +138,21 @@ class Pokedex
 
 	# end
 end
+@name = "gloom"
+@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
+@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
+@pokemon_id = @pokemon["id"]
+@species_url = @pokemon["species"]["url"]
+@species = HTTParty.get(@species_url)
+@evolution_url = @species["evolution_chain"]["url"]
+@id = Pokedex.evolution_id(@evolution_url)
+@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+# @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+binding.pry
 
+
+
+
+
+# binding.pry
 
