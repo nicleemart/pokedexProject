@@ -1,4 +1,3 @@
-Charmander,5,3,Male,fire,30,10,on,Charmander,Charmeleon,Charizard
 Pikachu,5,3,Male,Electric,10,30,,Pikachu,Raichu,""
 Vulpix,73,929,Female,Fire,899,83,,Vulpix,Ninetales,""
 Blastoise,499,700,Male,Water,899,733,,Squirtle,Wartortle,Blastoise
@@ -54,3 +53,4 @@ Vileplume,55,34,Male,Poison,120,143,on,Oddish,Gloom,Vileplume
 Pidgeotto,56,23,Male,Flying,100,120,on,Pidgey,Pidgeotto,Pidgeot
 Pidgeot,79,67,Male,Flying,98,189,,Pidgey,Pidgeotto,Pidgeot
 Parasect,299,89,Female,Grass,733,644,on,Paras,Parasect,""
+Charmander,5,10,Male,Fire,20,30,,Charmander,Charmeleon,Charizard
