@@ -14,4 +14,6 @@ MyApp.get "/" do
 		@random_favorite[7] = "no"
 	end
 	erb :"pokedex/home"
+
+	
 end
