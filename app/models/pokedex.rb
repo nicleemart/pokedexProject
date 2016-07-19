@@ -3,15 +3,26 @@
 require "httparty"
 require "pry"
 
-@name = "squirtle"
-@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
-@id = @pokemon["id"]
-@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+@name = "gloom"
+# @pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
+# @ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
+# @id = @pokemon["id"]
+# @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+# binding.pry
 
-binding.pry
 
 class Pokedex
 
+	def Pokedex.ability_names(pokemon)
+		ability_names = []
+		pokemon["abilities"].each do |i|
+			ability_names.push(i["ability"]["name"])
+		end
+		return ability_names
+	end
+
+	#This method adds all the types belonging to the Pokemon passed in to an Array (returns Array)
+	#pokemon = the API request information for the Pokemon
 	def Pokedex.types(pokemon)
 		pokemon_types = []
 		pokemon["types"].each do |i|
@@ -125,4 +136,5 @@ class Pokedex
 
 	# end
 end
+
 
