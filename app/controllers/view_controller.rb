@@ -23,20 +23,27 @@ require 'active_support/all'
 	@height = @api_hash["height"]
 	@weight = @api_hash["weight"]
 	@idnum = @api_hash["id"]
+	@type_array = @api_hash["types"]
+
+
 	
 	@new_pokemonarray = []
-	@new_pokemonarray << @name.capitalize
+	@new_pokemonarray << @name
 	@new_pokemonarray << @height
 	@new_pokemonarray << @weight
-	@new_pokemonarray << @gender.capitalize
-	@new_pokemonarray << @type.capitalize
+	@new_pokemonarray << @gender
 	@new_pokemonarray << @cp
 	@new_pokemonarray << @hp
 	@new_pokemonarray << @favorite
-	@new_pokemonarray << @stage1.capitalize
-	@new_pokemonarray << @stage2.capitalize
-	@new_pokemonarray << @stage3.capitalize
-	@new_pokemonarray << @idnum
+	# @new_pokemonarray << @stage1.capitalize
+	# @new_pokemonarray << @stage2.capitalize
+	# @new_pokemonarray << @stage3.capitalize
+
+	@type_array.each do |record|
+
+		@new_pokemonarray << record["type"]["name"]
+
+	end
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)
@@ -56,13 +63,21 @@ require 'active_support/all'
 			@height = @found_array[1]
 			@weight = @found_array[2]
 			@gender = @found_array[3]
-			@type = @found_array[4]
-			@cp = @found_array[5]
-			@hp = @found_array[6]
-			@favorite = @found_array[7]
-			@stage1 = @found_array[8]
-			@stage2 = @found_array[9]
-			@stage3 = @found_array[10]
+			@cp = @found_array[4]
+			@hp = @found_array[5]
+			@favorite = @found_array[6]
+			@stage1 = @found_array[7]
+			@stage2 = @found_array[8]
+			@stage3 = @found_array[9]
+
+			x = 10
+			@type = ""
+			while x <= @found_array.length
+
+				@type = @type + " " + @found_array[x]
+
+				x +=1
+			end
 		end
 	else
 			@name = "No Pokemon Found"
