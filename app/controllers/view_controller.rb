@@ -6,8 +6,6 @@ require 'active_support/all'
 @file = 'Data_File/pokedex.csv'
 	
 	@name = params[:name]
-	@height = params[:height]
-	@weight = params[:weight]
 	@gender = params[:gender]
 	@type = params[:type]
 	@cp = params[:cp]
@@ -20,7 +18,13 @@ require 'active_support/all'
 
 #Checks if height exist. If height exist means that view page is coming from add pokemon page
 #and will need to save record and display the info. 	
-	if params[:height].present? != false
+	if params[:gender].present? != false
+
+
+	@api_hash = Pokedex.pokedex_api_stats(@name)
+
+	@height = @api_hash["height"]
+	@weight = @api_hash["weight"]
 	
 	@new_pokemonarray = []
 	@new_pokemonarray << @name.capitalize
