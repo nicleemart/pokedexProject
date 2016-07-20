@@ -54,21 +54,21 @@ class Pokedex
 
 	def Pokedex.pokedex_api_height(pokemon_info)
 
-		height = api_hash["height"]
+		height = pokemon_info["height"]
 
 	end
 
 
 	def Pokedex.pokedex_api_weight(pokemon_info)
 
-		weight = api_hash["weight"]
+		weight = pokemon_info["weight"]
 
 
 	end
 
 	def Pokedex.pokedex_api_type(pokemon_info)
 
-		type = api_hash["types"]
+		type = pokemon_info["types"]
 
 
 	end
