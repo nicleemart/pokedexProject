@@ -6,7 +6,6 @@ require "pry"
 
 
 # @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-binding.pry
 
 class Pokedex
 
