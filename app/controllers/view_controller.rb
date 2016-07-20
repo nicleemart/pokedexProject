@@ -6,21 +6,23 @@ require 'active_support/all'
 @file = 'Data_File/pokedex.csv'
 	
 	@name = params[:name]
-	@height = params[:height]
-	@weight = params[:weight]
 	@gender = params[:gender]
 	@type = params[:type]
 	@cp = params[:cp]
 	@hp = params[:hp]
 	@favorite = params[:favorite]
-	@stage1 = params[:stage1]
-	@stage2 = params[:stage2]
-	@stage3 = params[:stage3]
 	
 
 #Checks if height exist. If height exist means that view page is coming from add pokemon page
 #and will need to save record and display the info. 	
-	if params[:height].present? != false
+	if params[:gender].present? != false
+
+
+	@api_hash = Pokedex.pokedex_api_stats(@name)
+
+	@height = @api_hash["height"]
+	@weight = @api_hash["weight"]
+	@idnum = @api_hash["id"]
 	
 	@new_pokemonarray = []
 	@new_pokemonarray << @name.capitalize
@@ -34,6 +36,7 @@ require 'active_support/all'
 	@new_pokemonarray << @stage1.capitalize
 	@new_pokemonarray << @stage2.capitalize
 	@new_pokemonarray << @stage3.capitalize
+	@new_pokemonarray << @idnum
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)

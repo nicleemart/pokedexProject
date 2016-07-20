@@ -5,8 +5,6 @@ require "pry"
 
 
 
-
-
 class Pokedex
 
 	def Pokedex.evolution_id(species)
@@ -44,6 +42,18 @@ class Pokedex
 		end
 
 	end
+
+	#Stats in hash as following "id",height,weight"
+	def Pokedex.pokedex_api_stats(name)
+		http = "http://pokeapi.co/api/v2/pokemon/"
+		http << name
+		pokemon_info = HTTParty.get(http)
+
+
+		return pokemon_info
+	end
+
+
 
 	def Pokedex.pokedex_find_record(name_pokemon,pokedex_array)
 
