@@ -171,7 +171,7 @@ class Pokeapi
 	#
 	# pokemon = the request using the Pokemon's name from the API
 	#
-	# RETURNS STRING ("INTEGER")
+	# RETURNS FIXNUM (INTEGER)
 	def Pokeapi.id(pokemon)
 		pokemon["id"]
 	end
@@ -204,36 +204,22 @@ class Pokeapi
 
 	# This method selects the Pokemon's height
 	#
-	# pokemon_info = the request using the Pokemon's name from the API
+	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def Pokeapi.height(pokemon_info)
-		height = pokemon_info["height"]
+	def Pokeapi.height(pokemon)
+		pokemon["height"]
 	end
 
 	# This method selects the Pokemon's weight
 	#
-	# pokemon_info = the request using the Pokemon's name from the API
+	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def Pokeapi.weight(pokemon_info)
-		weight = pokemon_info["weight"]
+	def Pokeapi.weight(pokemon)
+		pokemon["weight"]
 	end
 
-	# WE DON'T NEED THIS FUNCTION
-	def type(pokemon_info)
-		type = pokemon_info["types"]
-	end
-
-	# WE DON'T NEED THIS FUNCTION
-		#Stats in hash as following "id",height,weight"
-	def stats(name)
-		http = "http://pokeapi.co/api/v2/pokemon/"
-		http << name
-		pokemon_info = HTTParty.get(http)
-
-		return pokemon_info
-	end
 end
 
 

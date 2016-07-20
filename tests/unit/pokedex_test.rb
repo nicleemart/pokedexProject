@@ -44,6 +44,62 @@ class PokedexTest < Minitest::Test
 		assert_kind_of(Array, ability_array)
 		refute_nil(ability_array)
 	end
+
+	def test_types_array
+		name = "gloom"
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		types_array = Pokeapi.types(pokemon)
+
+		assert_kind_of(Array, types_array)
+		refute_nil(types_array)
+	end
+
+	def test_height
+		name = "gloom"
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		height = Pokeapi.height(pokemon)
+
+		assert_kind_of(Fixnum, height)
+		refute_nil(height)
+	end
+
+	def test_height
+		name = "gloom"
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		weight = Pokeapi.weight(pokemon)
+
+		assert_kind_of(Fixnum, weight)
+		refute_nil(weight)
+	end
+
+	def test_evolution_url
+		name = "gloom"
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		species_url = Pokeapi.species_url(pokemon)
+		species = HTTParty.get(species_url)
+		evolution_url = Pokeapi.evolution_url(species)
+
+		assert_kind_of(String, evolution_url)
+		refute_nil(evolution_url)
+	end
+
+	def test_evolution_id
+		name = "gloom"
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		species_url = Pokeapi.species_url(pokemon)
+		species = HTTParty.get(species_url)
+		evolution_url = Pokeapi.evolution_url(species)
+		evolution_id = Pokeapi.evolution_id(evolution_url)
+
+		assert_kind_of(String, evolution_id)
+		refute_nil(evolution_id)
+	end
+		# Assign the species URL taken from @pokemon request (needed to find the correct evolution ID)
+	
+	# Use the newly found species URL to make another API request
+	
+
+	
 	
 	def test_favorite_pokemon
 

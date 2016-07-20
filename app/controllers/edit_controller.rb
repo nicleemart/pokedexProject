@@ -21,7 +21,7 @@ MyApp.get "/edit" do
 			@stage3 = @found_array[10]
 
 			if @favorite == "on"
-				@favorite = "checked"
+				@favorite = "yes"
 			else
 				@favorite = ""
 			end
