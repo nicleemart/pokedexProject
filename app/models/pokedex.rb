@@ -4,15 +4,21 @@ require "httparty"
 require "pry"
 
 
-
-	# num = "charizard"
-	# http = "http://pokeapi.co/api/v2/pokemon/"
-	# http << num
-	# pokemon_info = HTTParty.get(http)
-
-	# binding.pry
-	
 class Pokedex
+
+	def Pokedex.evolution_id(species)
+		species2 = species.split("n/")
+		id = species2[1].split("/")
+		return id.join('')
+	end
+
+	def Pokedex.ability_names(pokemon)
+		ability_names = []
+		pokemon["abilities"].each do |i|
+			ability_names.push(i["ability"]["name"])
+		end
+		return ability_names
+	end
 
 	#This method saves a new Pokemon's information in a text file as an Array
 	#new_pokemon = the Array of traits gathered from the user (via form)
@@ -150,4 +156,21 @@ class Pokedex
 
 	# end
 end
+@name = "gloom"
+@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
+@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
+@pokemon_id = @pokemon["id"]
+@species_url = @pokemon["species"]["url"]
+@species = HTTParty.get(@species_url)
+@evolution_url = @species["evolution_chain"]["url"]
+@id = Pokedex.evolution_id(@evolution_url)
+@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+# @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+binding.pry
+
+
+
+
+
+# binding.pry
 
