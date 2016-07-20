@@ -18,7 +18,7 @@ class PokedexTest < Minitest::Test
 		end
 	end
 
-
+	
 	def test_favorite_pokemon
 
 		file = 'tests/unit/pokedex.csv'
@@ -38,23 +38,6 @@ class PokedexTest < Minitest::Test
 		test_array = Pokedex.pokedex_all_records(file)
 
 		assert_equal(5,test_array.count)
-
-
-		#Testing to sort alphabitically
-		# test_array.sort! { |a, b| a[0].to_i <=> b[0].to_i }
-		# test_array.uniq!(&:first)
-
-		# test_array do |line|
-		# 	puts line
-		# end
-
-		#puts test_array.sort_by {|i| i.first.split('').map(&:to_i) }
-
-		puts test_array.sort_by(&:first)
-
-		
-
-
 
 	end
 	
@@ -116,6 +99,4 @@ class PokedexTest < Minitest::Test
 		assert_equal(3,all_records.count)
 
 	end
-
-
 end
