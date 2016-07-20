@@ -1,6 +1,5 @@
 Pikachu,5,3,Male,Electric,10,30,,Pikachu,Raichu,""
 Vulpix,73,929,Female,Fire,899,83,,Vulpix,Ninetales,""
-Blastoise,499,700,Male,Water,899,733,,Squirtle,Wartortle,Blastoise
 Caterpie,12,19,Male,Bug,13,15,,Caterpie,Metapod,Butterfree
 Dragonair,349,477,Female,Dragon,8999,737,,Dratini,Dragonair,Dragonite
 Eevee,48,777,Male,Normal,2883,82,,Eevee,Vaporeon,Jolteon
@@ -14,7 +13,6 @@ Drowzee,66,77,Male,Psychic,23,44,on,Drowzee,Hypno,""
 Abra,22,34,Female,Psychic,23,55,on,Abra,Kadabra,Alakazam
 Poliwag,34,55,Male,Water,68,76,on,Poliwag,Poliwhirl,Poliwrath
 Sandshrew,23,55,Male,Ground,24,83,on,Sandshrew,Sandslash,""
-Weedle,33,14,Female,Bug,34,87,on,Weedle,Kakuna,Beedrill
 Oddish,23,95,Male,Grass,35,22,on,Oddish,Gloom,Vileplume
 Pidgey,22,48,Female,Flying,34,22,,Pidgey,Pidgeotto,Pidgeot
 Paras,42,35,Male,Grass,34,28,on,Paras,Parasect,""
@@ -52,6 +50,5 @@ Vileplume,55,34,Male,Poison,120,143,on,Oddish,Gloom,Vileplume
 Pidgeotto,56,23,Male,Flying,100,120,on,Pidgey,Pidgeotto,Pidgeot
 Pidgeot,79,67,Male,Flying,98,189,,Pidgey,Pidgeotto,Pidgeot
 Parasect,299,89,Female,Grass,733,644,on,Paras,Parasect,""
-Charmander,5,10,Male,Fire,20,30,,Charmander,Charmeleon,Charizard
 Growlithe,58,98,Male,Fire,38,25,,Growlithe,Arcanine,""
-charizard,17,905,Male,20,50,,flying,fire
+Charizard,17,905,Male,20,50,,flying,fire

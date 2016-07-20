@@ -23,7 +23,7 @@ require 'active_support/all'
 	@height = Pokedex.pokedex_api_height(@api_hash)
 	@weight = Pokedex.pokedex_api_weight(@api_hash)
 
-	@type_array = Pokedex.pokedex_api_type(@api_has)
+	@type_array = Pokedex.types(@api_hash)
 
 
 
@@ -40,12 +40,7 @@ require 'active_support/all'
 	# @new_pokemonarray << @stage1.capitalize
 	# @new_pokemonarray << @stage2.capitalize
 	# @new_pokemonarray << @stage3.capitalize
-
-	@type_array.each do |record|
-
-		@new_pokemonarray << record["type"]["name"]
-
-	end
+	@new_pokemonarray << @type_array
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)
