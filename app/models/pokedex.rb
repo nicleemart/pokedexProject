@@ -10,11 +10,8 @@ require "pry"
 	# http << num
 	# pokemon_info = HTTParty.get(http)
 
-
-	
 	# binding.pry
 	
-
 class Pokedex
 
 	#This method saves a new Pokemon's information in a text file as an Array
@@ -39,13 +36,26 @@ class Pokedex
 		return pokemon_info
 	end
 
-	def Pokedex.pokedex_ap_type(pokemon_info)
+	def Pokedex.pokedex_api_height(pokemon_info)
 
-		
+		height = @api_hash["height"]
+
+	end
+
+
+	def Pokedex.pokedex_api_weight(pokemon_info)
+
+		weight = api_hash["weight"]
 
 
 	end
 
+	def Pokedex.pokedex_api_type(pokemon_info)
+
+		type = api_hash["types"]
+
+
+	end
 
 	def Pokedex.pokedex_find_record(name_pokemon,pokedex_array)
 
@@ -129,7 +139,7 @@ class Pokedex
 
 			all_records.each do |record |
 
-				if record[0] != name_pokemon
+				if record[0] != name_pokemon.capitalize
 					csv << record
 				end
 			end

@@ -20,15 +20,17 @@ require 'active_support/all'
 
 	@api_hash = Pokedex.pokedex_api_stats(@name)
 
-	@height = @api_hash["height"]
-	@weight = @api_hash["weight"]
-	@idnum = @api_hash["id"]
-	@type_array = @api_hash["types"]
+	@height = Pokedex.pokedex_api_height(@api_has)
+	@weight = Pokedex.pokedex_api_weight(@api_has)
+
+	@type_array = Pokedex.pokedex_api_type(@api_has)
+
+
 
 
 	
 	@new_pokemonarray = []
-	@new_pokemonarray << @name
+	@new_pokemonarray << @name.capitalize
 	@new_pokemonarray << @height
 	@new_pokemonarray << @weight
 	@new_pokemonarray << @gender
