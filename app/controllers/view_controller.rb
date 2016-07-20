@@ -17,7 +17,7 @@ require 'active_support/all'
 	# This contains the API request information using the Pokemon's name
 	@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
 	# This contains the API information about the Pokemon's abilities
-	@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
+	# @ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
 	# Assign the Pokemon's ID taken from the @pokemon request
 	@pokemon_id = Pokeapi.id(@pokemon)
 	# Assign the species URL taken from @pokemon request (needed to find the correct evolution ID)

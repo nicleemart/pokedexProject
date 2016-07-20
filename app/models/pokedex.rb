@@ -6,7 +6,7 @@ require "pry"
 
 
 # @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-binding.pry
+
 
 class Pokedex
 
@@ -143,7 +143,7 @@ class Pokeapi
 	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("URL")
-	def species_url(pokemon)
+	def Pokeapi.species_url(pokemon)
 		pokemon["species"]["url"]
 	end
 
@@ -152,7 +152,7 @@ class Pokeapi
 	# species = the request for Pokemon species information from API
 	#
 	# RETURNS A STRING (URL)
-	def evolution_url(species)
+	def Pokeapi.evolution_url(species)
 		species["evolution_chain"]["url"]
 	end
 
@@ -161,7 +161,7 @@ class Pokeapi
 	# species = the request for Pokemon species information from API
 	#
 	# RETURNS A STRING ('INTEGER')
-	def evolution_id(species)
+	def Pokeapi.evolution_id(species)
 		species2 = species.split("n/")
 		id = species2[1].split("/")
 		return id.join('')
@@ -172,7 +172,7 @@ class Pokeapi
 	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def id(pokemon)
+	def Pokeapi.id(pokemon)
 		pokemon["id"]
 	end
 
@@ -181,7 +181,7 @@ class Pokeapi
 	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS ARRAY
-	def ability_names(pokemon)
+	def Pokeapi.ability_names(pokemon)
 		ability_names = []
 		pokemon["abilities"].each do |i|
 			ability_names.push(i["ability"]["name"])
@@ -194,7 +194,7 @@ class Pokeapi
 	# pokemon = the API request information for the Pokemon
 	#
 	# RETURNS ARRAY
-	def types(pokemon)
+	def Pokeapi.types(pokemon)
 		pokemon_types = []
 		pokemon["types"].each do |i|
 			pokemon_types.push(i["type"]["name"])
@@ -207,7 +207,7 @@ class Pokeapi
 	# pokemon_info = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def height(pokemon_info)
+	def Pokeapi.height(pokemon_info)
 		height = pokemon_info["height"]
 	end
 
@@ -216,7 +216,7 @@ class Pokeapi
 	# pokemon_info = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def weight(pokemon_info)
+	def Pokeapi.weight(pokemon_info)
 		weight = pokemon_info["weight"]
 	end
 
