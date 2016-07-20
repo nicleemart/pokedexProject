@@ -12,11 +12,17 @@ require "pry"
 @evolution_url = Pokedex.evolution_url(@species)
 @evolution_id = Pokedex.evolution_id(@evolution_url)
 @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@evolution_id}")
+
 # @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
 binding.pry
 
 class Pokedex
 
+	# This method finds the evolution chain url
+	#
+	# species = the request for Pokemon species information from API
+	#
+	# RETURNS A STRING (URL)
 	def Pokedex.evolution_url(species)
 		species["evolution_chain"]["url"]
 	end
@@ -29,6 +35,11 @@ class Pokedex
 		pokemon["species"]["url"]
 	end
 
+	# This method selects the evolution chain id number from the evolution url
+	#
+	# species = the request for Pokemon species information from API
+	#
+	# RETURNS A STRING ('INTEGER')
 	def Pokedex.evolution_id(species)
 		species2 = species.split("n/")
 		id = species2[1].split("/")
