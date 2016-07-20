@@ -3,11 +3,31 @@
 require "httparty"
 require "pry"
 
-
-
-
+@name = "gloom"
+@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
+@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
+@pokemon_id = Pokedex.id(@pokemon)
+@species_url = Pokedex.species_url(@pokemon)
+@species = HTTParty.get(@species_url)
+@evolution_url = Pokedex.evolution_url(@species)
+@evolution_id = Pokedex.evolution_id(@evolution_url)
+@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@evolution_id}")
+# @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+binding.pry
 
 class Pokedex
+
+	def Pokedex.evolution_url(species)
+		species["evolution_chain"]["url"]
+	end
+
+	def Pokedex.id(pokemon)
+		pokemon["id"]
+	end
+
+	def Pokedex.species_url(pokemon)
+		pokemon["species"]["url"]
+	end
 
 	def Pokedex.evolution_id(species)
 		species2 = species.split("n/")
@@ -133,22 +153,10 @@ class Pokedex
 			end
 		end	
 	end
-	# def Pokedex.pokedex_add_pokemon(pokemon_traits)
-	# 	pokemon_traits = 
 
-	# end
+	
 end
-@name = "gloom"
-@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
-@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
-@pokemon_id = @pokemon["id"]
-@species_url = @pokemon["species"]["url"]
-@species = HTTParty.get(@species_url)
-@evolution_url = @species["evolution_chain"]["url"]
-@id = Pokedex.evolution_id(@evolution_url)
-@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-# @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-binding.pry
+
 
 
 
