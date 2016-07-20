@@ -165,22 +165,66 @@ class Pokedex
 	# 	pokemon_traits = 
 
 	# end
+
+	def Pokedex.pokedex_api_evolution_info(name)
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		pokemon_id = pokemon["id"]
+		species_url = pokemon["species"]["url"]
+		species = HTTParty.get(species_url)
+		evolution_url = species["evolution_chain"]["url"]
+		id = Pokedex.evolution_id(evolution_url)
+		evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
+		chain = @evolutions["chain"]
+
+		return @chain
+	end
+
+	def Pokedex.pokedex_api_evolution_array(name,pokemon_info)
+
+
+		firstevolution = pokemon_info["species"]["name"]
+		secevolution = pokemon_info["evolves_to"][0]["species"]["name"]
+		thirdevolution = pokemon_info["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+		evolutionarray =[]
+
+
+		
+		if firstevolution.is_a?  String
+			evolutionarray << firstevolution
+		end
+
+		if secevolution.is_a? String
+			evolutionarray << secevolution
+		else
+			evolutionarray << "None"
+		end
+
+		if thirdevolution.is_a? String
+			evolutionarray << thirdevolution
+		else
+			evolutionarray << "None"
+		end
+
+		return evolutionarray
+
+	end
+
 end
-@name = "gloom"
+@name = "charizard"
 @pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
-@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
 @pokemon_id = @pokemon["id"]
 @species_url = @pokemon["species"]["url"]
 @species = HTTParty.get(@species_url)
 @evolution_url = @species["evolution_chain"]["url"]
 @id = Pokedex.evolution_id(@evolution_url)
 @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-# @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-binding.pry
+pokemon_info = @evolutions["chain"]
+
+ # nextevolution = @chain["evolves_to"][0]["species"]["name"]
+ # firstevolution = @chain["evolves_to"][0]["evolves_to"][1]["species"]["name"]
+
+ binding.pry
 
 
 
-
-
-# binding.pry
 
