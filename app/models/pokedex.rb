@@ -20,6 +20,16 @@ class Pokedex
 		return ability_names
 	end
 
+	#This method adds all the types belonging to the Pokemon passed in to an Array (returns Array)
+	#pokemon = the API request information for the Pokemon
+	def Pokedex.types(pokemon)
+		pokemon_types = []
+		pokemon["types"].each do |i|
+			pokemon_types.push(i["type"]["name"])
+		end
+		return pokemon_types
+	end
+
 	#This method saves a new Pokemon's information in a text file as an Array
 	#new_pokemon = the Array of traits gathered from the user (via form)
 	def Pokedex.pokedex_save_record(new_pokemon,file)
