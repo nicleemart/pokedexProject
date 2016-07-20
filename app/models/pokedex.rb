@@ -38,7 +38,7 @@ class Pokedex
 
 	def Pokedex.pokedex_api_height(pokemon_info)
 
-		height = @api_hash["height"]
+		height = api_hash["height"]
 
 	end
 

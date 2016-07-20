@@ -20,8 +20,8 @@ require 'active_support/all'
 
 	@api_hash = Pokedex.pokedex_api_stats(@name)
 
-	@height = Pokedex.pokedex_api_height(@api_has)
-	@weight = Pokedex.pokedex_api_weight(@api_has)
+	@height = Pokedex.pokedex_api_height(@api_hash)
+	@weight = Pokedex.pokedex_api_weight(@api_hash)
 
 	@type_array = Pokedex.pokedex_api_type(@api_has)
 
