@@ -18,6 +18,32 @@ class PokedexTest < Minitest::Test
 		end
 	end
 
+	def test_species_url
+		name = "gloom"
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		species_url = Pokeapi.species_url(pokemon)
+		
+		assert_kind_of(String, species_url)
+		refute_nil(species_url)
+	end
+
+	def test_pokemon_id
+		name = "gloom"
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		id = Pokeapi.id(pokemon)
+
+		assert_kind_of(Fixnum, id)
+		refute_nil(id)
+	end	
+
+	def test_abilities_array
+		name = "gloom"
+		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
+		ability_array = Pokeapi.ability_names(pokemon)
+
+		assert_kind_of(Array, ability_array)
+		refute_nil(ability_array)
+	end
 	
 	def test_favorite_pokemon
 
