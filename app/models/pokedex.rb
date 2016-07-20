@@ -18,51 +18,7 @@ binding.pry
 
 class Pokedex
 
-	# This method finds the evolution chain url
-	#
-	# species = the request for Pokemon species information from API
-	#
-	# RETURNS A STRING (URL)
-	def Pokedex.evolution_url(species)
-		species["evolution_chain"]["url"]
-	end
 
-	def Pokedex.id(pokemon)
-		pokemon["id"]
-	end
-
-	def Pokedex.species_url(pokemon)
-		pokemon["species"]["url"]
-	end
-
-	# This method selects the evolution chain id number from the evolution url
-	#
-	# species = the request for Pokemon species information from API
-	#
-	# RETURNS A STRING ('INTEGER')
-	def Pokedex.evolution_id(species)
-		species2 = species.split("n/")
-		id = species2[1].split("/")
-		return id.join('')
-	end
-
-	def Pokedex.ability_names(pokemon)
-		ability_names = []
-		pokemon["abilities"].each do |i|
-			ability_names.push(i["ability"]["name"])
-		end
-		return ability_names
-	end
-
-	#This method adds all the types belonging to the Pokemon passed in to an Array (returns Array)
-	#pokemon = the API request information for the Pokemon
-	def Pokedex.types(pokemon)
-		pokemon_types = []
-		pokemon["types"].each do |i|
-			pokemon_types.push(i["type"]["name"])
-		end
-		return pokemon_types
-	end
 
 	#This method saves a new Pokemon's information in a text file as an Array
 	#new_pokemon = the Array of traits gathered from the user (via form)
@@ -166,6 +122,55 @@ class Pokedex
 	end
 
 	
+end
+
+class Pokeapi
+
+	# This method finds the evolution chain url
+	#
+	# species = the request for Pokemon species information from API
+	#
+	# RETURNS A STRING (URL)
+	def Poke.evolution_url(species)
+		species["evolution_chain"]["url"]
+	end
+
+	def Pokedex.id(pokemon)
+		pokemon["id"]
+	end
+
+	def Pokedex.species_url(pokemon)
+		pokemon["species"]["url"]
+	end
+
+	# This method selects the evolution chain id number from the evolution url
+	#
+	# species = the request for Pokemon species information from API
+	#
+	# RETURNS A STRING ('INTEGER')
+	def Pokedex.evolution_id(species)
+		species2 = species.split("n/")
+		id = species2[1].split("/")
+		return id.join('')
+	end
+
+	def Pokedex.ability_names(pokemon)
+		ability_names = []
+		pokemon["abilities"].each do |i|
+			ability_names.push(i["ability"]["name"])
+		end
+		return ability_names
+	end
+
+	#This method adds all the types belonging to the Pokemon passed in to an Array (returns Array)
+	#pokemon = the API request information for the Pokemon
+	def Pokedex.types(pokemon)
+		pokemon_types = []
+		pokemon["types"].each do |i|
+			pokemon_types.push(i["type"]["name"])
+		end
+		return pokemon_types
+	end
 end
 
 
