@@ -3,15 +3,7 @@
 require "httparty"
 require "pry"
 
-@name = "gloom"
-@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
-@ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
-@pokemon_id = Pokedex.id(@pokemon)
-@species_url = Pokedex.species_url(@pokemon)
-@species = HTTParty.get(@species_url)
-@evolution_url = Pokedex.evolution_url(@species)
-@evolution_id = Pokedex.evolution_id(@evolution_url)
-@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@evolution_id}")
+
 
 # @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
 binding.pry
@@ -20,8 +12,11 @@ class Pokedex
 
 
 
-	#This method saves a new Pokemon's information in a text file as an Array
-	#new_pokemon = the Array of traits gathered from the user (via form)
+	# This method saves a new Pokemon's information in a text file as an Array
+	#
+	# new_pokemon = the Array of traits gathered from the user (via form)
+	#
+	# SAVES DATA TO FILE
 	def Pokedex.pokedex_save_record(new_pokemon,file)
 		require 'csv'
 		#Open the file the new data will be saved in
@@ -33,36 +28,7 @@ class Pokedex
 	end
 
 
-	#Stats in hash as following "id",height,weight"
-	def Pokedex.pokedex_api_stats(name)
-		http = "http://pokeapi.co/api/v2/pokemon/"
-		http << name
-		pokemon_info = HTTParty.get(http)
 
-
-		return pokemon_info
-	end
-
-	def Pokedex.pokedex_api_height(pokemon_info)
-
-		height = pokemon_info["height"]
-
-	end
-
-
-	def Pokedex.pokedex_api_weight(pokemon_info)
-
-		weight = pokemon_info["weight"]
-
-
-	end
-
-	def Pokedex.pokedex_api_type(pokemon_info)
-
-		type = pokemon_info["types"]
-
-
-	end
 
 	def Pokedex.pokedex_find_record(name_pokemon,pokedex_array)
 
@@ -74,68 +40,81 @@ class Pokedex
 		end
 		return false
 	end
-	
-	#This method searches the Pokedex for any matching words put into the search (returns Array)
-	#search_input = params[:search] (whatever text is put into the search box)
+
+	# This method searches the Pokedex for any matching words put into the search
+	#
+	# search_input = params[:search] (whatever text is put into the search box)
+	# pokemon_array represents all Pokemon in the Pokedex
+	#
+	# RETURNS ARRAY
 	def Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
-		#pokemon_array represents all Pokemon in the Pokedex
 		results_array = []
-		#Iterate over each of the Pokemon in the Pokedex
+		# Iterate over each of the Pokemon in the Pokedex
 		pokemon_array.each do |pokemon|
-			#Iterate over each trait of each of those Pokemon
+			# Iterate over each trait of each of those Pokemon
 			pokemon.each do |trait|
-				#If any of the traits match the search input
+				# If any of the traits match the search input
 				if trait == search_input
-					#Return those Pokemon
+					# Return those Pokemon
 					results_array << pokemon
 				end
 			end
 		end
-		#If there aren't any matches found in the Pokedex then return false
+		# If there aren't any matches found in the Pokedex then return false
 		return results_array
 	end
 
-	#This method adds all the Pokemon in the Pokedex file to an Array (returns Array)
+	# This method adds all the Pokemon in the Pokedex file to an Array
+	#
+	# file = flat storage file
+	#
+	# RETURNS ARRAY
 	def Pokedex.pokedex_all_records(file)
 		require 'csv'
-		#Array to add all Pokemon to
+		# Array to add all Pokemon to
 		pokemon_array = []
-		#Assign the file name to a variable
-		#For each line (Array) in the Pokedex file
+		# Assign the file name to a variable
+		# For each line (Array) in the Pokedex file
 		CSV.foreach(file) do |record|
-			#Add each one to the empty Array
+			# Add each one to the empty Array
 			 pokemon_array.push(record)
 		end
-		#Return Array containing all of the Pokemon from the Pokedex
+		# Return Array containing all of the Pokemon from the Pokedex
 		return pokemon_array
 	end
 
-	#This method adds all "favorite" Pokemon to an Array (returns Array)
-	#all_records = Array containing all Pokemon in the Pokedex returned from pokedex_all_records()
+	# This method adds all "favorite" Pokemon to an Array
+	#
+	# all_records = Array containing all Pokemon in the Pokedex returned from pokedex_all_records()
+	#
+	# RETURNS ARRAY
 	def Pokedex.pokedex_list_of_favorites(all_records,file)
-		#all_records contains complete list of Pokemon as an Array
-		#all_records = Pokedex.pokedex_all_records(file)
-		#Will contain all the favorite Pokemon
+		# all_records contains complete list of Pokemon as an Array
+		# all_records = Pokedex.pokedex_all_records(file)
+		# Will contain all the favorite Pokemon
 		favorite_pokemon = []
-		#Iterate through each Pokemon
+		# Iterate through each Pokemon
 		all_records.each do |pokemon|
-			#Check if the Pokemon is a favorite
+			# Check if the Pokemon is a favorite
 			if pokemon[7] == "on"
-				#If so then add the Pokemon to Array
+				# If so then add the Pokemon to Array
 				favorite_pokemon.push(pokemon)
 			end
 		end
 		return favorite_pokemon
 	end
 
-	#This method selects a favorite randomly to be displayed on the home page (returns Array)
-	#favorite_pokemon = Array of favorited Pokemon returned from pokedex_list_of_favorites
+	# This method selects a favorite randomly to be displayed on the home page
+	#
+	# favorite_pokemon = Array of favorited Pokemon returned from pokedex_list_of_favorites
+	#
+	# RETURNS ARRAY
 	def Pokedex.pokedex_random_favorite(favorite_pokemon,file)
-		#all_records is the Array of all the Pokemon in the Pokedex
+		# all_records is the Array of all the Pokemon in the Pokedex
 		all_records = Pokedex.pokedex_all_records(file)
-		#favorite_pokemon is the Array of favorited Pokemon
+		# favorite_pokemon is the Array of favorited Pokemon
 		favorite_pokemon = Pokedex.pokedex_list_of_favorites(all_records,file)
-		#Select a random Pokemon from the favorites Array
+		# Select a random Pokemon from the favorites Array
 		random_favorite = favorite_pokemon.sample
 		return random_favorite
 	end
@@ -159,21 +138,22 @@ end
 
 class Pokeapi
 
+	# This method selects the Pokemon's species url
+	#
+	# pokemon = the request using the Pokemon's name from the API
+	#
+	# RETURNS STRING ("URL")
+	def species_url(pokemon)
+		pokemon["species"]["url"]
+	end
+
 	# This method finds the evolution chain url
 	#
 	# species = the request for Pokemon species information from API
 	#
 	# RETURNS A STRING (URL)
-	def Poke.evolution_url(species)
+	def evolution_url(species)
 		species["evolution_chain"]["url"]
-	end
-
-	def Pokedex.id(pokemon)
-		pokemon["id"]
-	end
-
-	def Pokedex.species_url(pokemon)
-		pokemon["species"]["url"]
 	end
 
 	# This method selects the evolution chain id number from the evolution url
@@ -181,13 +161,27 @@ class Pokeapi
 	# species = the request for Pokemon species information from API
 	#
 	# RETURNS A STRING ('INTEGER')
-	def Pokedex.evolution_id(species)
+	def evolution_id(species)
 		species2 = species.split("n/")
 		id = species2[1].split("/")
 		return id.join('')
 	end
 
-	def Pokedex.ability_names(pokemon)
+	# This method selects the Pokemon id number
+	#
+	# pokemon = the request using the Pokemon's name from the API
+	#
+	# RETURNS STRING ("INTEGER")
+	def id(pokemon)
+		pokemon["id"]
+	end
+
+	# This method adds the names of a Pokemon's abilities to an Array
+	#
+	# pokemon = the request using the Pokemon's name from the API
+	#
+	# RETURNS ARRAY
+	def ability_names(pokemon)
 		ability_names = []
 		pokemon["abilities"].each do |i|
 			ability_names.push(i["ability"]["name"])
@@ -195,14 +189,50 @@ class Pokeapi
 		return ability_names
 	end
 
-	#This method adds all the types belonging to the Pokemon passed in to an Array (returns Array)
-	#pokemon = the API request information for the Pokemon
-	def Pokedex.types(pokemon)
+	# This method adds all the types belonging to the Pokemon passed in to an Array
+	#
+	# pokemon = the API request information for the Pokemon
+	#
+	# RETURNS ARRAY
+	def types(pokemon)
 		pokemon_types = []
 		pokemon["types"].each do |i|
 			pokemon_types.push(i["type"]["name"])
 		end
 		return pokemon_types
+	end
+
+	# This method selects the Pokemon's height
+	#
+	# pokemon_info = the request using the Pokemon's name from the API
+	#
+	# RETURNS STRING ("INTEGER")
+	def height(pokemon_info)
+		height = pokemon_info["height"]
+	end
+
+	# This method selects the Pokemon's weight
+	#
+	# pokemon_info = the request using the Pokemon's name from the API
+	#
+	# RETURNS STRING ("INTEGER")
+	def weight(pokemon_info)
+		weight = pokemon_info["weight"]
+	end
+
+	# WE DON'T NEED THIS FUNCTION
+	def type(pokemon_info)
+		type = pokemon_info["types"]
+	end
+
+	# WE DON'T NEED THIS FUNCTION
+		#Stats in hash as following "id",height,weight"
+	def stats(name)
+		http = "http://pokeapi.co/api/v2/pokemon/"
+		http << name
+		pokemon_info = HTTParty.get(http)
+
+		return pokemon_info
 	end
 end
 
