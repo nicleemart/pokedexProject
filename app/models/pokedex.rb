@@ -32,6 +32,38 @@ class Pokedex
 
 	end
 
+
+	#Stats in hash as following "id",height,weight"
+	def Pokedex.pokedex_api_stats(name)
+		http = "http://pokeapi.co/api/v2/pokemon/"
+		http << name
+		pokemon_info = HTTParty.get(http)
+
+
+		return pokemon_info
+	end
+
+	def Pokedex.pokedex_api_height(pokemon_info)
+
+		height = pokemon_info["height"]
+
+	end
+
+
+	def Pokedex.pokedex_api_weight(pokemon_info)
+
+		weight = pokemon_info["weight"]
+
+
+	end
+
+	def Pokedex.pokedex_api_type(pokemon_info)
+
+		type = pokemon_info["types"]
+
+
+	end
+
 	def Pokedex.pokedex_find_record(name_pokemon,pokedex_array)
 
 		pokedex_array.each do |record|
@@ -42,6 +74,7 @@ class Pokedex
 		end
 		return false
 	end
+	
 	#This method searches the Pokedex for any matching words put into the search (returns Array)
 	#search_input = params[:search] (whatever text is put into the search box)
 	def Pokedex.pokedex_find_by_trait(pokemon_array, search_input)
