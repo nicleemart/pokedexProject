@@ -7,11 +7,23 @@ MyApp.get "/" do
 	@favorites_list = Pokedex.pokedex_list_of_favorites(@all_pokemon,@file)
 	@random_favorite = Pokedex.pokedex_random_favorite(@favorites_list,@file)
 	@no_pokemon_error = "Visit the Add Pokemon page to start building your Pokedex"
+	
+	@name = @random_favorite[0]
+	@height = @random_favorite[1]
+	@weight = @random_favorite[2]
+	@gender = @random_favorite[3]
+	@cp = @random_favorite[4]
+	@hp = @random_favorite[5]
+	@favorite = @random_favorite[6]
+	@stage1 = @random_favorite[7]
+	@stage2 = @random_favorite[8]
+	@stage3 = @random_favorite[9]
+	@type = Pokedex.pokedex_display_type(@random_favorite)
 
-	if @random_favorite[6] == "on"
-		@random_favorite[6] = "yes"
+	if @favorite == "on"
+		@favorite = "yes"
 	else
-		@random_favorite[6] = "no"
+		@favorite = "no"
 	end
 	erb :"pokedex/home"
 

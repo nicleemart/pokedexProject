@@ -2,7 +2,7 @@
 #favorite,evolution1,evolution2,evolution3
 require "httparty"
 require "pry"
-
+require "json"
 
 
 # @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
@@ -35,6 +35,7 @@ class Pokedex
 			
 			if name_pokemon.capitalize == record[0]
 				return record
+
 			end
 		end
 		return false
@@ -116,6 +117,22 @@ class Pokedex
 		# Select a random Pokemon from the favorites Array
 		random_favorite = favorite_pokemon.sample
 		return random_favorite
+	end
+
+	def Pokedex.pokedex_display_type(found_array)
+
+		x = 11
+		type = found_array[10]
+			
+			while x < found_array.length
+
+				type = type + "," + found_array[x]
+
+				x +=1
+			end
+
+			return type
+
 	end
 
 	def Pokedex.pokedex_delete_record(all_records,name_pokemon,file)
@@ -248,8 +265,81 @@ class Pokeapi
 		return evolutionarray
 
 	end
+
+	def Pokeapi.ability_hash(abilities_array)
+		ability_hash = {}
+			ability_hash["ability1"] = abilities_array[0]
+			ability_hash["ability2"] = abilities_array[1]
+			ability_hash["ability3"] = abilities_array[2]
+		return ability_hash
+	end
+
+	def Pokeapi.evolution_hash(evolution_array)
+		evolutions_hash = {}	
+			evolutions_hash["stage1"] = evolution_array[0]
+			evolutions_hash["stage2"] = evolution_array[1]
+			evolutions_hash["stage3"] = evolution_array[2]
+		return evolutions_hash
+	end
+
+	def Pokeapi.types_hash(types_array)
+		types_hash = {}
+			types_hash["type1"] = types_array[0]
+			types_hash["type2"] = types_array[1]
+			types_hash["type3"] = types_array[2]
+		return types_hash
+	end
+
+	# types_hash = Pokeapi.types_hash(types_array)
+	# evolutions_hash = Pokeapi.evolution_hash(evolution_array)
+	# ability_hash = Pokeapi.ability_hash(abilities_array)
+	# height = Pokeapi.height(pokemon)
+	# weight = Pokeapi.weight(pokemon)
+	# name = params[:name]
+	def Pokeapi.api_data_hash(name, height, weight, ability_hash, types_hash, evolutions_hash)
+		data_hash = {}
+		
+			data_hash["name"] = name
+			data_hash["height"] = height
+			data_hash["weight"] = weight
+			data_hash["types"] = [types_hash]
+			data_hash["abilities"] = [ability_hash]
+			data_hash["evolutions"] = [evolutions_hash]
+
+		return data_hash
+	end
+
+	def Pokeapi.to_json(data_hash)
+		data_hash.to_json
+	end
+
+	# data_hash = Pokeapi.api_data_hash(name, height, weight, abilities_array, types_array, evolution_array)
+	def Pokeapi.api_save_hash(json_data_hash, file)
+		require 'csv'
+		#Open the file the new data will be saved in
+		File.open(file, "a") do |apple|
+			#Add the Array to the file
+			apple << json_data_hash
+		end
+	end
 end
 
+name = "gloom"
+height = 5
+weight = 78
+abilities_array = ["poison", "green beans"]
+types_array = ["grass", "orange"]
+evolution_array = ["oddish", "gloom", "vulplume"]
+
+ability_hash = Pokeapi.ability_hash(abilities_array)
+evolutions_hash = Pokeapi.evolution_hash(evolution_array)
+types_hash = Pokeapi.types_hash(types_array)
+file = "api.txt"
+
+data_hash = Pokeapi.api_data_hash(name, height, weight, ability_hash, types_hash, evolutions_hash)
+json_data_hash = Pokeapi.to_json(data_hash)
+Pokeapi.api_save_hash(json_data_hash, file)
+puts Pokeapi.to_json(data_hash)
 
 
 
