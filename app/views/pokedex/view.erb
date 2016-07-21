@@ -1,4 +1,5 @@
 <!-- This page will display a user's Pokemon's specific details as they are stored in the database. From this page, a user will be able to get a page where they can edit these details. -->
+<script type="text/javascript" src="/js/formAutofocus.js"></script>
 <div class="header">
 <!-- Name of Pokemon being viewed -->
 	<%= @name.capitalize %>
@@ -18,6 +19,7 @@
 		<div class="banana">
 			<div class="evolutions__image">
 			<!-- Image of Pokemon being viewed -->
+			<p>VULPIX</p>
 				<img class="evoImage" src="/images2/<%= @stage1 %>.png" />
 			</div>
 
@@ -29,7 +31,7 @@
 			<!-- Image of Pokemon being viewed -->
 				<img class="evoImage" src="/images2/<%= @stage2 %>.png" />
 			</div>
-	<%  end 
+ 	<%  end 
 
 		if @stage3.blank? == false%>
 
@@ -39,7 +41,7 @@
 			</div>
 		</div>
 
-	<% end %>
+ 	<% end %>
 	</div>
 
 <div class="statsContainer">

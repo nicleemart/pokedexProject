@@ -1,4 +1,5 @@
 <!-- This page is linked only from view.erb. Users will go to this page to edit data of a specific Pokemon of theirs. -->
+<script type="text/javascript" src="/js/formAutofocus.js"></script>
 <div class="header">
 	Edit Info
 </div>
@@ -12,7 +13,7 @@
 				Name: 
 			</div>
 			<div class="stats__info">
-				<input type="text" name="name" class="form" value= <%= @name %>>
+				<input type="text" name="name" class="form" value= <%= @name %> autofocus>
 			</div>
 		</div>
 
@@ -102,7 +103,7 @@
 				Favorite:
 			</div>
 			<div class="stats__info">
-				<input type="checkbox" name="favorte" <%= @favorite %>>
+				<input type="checkbox" name="favorite" <%= @favorite %>>
 			</div>
 		</div>
 
