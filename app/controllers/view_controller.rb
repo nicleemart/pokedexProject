@@ -9,15 +9,19 @@ require 'active_support/all'
 	
 	@name = params[:name].downcase
 	@gender = params[:gender]
-	@type = params[:type]
+	@type = ""
 	@cp = params[:cp]
 	@hp = params[:hp]
 	@favorite = params[:favorite]
 
+
+#Checks if height exist. If height exist means that view page is coming from add pokemon page
+#and will need to save record and display the info. 	
+	if params[:gender].present? != false
+
+	
 	# This contains the API request information using the Pokemon's name
 	@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
-	# This contains the API information about the Pokemon's abilities
-	# @ability = HTTParty.get("http://pokeapi.co/api/v2/ability/#{@name}")
 	# Assign the Pokemon's ID taken from the @pokemon request
 	@pokemon_id = Pokeapi.id(@pokemon)
 	# Assign the species URL taken from @pokemon request (needed to find the correct evolution ID)
@@ -30,24 +34,18 @@ require 'active_support/all'
 	@evolution_id = Pokeapi.evolution_id(@evolution_url)
 	# Finally use the evolution ID to get the information about the Pokemon's evolution chain
 	@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@evolution_id}")
-	
-
-#Checks if height exist. If height exist means that view page is coming from add pokemon page
-#and will need to save record and display the info. 	
-	if params[:gender].present? != false
+	@evolution_array = Pokeapi.api_evolution_array(@evolutions)
 
 
-	@api_hash = Pokeapi.stats(@name)
+	@stage1 = @evolution_array[0].capitalize
+	@stage2 = @evolution_array[1].capitalize
+	@stage3 = @evolution_array[2].capitalize
+	@height = Pokeapi.height(@pokemon)
+	@weight = Pokeapi.weight(@pokemon)
 
-	@height = Pokeapi.height(@api_hash)
-	@weight = Pokeapi.weight(@api_hash)
-
-	@type_array = Pokeapi.types(@api_hash)
+	@type_array = Pokeapi.types(@pokemon)
 
 
-
-
-	
 	@new_pokemonarray = []
 	@new_pokemonarray << @name.capitalize
 	@new_pokemonarray << @height
@@ -56,10 +54,18 @@ require 'active_support/all'
 	@new_pokemonarray << @cp
 	@new_pokemonarray << @hp
 	@new_pokemonarray << @favorite
-	# @new_pokemonarray << @stage1.capitalize
-	# @new_pokemonarray << @stage2.capitalize
-	# @new_pokemonarray << @stage3.capitalize
-	@new_pokemonarray << @type_array
+	@new_pokemonarray << @stage1
+	@new_pokemonarray << @stage2
+	@new_pokemonarray << @stage3
+
+	# If pokemon have multiple types save to array and type variable. 
+	@type_array.each do |record|
+
+		@new_pokemonarray << record
+
+		@type = @type + " " + record
+
+	end
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)
@@ -87,16 +93,16 @@ require 'active_support/all'
 			@stage3 = @found_array[9]
 
 			x = 10
-			@type = ""
-			while x <= @found_array.length
+			
+			while x < @found_array.length
 
 				@type = @type + " " + @found_array[x]
 
 				x +=1
 			end
-		end
-	else
+		else
 			@name = "No Pokemon Found"
+		end
 	end
 
 	if @favorite == "on"

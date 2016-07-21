@@ -33,7 +33,7 @@ class Pokedex
 
 		pokedex_array.each do |record|
 			
-			if name_pokemon == record[0]
+			if name_pokemon.capitalize == record[0]
 				return record
 			end
 		end
@@ -95,7 +95,7 @@ class Pokedex
 		# Iterate through each Pokemon
 		all_records.each do |pokemon|
 			# Check if the Pokemon is a favorite
-			if pokemon[7] == "on"
+			if pokemon[6] == "on"
 				# If so then add the Pokemon to Array
 				favorite_pokemon.push(pokemon)
 			end
@@ -125,13 +125,12 @@ class Pokedex
 
 			all_records.each do |record |
 
-				if record[0] != name_pokemon
+				if record[0] != name_pokemon.capitalize
 					csv << record
 				end
 			end
 		end	
 	end
-
 	
 end
 
@@ -170,7 +169,7 @@ class Pokeapi
 	#
 	# pokemon = the request using the Pokemon's name from the API
 	#
-	# RETURNS STRING ("INTEGER")
+	# RETURNS FIXNUM (INTEGER)
 	def Pokeapi.id(pokemon)
 		pokemon["id"]
 	end
@@ -196,49 +195,62 @@ class Pokeapi
 	def Pokeapi.types(pokemon)
 		pokemon_types = []
 		pokemon["types"].each do |i|
-			pokemon_types.push(i["type"]["name"])
+			pokemon_types.push(i["type"]["name"].capitalize)
 		end
 		return pokemon_types
 	end
 
 	# This method selects the Pokemon's height
 	#
-	# pokemon_info = the request using the Pokemon's name from the API
+	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def Pokeapi.height(pokemon_info)
-		height = pokemon_info["height"]
+	def Pokeapi.height(pokemon)
+		pokemon["height"]
 	end
 
 	# This method selects the Pokemon's weight
 	#
-	# pokemon_info = the request using the Pokemon's name from the API
+	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def Pokeapi.weight(pokemon_info)
-		weight = pokemon_info["weight"]
+	def Pokeapi.weight(pokemon)
+		pokemon["weight"]
 	end
 
-	# WE DON'T NEED THIS FUNCTION
-	def type(pokemon_info)
-		type = pokemon_info["types"]
-	end
 
-	# WE DON'T NEED THIS FUNCTION
-		#Stats in hash as following "id",height,weight"
-	def stats(name)
-		http = "http://pokeapi.co/api/v2/pokemon/"
-		http << name
-		pokemon_info = HTTParty.get(http)
+	def Pokeapi.api_evolution_array(pokemon_info)
 
-		return pokemon_info
+
+		firstevolution = pokemon_info["chain"]["species"]["name"]
+		secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
+		thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+		evolutionarray =[]
+
+
+		
+		if firstevolution.is_a?  String
+			evolutionarray << firstevolution
+		end
+
+		if secevolution.is_a? String
+			evolutionarray << secevolution
+		else
+			evolutionarray << "None"
+		end
+
+		if thirdevolution.is_a? String
+			evolutionarray << thirdevolution
+		else
+			evolutionarray << "None"
+		end
+
+		return evolutionarray
+
 	end
 end
 
 
 
 
-
-
-# binding.pry
 
