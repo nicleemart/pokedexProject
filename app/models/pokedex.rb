@@ -126,7 +126,7 @@ class Pokedex
 
 			all_records.each do |record |
 
-				if record[0] != name_pokemon
+				if record[0] != name_pokemon.capitalize
 					csv << record
 				end
 			end
@@ -196,7 +196,7 @@ class Pokeapi
 	def Pokeapi.types(pokemon)
 		pokemon_types = []
 		pokemon["types"].each do |i|
-			pokemon_types.push(i["type"]["name"])
+			pokemon_types.push(i["type"]["name"].capitalize)
 		end
 		return pokemon_types
 	end
@@ -246,12 +246,12 @@ class Pokeapi
 		return @chain
 	end
 
-	def Pokeapi.api_evolution_array(name,pokemon_info)
+	def Pokeapi.api_evolution_array(pokemon_info)
 
 
-		firstevolution = pokemon_info["species"]["name"]
-		secevolution = pokemon_info["evolves_to"][0]["species"]["name"]
-		thirdevolution = pokemon_info["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+		firstevolution = pokemon_info["chain"]["species"]["name"]
+		secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
+		thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
 		evolutionarray =[]
 
 
