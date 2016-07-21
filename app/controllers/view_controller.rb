@@ -94,7 +94,7 @@ require 'active_support/all'
 
 			x = 10
 			
-			while x <= @found_array.length
+			while x < @found_array.length
 
 				@type = @type + " " + @found_array[x]
 
