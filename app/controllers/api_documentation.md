@@ -6,9 +6,10 @@ Pokemon API
 	Access information about a specific Pokemon (name, height, weight, evolutions, type, abilities).
 
 	GET /api/pokemon/{name}
-
+	-------------------------------------------------------------------------------------------------
 	Example Response:
-
+	-------------------------------------------------------------------------------------------------
+		
 		{
 			"name": "pikachu",
 			"height": 4,
@@ -18,3 +19,5 @@ Pokemon API
 			"evolutions": [{"firstStage": "pikachu", "secondStage": "raichu"}]
 
 		}
+
+	-------------------------------------------------------------------------------------------------
