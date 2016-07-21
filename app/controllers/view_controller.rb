@@ -35,12 +35,11 @@ require 'active_support/all'
 	if params[:gender].present? != false
 
 
-	@api_hash = Pokeapi.stats(@name)
 
-	@height = Pokeapi.height(@api_hash)
-	@weight = Pokeapi.weight(@api_hash)
+	@height = Pokeapi.height(@pokemon)
+	@weight = Pokeapi.weight(@pokemon)
 
-	@type_array = Pokeapi.types(@api_hash)
+	@type_array = Pokeapi.types(@pokemon)
 
 
 	@new_pokemonarray = []
