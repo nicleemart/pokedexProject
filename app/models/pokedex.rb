@@ -324,22 +324,22 @@ class Pokeapi
 	end
 end
 
-name = "gloom"
-height = 5
-weight = 78
-abilities_array = ["poison", "green beans"]
-types_array = ["grass", "orange"]
-evolution_array = ["oddish", "gloom", "vulplume"]
+# name = "gloom"
+# height = 5
+# weight = 78
+# abilities_array = ["poison", "green beans"]
+# types_array = ["grass", "orange"]
+# evolution_array = ["oddish", "gloom", "vulplume"]
 
-ability_hash = Pokeapi.ability_hash(abilities_array)
-evolutions_hash = Pokeapi.evolution_hash(evolution_array)
-types_hash = Pokeapi.types_hash(types_array)
-file = "api.txt"
+# ability_hash = Pokeapi.ability_hash(abilities_array)
+# evolutions_hash = Pokeapi.evolution_hash(evolution_array)
+# types_hash = Pokeapi.types_hash(types_array)
+# file = "api.txt"
 
-data_hash = Pokeapi.api_data_hash(name, height, weight, ability_hash, types_hash, evolutions_hash)
-json_data_hash = Pokeapi.to_json(data_hash)
-Pokeapi.api_save_hash(json_data_hash, file)
-puts Pokeapi.to_json(data_hash)
+# data_hash = Pokeapi.api_data_hash(name, height, weight, ability_hash, types_hash, evolutions_hash)
+# json_data_hash = Pokeapi.to_json(data_hash)
+# Pokeapi.api_save_hash(json_data_hash, file)
+# puts Pokeapi.to_json(data_hash)
 
 
 
