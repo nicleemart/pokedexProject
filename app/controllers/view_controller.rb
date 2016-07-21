@@ -91,6 +91,7 @@ require 'active_support/all'
 			@stage1 = @found_array[7]
 			@stage2 = @found_array[8]
 			@stage3 = @found_array[9]
+			@type = Pokedex.pokedex_display_type(@found_array)
 
 			x = 10
 			

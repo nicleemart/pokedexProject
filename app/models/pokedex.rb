@@ -119,6 +119,22 @@ class Pokedex
 		return random_favorite
 	end
 
+	def Pokedex.pokedex_display_type(found_array)
+
+		x = 10
+		type = ""
+			
+			while x < found_array.length
+
+				type = @type + " " + found_array[x]
+
+				x +=1
+			end
+
+			return type
+
+	end
+
 	def Pokedex.pokedex_delete_record(all_records,name_pokemon,file)
 
 	
