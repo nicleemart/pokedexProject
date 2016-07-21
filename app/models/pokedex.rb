@@ -35,7 +35,7 @@ class Pokedex
 		pokedex_array.each do |record|
 			
 			if name_pokemon == record[0]
-				return record
+				return record.capitalize
 			end
 		end
 		return false
