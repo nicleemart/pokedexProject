@@ -14,6 +14,12 @@ require 'active_support/all'
 	@hp = params[:hp]
 	@favorite = params[:favorite]
 
+
+#Checks if height exist. If height exist means that view page is coming from add pokemon page
+#and will need to save record and display the info. 	
+	if params[:gender].present? != false
+
+	
 	# This contains the API request information using the Pokemon's name
 	@pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{@name}")
 	# Assign the Pokemon's ID taken from the @pokemon request
@@ -28,13 +34,12 @@ require 'active_support/all'
 	@evolution_id = Pokeapi.evolution_id(@evolution_url)
 	# Finally use the evolution ID to get the information about the Pokemon's evolution chain
 	@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@evolution_id}")
-	
-
-#Checks if height exist. If height exist means that view page is coming from add pokemon page
-#and will need to save record and display the info. 	
-	if params[:gender].present? != false
+	@evolution_array = Pokeapi.api_evolution_array(@evolutions)
 
 
+	@stage1 = @evolution_array[0].capitalize
+	@stage2 = @evolution_array[1].capitalize
+	@stage3 = @evolution_array[2].capitalize
 
 	@height = Pokeapi.height(@pokemon)
 	@weight = Pokeapi.weight(@pokemon)
@@ -50,9 +55,9 @@ require 'active_support/all'
 	@new_pokemonarray << @cp
 	@new_pokemonarray << @hp
 	@new_pokemonarray << @favorite
-	# @new_pokemonarray << @stage1.capitalize
-	# @new_pokemonarray << @stage2.capitalize
-	# @new_pokemonarray << @stage3.capitalize
+	@new_pokemonarray << @stage1
+	@new_pokemonarray << @stage2
+	@new_pokemonarray << @stage3
 
 	# If pokemon have multiple types save to array and type variable. 
 	@type_array.each do |record|
@@ -90,15 +95,15 @@ require 'active_support/all'
 
 			x = 10
 			
-			while x <= @found_array.length
+			while x < @found_array.length
 
 				@type = @type + " " + @found_array[x]
 
 				x +=1
 			end
-		end
-	else
+		else
 			@name = "No Pokemon Found"
+		end
 	end
 
 	if @favorite == "on"

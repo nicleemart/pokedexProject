@@ -34,8 +34,9 @@ class Pokedex
 
 		pokedex_array.each do |record|
 			
-			if name_pokemon == record[0]
+			if name_pokemon.capitalize == record[0]
 				return record
+
 			end
 		end
 		return false
@@ -96,7 +97,7 @@ class Pokedex
 		# Iterate through each Pokemon
 		all_records.each do |pokemon|
 			# Check if the Pokemon is a favorite
-			if pokemon[7] == "on"
+			if pokemon[6] == "on"
 				# If so then add the Pokemon to Array
 				favorite_pokemon.push(pokemon)
 			end
@@ -126,7 +127,7 @@ class Pokedex
 
 			all_records.each do |record |
 
-				if record[0] != name_pokemon
+				if record[0] != name_pokemon.capitalize
 					csv << record
 				end
 			end
@@ -196,7 +197,7 @@ class Pokeapi
 	def Pokeapi.types(pokemon)
 		pokemon_types = []
 		pokemon["types"].each do |i|
-			pokemon_types.push(i["type"]["name"])
+			pokemon_types.push(i["type"]["name"].capitalize)
 		end
 		return pokemon_types
 	end
@@ -220,12 +221,12 @@ class Pokeapi
 	end
 
 
-	def Pokeapi.api_evolution_array(name,pokemon_info)
+	def Pokeapi.api_evolution_array(pokemon_info)
 
 
-		firstevolution = pokemon_info["species"]["name"]
-		secevolution = pokemon_info["evolves_to"][0]["species"]["name"]
-		thirdevolution = pokemon_info["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+		firstevolution = pokemon_info["chain"]["species"]["name"]
+		secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
+		thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
 		evolutionarray =[]
 
 
