@@ -170,7 +170,7 @@ class Pokeapi
 	#
 	# pokemon = the request using the Pokemon's name from the API
 	#
-	# RETURNS STRING ("INTEGER")
+	# RETURNS FIXNUM (INTEGER)
 	def Pokeapi.id(pokemon)
 		pokemon["id"]
 	end
@@ -203,48 +203,22 @@ class Pokeapi
 
 	# This method selects the Pokemon's height
 	#
-	# pokemon_info = the request using the Pokemon's name from the API
+	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def Pokeapi.height(pokemon_info)
-		height = pokemon_info["height"]
+	def Pokeapi.height(pokemon)
+		pokemon["height"]
 	end
 
 	# This method selects the Pokemon's weight
 	#
-	# pokemon_info = the request using the Pokemon's name from the API
+	# pokemon = the request using the Pokemon's name from the API
 	#
 	# RETURNS STRING ("INTEGER")
-	def Pokeapi.weight(pokemon_info)
-		weight = pokemon_info["weight"]
+	def Pokeapi.weight(pokemon)
+		pokemon["weight"]
 	end
 
-	# WE DON'T NEED THIS FUNCTION
-	def type(pokemon_info)
-		type = pokemon_info["types"]
-	end
-
-	# WE DON'T NEED THIS FUNCTION
-		#Stats in hash as following "id",height,weight"
-	def stats(name)
-		http = "http://pokeapi.co/api/v2/pokemon/"
-		http << name
-		pokemon_info = HTTParty.get(http)
-
-		return pokemon_info
-	end
-	def Pokeapi.api_evolution_info(name)
-		pokemon = HTTParty.get("http://pokeapi.co/api/v2/pokemon/#{name}")
-		pokemon_id = pokemon["id"]
-		species_url = pokemon["species"]["url"]
-		species = HTTParty.get(species_url)
-		evolution_url = species["evolution_chain"]["url"]
-		id = Pokedex.evolution_id(evolution_url)
-		evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
-		chain = @evolutions["chain"]
-
-		return @chain
-	end
 
 	def Pokeapi.api_evolution_array(pokemon_info)
 
