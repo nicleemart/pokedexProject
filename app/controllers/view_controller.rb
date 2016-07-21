@@ -100,9 +100,9 @@ require 'active_support/all'
 
 				x +=1
 			end
-		end
-	else
+		else
 			@name = "No Pokemon Found"
+		end
 	end
 
 	if @favorite == "on"
