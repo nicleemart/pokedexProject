@@ -9,7 +9,7 @@ require 'active_support/all'
 	
 	@name = params[:name].downcase
 	@gender = params[:gender]
-	@type = params[:type]
+	@type = ""
 	@cp = params[:cp]
 	@hp = params[:hp]
 	@favorite = params[:favorite]
@@ -43,9 +43,6 @@ require 'active_support/all'
 	@type_array = Pokeapi.types(@api_hash)
 
 
-
-
-	
 	@new_pokemonarray = []
 	@new_pokemonarray << @name.capitalize
 	@new_pokemonarray << @height
@@ -57,7 +54,15 @@ require 'active_support/all'
 	# @new_pokemonarray << @stage1.capitalize
 	# @new_pokemonarray << @stage2.capitalize
 	# @new_pokemonarray << @stage3.capitalize
-	@new_pokemonarray << @type_array
+
+	# If pokemon have multiple types save to array and type variable. 
+	@type_array.each do |record|
+
+		@new_pokemonarray << record
+
+		@type = @type + " " + record
+
+	end
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)
@@ -85,7 +90,7 @@ require 'active_support/all'
 			@stage3 = @found_array[9]
 
 			x = 10
-			@type = ""
+			
 			while x <= @found_array.length
 
 				@type = @type + " " + @found_array[x]

@@ -132,7 +132,6 @@ class Pokedex
 			end
 		end	
 	end
-
 	
 end
 
@@ -220,12 +219,39 @@ class Pokeapi
 		pokemon["weight"]
 	end
 
+
+	def Pokeapi.api_evolution_array(name,pokemon_info)
+
+
+		firstevolution = pokemon_info["species"]["name"]
+		secevolution = pokemon_info["evolves_to"][0]["species"]["name"]
+		thirdevolution = pokemon_info["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+		evolutionarray =[]
+
+
+		
+		if firstevolution.is_a?  String
+			evolutionarray << firstevolution
+		end
+
+		if secevolution.is_a? String
+			evolutionarray << secevolution
+		else
+			evolutionarray << "None"
+		end
+
+		if thirdevolution.is_a? String
+			evolutionarray << thirdevolution
+		else
+			evolutionarray << "None"
+		end
+
+		return evolutionarray
+
+	end
 end
 
 
 
 
-
-
-# binding.pry
 
