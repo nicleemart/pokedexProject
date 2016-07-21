@@ -34,8 +34,9 @@ class Pokedex
 
 		pokedex_array.each do |record|
 			
-			if name_pokemon == record[0]
-				return record.capitalize
+			if name_pokemon.capitalize == record[0]
+				return record
+
 			end
 		end
 		return false
@@ -96,7 +97,7 @@ class Pokedex
 		# Iterate through each Pokemon
 		all_records.each do |pokemon|
 			# Check if the Pokemon is a favorite
-			if pokemon[7] == "on"
+			if pokemon[6] == "on"
 				# If so then add the Pokemon to Array
 				favorite_pokemon.push(pokemon)
 			end

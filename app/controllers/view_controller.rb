@@ -94,15 +94,15 @@ require 'active_support/all'
 
 			x = 10
 			
-			while x <= @found_array.length
+			while x < @found_array.length
 
 				@type = @type + " " + @found_array[x]
 
 				x +=1
 			end
-		end
-	else
+		else
 			@name = "No Pokemon Found"
+		end
 	end
 
 	if @favorite == "on"
