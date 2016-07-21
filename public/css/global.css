@@ -151,7 +151,19 @@ input.form {
 .evolutions__text{
 	font-size: 22px;
 }
-.banana{
+#showText:hover{
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.4);
+}
+#hideText {
+	display: none;
+}
+#toggle {
+/*	display: flex;
+	flex-direction: row;*/
+	display: none;
+}
+.evolutions__image {
 	display: flex;
 	flex-direction: row;
 }

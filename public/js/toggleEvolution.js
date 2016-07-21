@@ -1,20 +1,18 @@
 window.addEventListener("load", function(){
+	var show = document.getElementById("showText");
 
-	var button = document.getElementById("button");
+	show.addEventListener("click", function(){
 
-	button.addEventListener("click", function(){
-
-		var evolutionImages = document.getElementsByClassName("banana");
-
-		for (var i = 0; i < evolutionImages.length; i++){			
-			if (evolutionImages[i].style.display === "none"){
-				evolutionImages[i].style.display = "block";
+		var evolutionImages = document.getElementById("toggle");
+		var hide = document.getElementById("hideText");
+		if (evolutionImages.style.display === "none"){
+				evolutionImages.style.display = "block";
 			}
 
 			else {
-				evolutionImages[i].style.display = "none";
+				evolutionImages.style.display = "none";
 			}
-		}
+
 	});
 
 });
