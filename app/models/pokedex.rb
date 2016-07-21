@@ -36,6 +36,7 @@ class Pokedex
 			
 			if name_pokemon.capitalize == record[0]
 				return record
+
 			end
 		end
 		return false
