@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/js/randomTimer.js"></script>
+
 <div class="header">
 	Personal Pok&eacute;dex
 </div>
@@ -10,9 +12,8 @@
 
 <% else %>
 
-		<div>
-			<img class="viewImage" src="/images2/<%= @random_favorite[0] %>.png" />
-		</div>
+<div class="random">
+<img class="viewImage" src="/images2/<%= @random_favorite[0] %>.png" />
 
 	<div class="statsContainer">
 	
@@ -99,5 +100,6 @@
 		</div>
 		
 	</div>
+</div>
 
 <% end %>

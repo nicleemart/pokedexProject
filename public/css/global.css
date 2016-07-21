@@ -129,8 +129,7 @@ input.form {
 	padding-left: 10px;
 }
 .viewAllPokemon__link:hover{
-	background-color: red;
-	opacity: 50%;
+	background: rgba(255, 255, 255, 0.2);
 }
 .pokemonImage {
 	width: 100px;
