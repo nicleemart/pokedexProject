@@ -121,12 +121,12 @@ class Pokedex
 
 	def Pokedex.pokedex_display_type(found_array)
 
-		x = 10
-		type = ""
+		x = 11
+		type = found_array[10]
 			
 			while x < found_array.length
 
-				type = @type + " " + found_array[x]
+				type = type + "," + found_array[x]
 
 				x +=1
 			end

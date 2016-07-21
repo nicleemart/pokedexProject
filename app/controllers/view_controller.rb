@@ -93,14 +93,7 @@ require 'active_support/all'
 			@stage3 = @found_array[9]
 			@type = Pokedex.pokedex_display_type(@found_array)
 
-			x = 10
 			
-			while x < @found_array.length
-
-				@type = @type + " " + @found_array[x]
-
-				x +=1
-			end
 		else
 			@name = "No Pokemon Found"
 		end

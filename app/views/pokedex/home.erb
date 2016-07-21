@@ -21,7 +21,7 @@
 				Name:
 			</div> 
 			<div class="stats__info">
-				<%= @random_favorite[0] %>
+				<%= @name %>
 			</div>
 		</div>
 
@@ -30,7 +30,7 @@
 				Height:
 			</div>
 			<div class="stats__info">
-				<%= @random_favorite[1] %> in
+				<%= @height %> in
 			</div>
 		</div>
 
@@ -39,7 +39,7 @@
 				Weight:
 			</div> 
 			<div class="stats__info">
-				<%= @random_favorite[2] %> lbs
+				<%= @weight %> lbs
 			</div>
 		</div>
 
@@ -48,7 +48,7 @@
 				Gender:
 			</div>
 			<div class="stats__info">
-				<%= @random_favorite[3] %>
+				<%= @gender %>
 			</div>
 		</div>
 
@@ -57,7 +57,7 @@
 				Type:
 			</div>
 			<div class="stats__info">
-				<%= @random_favorite[4] %>
+				<%= @type %>
 			</div>
 		</div>
 
@@ -66,7 +66,7 @@
 				CP:
 			</div>
 			<div class="stats__info">
-				<%= @random_favorite[5] %>
+				<%= @cp %>
 			</div>
 		</div>
 
@@ -75,7 +75,7 @@
 				HP:
 			</div>
 			<div class="stats__info">
-				<%= @random_favorite[6] %>
+				<%= @hp %>
 			</div>
 		</div>
 
@@ -83,7 +83,7 @@
 			<div class="stats__title">
 				Favorite:
 			</div>
-	<% if @random_favorite[7] == "yes" %>
+	<% if @favorite == "yes" %>
 
 		<div class="stats__info">
 			<img class="favoriteHeart" src="/images2/heart.png" alt="Heart" />
