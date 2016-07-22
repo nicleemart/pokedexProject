@@ -251,34 +251,19 @@ class Pokeapi
 	def Pokeapi.api_evolution_array(pokemon_info)
 
 
-<<<<<<< HEAD
-		firstevolution = pokemon_info["chain"]["species"]["name"]
-		# secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
-		# thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
-=======
-		firstevolution = 
-		secevolution = 
-		thirdevolution = 
->>>>>>> a282c639ea3079048d0cd989e58d47e75c67d6ca
-		evolutionarray =[]
-
 
 		
-		if pokemon_info["chain"]["species"]["name"].is_a?  String
-			evolutionarray << pokemon_info["chain"]["species"]["name"]
-		end
+		evolutionarray =[]
 
-<<<<<<< HEAD
-		# If statement to check for null on second evolution
+	
+		#Pokemon statement for first evolution
+		evolutionarray << pokemon_info["chain"]["species"]["name"]
+		
+
+
+		# If statement to check for nill on second evolution
 		if pokemon_info["chain"]["evolves_to"][0] == nil
-=======
-		if pokemon_info["chain"]["evolves_to"][0]["species"]["name"].is_a? String
-			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
-		else
->>>>>>> a282c639ea3079048d0cd989e58d47e75c67d6ca
-			evolutionarray << "None"
 
-<<<<<<< HEAD
 		elsif pokemon_info["chain"]["evolves_to"][0]["species"] == nil
 			evolutionarray << "None"
 		elsif pokemon_info["chain"]["evolves_to"][0]["species"]["name"] == nil
@@ -287,7 +272,7 @@ class Pokeapi
 			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
 		end
 
-		#If Statement to check for mull on third evolution
+		#If Statement to check for nil on third evolution
 
 		if pokemon_info["chain"]["evolves_to"][0] == nil
 			evolutionarray << "None"
@@ -304,15 +289,8 @@ class Pokeapi
 			evolutionarray << "None"
 		else
 			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
-=======
-		if pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"] = nil
-			
-			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
-		else
-			
-			evolutionarray[2] << "None"
->>>>>>> a282c639ea3079048d0cd989e58d47e75c67d6ca
 		end
+		
 
 		return evolutionarray
 
@@ -404,9 +382,4 @@ class Pokeapi
 	end
 
 end
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> a282c639ea3079048d0cd989e58d47e75c67d6ca
