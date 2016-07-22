@@ -11,7 +11,6 @@ class Pokedex
 
 	def Pokedex.all(file)
 		all_as_arrays = Pokedex.pokedex_all_records(file)
-
 		
 	end
 
@@ -20,25 +19,32 @@ class Pokedex
 		new_hash = {}
 		new_array = []
 
-		all_as_arrays.each do |pokemon|
+			all_as_arrays.each do |pokemon|
 
-	
-		  new_hash["name"] = pokemon[0]
-		  new_hash["weight"] = pokemon[1]
-		  new_hash["height"] = pokemon[2]
-		  new_hash["gender"] = pokemon[3]
-		  new_hash["cp"] = pokemon[4]
-		  new_hash["hp"] = pokemon[5]
-		  new_hash["favorite"] = pokemon[6]
-		  new_hash["stage1"] = pokemon[7]
-		  new_hash["stage2"] = pokemon[8]
-		  new_hash["stage3"] = pokemon[9]
-		  new_hash["type"] = pokemon[10]
-		end	
+				new_hash["name"] = pokemon[0]
 
-		return new_hash
+				new_hash["weight"] = pokemon[1]
 
+				new_hash["height"] = pokemon[2]
 
+				new_hash["gender"] = pokemon[3]
+
+				new_hash["cp"] = pokemon[4]
+
+				new_hash["hp"] = pokemon[5]
+
+				new_hash["favorite"] = pokemon[6]
+
+				new_hash["stage1"] = pokemon[7]
+
+				new_hash["stage2"] = pokemon[8]
+
+				new_hash["stage3"] = pokemon[9]
+
+				new_hash["type"] = pokemon[10]
+			  new_array.push(new_hash.dup)
+			end	
+		return new_array
 	end
 
 	# This method saves a new Pokemon's information in a text file as an Array
@@ -380,3 +386,4 @@ class Pokeapi
 	end
 
 end
+
