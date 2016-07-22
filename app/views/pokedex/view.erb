@@ -1,4 +1,5 @@
 <!-- This page will display a user's Pokemon's specific details as they are stored in the database. From this page, a user will be able to get a page where they can edit these details. -->
+<script type="text/javascript" src="/js/toggleEvolution.js"></script>
 <div class="header">
 <!-- Name of Pokemon being viewed -->
 	<%= @name.capitalize %>
@@ -14,32 +15,43 @@
 		<div class="evolutions__text">
 			Evolution Path
 		</div>
+		<div id="showText">
+			Show/Hide Evolutions
+		</div>
+		<div id="hideText">
+			Hide Evolutions
+		</div>
 	<% if @stage1.blank? == false %>
-		<div class="banana">
-			<div class="evolutions__image">
+		<div id="toggle">
+			<div class="evoWrapper">
+				<div class="evolutions__image">
 			<!-- Image of Pokemon being viewed -->
 				<img class="evoImage" src="/images2/<%= @stage1 %>.png" />
-			</div>
+				<div class="stage"><%= @stage1 %></div>
+				</div>
 
 	<% end 
 
 		if @stage2.blank? == false  %>
 
-			<div class="evolutions__image">
 			<!-- Image of Pokemon being viewed -->
+				<div class="evolutions__image">
 				<img class="evoImage" src="/images2/<%= @stage2 %>.png" />
-			</div>
-	<%  end 
+				<div class="stage"><%= @stage2 %></div>
+				</div>
+ 	<%  end 
 
 		if @stage3.blank? == false%>
 
-			<div class="evolutions__image">
 			<!-- Image of Pokemon being viewed -->
+				<div class="evolutions__image">
 				<img class="evoImage" src="/images2/<%= @stage3 %>.png" />
+				<div class="stage"><%= @stage3 %></div>
+				</div>
 			</div>
 		</div>
 
-	<% end %>
+ 	<% end %>
 	</div>
 
 <div class="statsContainer">
@@ -96,44 +108,11 @@
 		<div class="stats__info">
 			<%= @hp %>
 		</div>
-	</div>	
-
-<% if !@stage1.blank? %>
-	<div class="stats">
-		<div class="stats__title">
-			Stage One:
-		</div>
-		<div class="stats__info">
-			<%= @stage1 %>
-		</div>
-	</div>	
-<% end %>
-
-<% if !@stage2.blank? %>
-	<div class="stats">
-		<div class="stats__title">
-			Stage Two:
-		</div>
-		<div class="stats__info">
-			<%= @stage2 %>
-		</div>
-	</div>	
-<% end %>
-
-<% if !@stage3.blank? %>
-	<div class="stats">
-		<div class="stats__title">
-			Stage Three:
-		</div>
-		<div class="stats__info">
-			<%= @stage3 %>
-		</div>
-	</div>
-<% end %>	
+	</div>		
 
 	<div class="stats">
 		<div class="stats__title">
-			Favorite?
+			Favorite:
 		</div>
 
 	<% if @favorite == "yes" %>
