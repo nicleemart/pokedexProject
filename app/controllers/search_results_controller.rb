@@ -1,4 +1,5 @@
 MyApp.get "/searchresults" do
+
 	@title = "Pok&eacute;mon Search Results"
 	@file = 'Data_File/pokedex.csv'
 	@pokemon_array = Pokedex.pokedex_all_records(@file)
@@ -7,6 +8,7 @@ MyApp.get "/searchresults" do
 	@search_error = "The Pokemon you're searching for does not exist.\n
 					Are you sure you spelled things right?\n
 					Capitilization matters!"
+	
 
 	erb :"pokedex/search_results"
 end
