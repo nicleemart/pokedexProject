@@ -293,7 +293,7 @@ class Pokeapi
 		evolutionarray =[]
 
 	
-		#Pokemon statement for first evolution
+		# Pokemon statement for first evolution
 		evolutionarray << pokemon_info["chain"]["species"]["name"]
 		
 
