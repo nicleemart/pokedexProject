@@ -14,7 +14,11 @@ class Pokedex
 		
 	end
 
+	# This method adds saved data to hashes to be displayed as JSON
+	#
 	# all_as_arrays = Pokedex.all(file)
+	#
+	# RETURNS ARRAY (OF HASHES)
 	def Pokedex.change_the_arrays(all_as_arrays)
 		new_hash = {}
 		new_array = []
@@ -22,26 +26,18 @@ class Pokedex
 			all_as_arrays.each do |pokemon|
 
 				new_hash["name"] = pokemon[0]
-
-				new_hash["weight"] = pokemon[1]
-
-				new_hash["height"] = pokemon[2]
-
+				new_hash["height"] = pokemon[1]
+				new_hash["weight"] = pokemon[2]
 				new_hash["gender"] = pokemon[3]
-
 				new_hash["cp"] = pokemon[4]
-
 				new_hash["hp"] = pokemon[5]
-
 				new_hash["favorite"] = pokemon[6]
-
 				new_hash["stage1"] = pokemon[7]
-
 				new_hash["stage2"] = pokemon[8]
-
 				new_hash["stage3"] = pokemon[9]
+				new_hash["type1"] = pokemon[10]
+				new_hash["type2"] = pokemon[11]
 
-				new_hash["type"] = pokemon[10]
 			  new_array.push(new_hash.dup)
 			end	
 		return new_array
