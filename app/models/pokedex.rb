@@ -201,6 +201,8 @@ class Pokeapi
 		return ability_names
 	end
 
+
+
 	# This method adds all the types belonging to the Pokemon passed in to an Array
 	#
 	# pokemon = the API request information for the Pokemon
@@ -214,6 +216,13 @@ class Pokeapi
 		return pokemon_types
 	end
 
+	# types_array = Pokeapi.types(pokemon)
+	# def Pokeapi.types_length(types_array)
+	# 	if types_array[1] == 1
+	# 		types_array[1] == ""
+	# 	end
+	# 	return types_array
+	# end
 	# This method selects the Pokemon's height
 	#
 	# pokemon = the request using the Pokemon's name from the API
@@ -236,29 +245,29 @@ class Pokeapi
 	def Pokeapi.api_evolution_array(pokemon_info)
 
 
-		firstevolution = pokemon_info["chain"]["species"]["name"]
-		secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
-		thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+		firstevolution = 
+		secevolution = 
+		thirdevolution = 
 		evolutionarray =[]
 
 
 		
-		if firstevolution.is_a?  String
-			evolutionarray << firstevolution
+		if pokemon_info["chain"]["species"]["name"].is_a?  String
+			evolutionarray << pokemon_info["chain"]["species"]["name"]
 		end
 
-		if secevolution.is_a? String
-			evolutionarray << secevolution
+		if pokemon_info["chain"]["evolves_to"][0]["species"]["name"].is_a? String
+			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
 		else
 			evolutionarray << "None"
 		end
 
-		if thirdevolution == "" || thirdevolution == nil
-			thirdevolution = "None"
-			evolutionarray << thirdevolution
+		if pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"] = nil
+			
+			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
 		else
 			
-			evolutionarray << thirdevolution
+			evolutionarray[2] << "None"
 		end
 
 		return evolutionarray
@@ -344,7 +353,7 @@ class Pokeapi
 	def Pokeapi.api_save_hash(json_data_hash)
 		
 		#Open the file the new data will be saved in
-		File.open("/Data_File/api.json", "a") do |apple|
+		File.open("Data_File/api.txt", "a") do |apple|
 			#Add the Array to the file
 			apple << json_data_hash + "\n"
 		end
@@ -352,7 +361,5 @@ class Pokeapi
 
 end
 
-@testing = HTTParty.get("http://localhost:9292/api/all_pokemon")
-binding.pry
 
 
