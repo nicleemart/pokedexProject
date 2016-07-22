@@ -11,33 +11,55 @@ class Pokedex
 
 	def Pokedex.all(file)
 		all_as_arrays = Pokedex.pokedex_all_records(file)
-
 		
 	end
 
+	# This method adds saved data to hashes to be displayed as JSON
+	#
 	# all_as_arrays = Pokedex.all(file)
+	#
+	# RETURNS ARRAY (OF HASHES)
 	def Pokedex.change_the_arrays(all_as_arrays)
 		new_hash = {}
 		new_array = []
 
-		all_as_arrays.each do |pokemon|
+			all_as_arrays.each do |pokemon|
 
-	
-		  new_hash["name"] = pokemon[0]
-		  new_hash["weight"] = pokemon[1]
-		  new_hash["height"] = pokemon[2]
-		  new_hash["gender"] = pokemon[3]
-		  new_hash["cp"] = pokemon[4]
-		  new_hash["hp"] = pokemon[5]
-		  new_hash["favorite"] = pokemon[6]
-		  new_hash["stage1"] = pokemon[7]
-		  new_hash["stage2"] = pokemon[8]
-		  new_hash["stage3"] = pokemon[9]
-		  new_hash["type"] = pokemon[10]
-		puts new_hash
-		end	
+				new_hash["name"] = pokemon[0]
+				new_hash["height"] = pokemon[1]
+				new_hash["weight"] = pokemon[2]
+				new_hash["gender"] = pokemon[3]
+				new_hash["cp"] = pokemon[4]
+				new_hash["hp"] = pokemon[5]
+				new_hash["favorite"] = pokemon[6]
+				new_hash["stage1"] = pokemon[7]
+				new_hash["stage2"] = pokemon[8]
+				new_hash["stage3"] = pokemon[9]
+				new_hash["type1"] = pokemon[10]
+				new_hash["type2"] = pokemon[11]
 
+			  new_array.push(new_hash.dup)
+			end	
+		return new_array
+	end
 
+	# array_hash = Pokedex.change_the_arrays(all_as_arrays)
+	# given_name = name passed into url
+	def Pokedex.return_specific_hash(array_hash, given_name)
+		single_pokemon = []
+		array_hash.each do |hsh|
+			if hsh["name"] == given_name
+				single_pokemon.push(hsh)
+			end
+		end
+		if single_pokemon.empty?
+			return "<h1>There is no data for the Pokemon you have requested.</h1>" + "<br>" +
+
+			"<h3>Double check your spelling and try again just in case.</h3>"
+
+		else
+			return single_pokemon
+		end
 	end
 
 	# This method saves a new Pokemon's information in a text file as an Array
@@ -80,12 +102,14 @@ class Pokedex
 		results_array = []
 		# Iterate over each of the Pokemon in the Pokedex
 		pokemon_array.each do |pokemon|
+			found = "no"
 			# Iterate over each trait of each of those Pokemon
-			pokemon.each do |trait|
+			pokemon.each do |trait| 
 				# If any of the traits match the search input
-				if trait == search_input
+				if trait == search_input && found == "no"
 					# Return those Pokemon
 					results_array << pokemon
+					found = "yes"
 				end
 			end
 		end
@@ -290,7 +314,7 @@ class Pokeapi
 		evolutionarray =[]
 
 	
-		#Pokemon statement for first evolution
+		# Pokemon statement for first evolution
 		evolutionarray << pokemon_info["chain"]["species"]["name"]
 		
 
@@ -376,3 +400,4 @@ class Pokeapi
 		return data_hash
 	end
 end
+

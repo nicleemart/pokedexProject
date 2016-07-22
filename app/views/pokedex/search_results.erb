@@ -8,6 +8,9 @@
 if @search_results.count > 0  
 
 	@search_results.each do |record|
+		@weight = record[2].to_i / 4.54
+		@weight = @weight.round(2)
+
 	%>	
 	<div class="wrapper">
 	<img class="viewImage" src="/images2/<%= record[0] %>.png" />
@@ -29,7 +32,7 @@ if @search_results.count > 0
 				Height:
 			</div>
 			<div class="stats__info">
-				<%= record[1] %>
+				<%= record[1].to_f / 10 %>
 			</div>
 		</div>
 
@@ -38,7 +41,7 @@ if @search_results.count > 0
 				Weight:
 			</div>
 			<div class="stats__info">
-				<%= record[2] %>
+				<%= @weight %>
 			</div>
 		</div>
 
