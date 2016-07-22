@@ -160,6 +160,7 @@ input.form {
 #showText:hover{
 	cursor: pointer;
 	color: #F7BF2E;
+	padding: 5px;
 }
 #hideText {
 	display: none;
@@ -170,6 +171,12 @@ input.form {
 .evoWrapper{
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: #DEDEDE;
+	padding: 15px;
+	border-radius: 20px;
+	border: solid 2px black;
 }
 .evolutions__image {
 	flex-direction: column;
@@ -180,7 +187,9 @@ input.form {
 	padding: 5px;
 }
 .stage{
-	padding-left: 25px;
+	padding-left: 15px;
+	font-weight: bold;
+	font-size: 16px;
 }
 .editText{
 	font-size: 20px;
@@ -196,6 +205,6 @@ input.form {
 	flex-flow: wrap;
 }
 .wrapper {
-flex-direction: column;
-padding-left: 25px;
+	flex-direction: column;
+	padding-left: 25px;
 }
