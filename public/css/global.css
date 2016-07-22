@@ -152,11 +152,14 @@ input.form {
 	padding: 10px;
 }
 .evolutions__text{
-	font-size: 22px;
+	font-size: 26px;
+}
+#showText{
+	color: #FFFFFF;
 }
 #showText:hover{
 	cursor: pointer;
-	background: rgba(255, 255, 255, 0.4);
+	color: #F7BF2E;
 }
 #hideText {
 	display: none;
@@ -164,14 +167,20 @@ input.form {
 #toggle {
 	display: none;
 }
-.evolutions__image {
+.evoWrapper{
 	display: flex;
 	flex-direction: row;
 }
+.evolutions__image {
+	flex-direction: column;
+}
 .evoImage{
-	width: 75px;
-	height: 75px;
+	width: 90px;
+	height: 90px;
 	padding: 5px;
+}
+.stage{
+	padding-left: 25px;
 }
 .editText{
 	font-size: 20px;

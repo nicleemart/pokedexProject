@@ -23,22 +23,31 @@
 		</div>
 	<% if @stage1.blank? == false %>
 		<div id="toggle">
-			<div class="evolutions__image">
+			<div class="evoWrapper">
+				<div class="evolutions__image">
 			<!-- Image of Pokemon being viewed -->
 				<img class="evoImage" src="/images2/<%= @stage1 %>.png" />
+				<div class="stage"><%= @stage1 %></div>
+				</div>
 
 	<% end 
 
 		if @stage2.blank? == false  %>
 
 			<!-- Image of Pokemon being viewed -->
+				<div class="evolutions__image">
 				<img class="evoImage" src="/images2/<%= @stage2 %>.png" />
+				<div class="stage"><%= @stage2 %></div>
+				</div>
  	<%  end 
 
 		if @stage3.blank? == false%>
 
 			<!-- Image of Pokemon being viewed -->
+				<div class="evolutions__image">
 				<img class="evoImage" src="/images2/<%= @stage3 %>.png" />
+				<div class="stage"><%= @stage3 %></div>
+				</div>
 			</div>
 		</div>
 
@@ -99,44 +108,11 @@
 		<div class="stats__info">
 			<%= @hp %>
 		</div>
-	</div>	
-
-<% if !@stage1.blank? %>
-	<div class="stats">
-		<div class="stats__title">
-			Stage One:
-		</div>
-		<div class="stats__info">
-			<%= @stage1 %>
-		</div>
-	</div>	
-<% end %>
-
-<% if !@stage2.blank? %>
-	<div class="stats">
-		<div class="stats__title">
-			Stage Two:
-		</div>
-		<div class="stats__info">
-			<%= @stage2 %>
-		</div>
-	</div>	
-<% end %>
-
-<% if !@stage3.blank? %>
-	<div class="stats">
-		<div class="stats__title">
-			Stage Three:
-		</div>
-		<div class="stats__info">
-			<%= @stage3 %>
-		</div>
-	</div>
-<% end %>	
+	</div>		
 
 	<div class="stats">
 		<div class="stats__title">
-			Favorite?
+			Favorite:
 		</div>
 
 	<% if @favorite == "yes" %>
