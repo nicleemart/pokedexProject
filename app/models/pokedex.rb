@@ -251,7 +251,9 @@ class Pokeapi
 	def Pokeapi.api_evolution_array(pokemon_info)
 
 
-
+		# firstevolution = pokemon_info["chain"]["species"]["name"]
+		# secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
+		# thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
 		
 		evolutionarray =[]
 
@@ -263,7 +265,7 @@ class Pokeapi
 
 		# If statement to check for nill on second evolution
 		if pokemon_info["chain"]["evolves_to"][0] == nil
-
+			evolutionarray << "None"
 		elsif pokemon_info["chain"]["evolves_to"][0]["species"] == nil
 			evolutionarray << "None"
 		elsif pokemon_info["chain"]["evolves_to"][0]["species"]["name"] == nil
@@ -275,11 +277,6 @@ class Pokeapi
 		#If Statement to check for nil on third evolution
 
 		if pokemon_info["chain"]["evolves_to"][0] == nil
-			evolutionarray << "None"
-
-		elsif pokemon_info["chain"]["evolves_to"][0]["species"] == nil
-			evolutionarray << "None"
-		elsif pokemon_info["chain"]["evolves_to"][0]["species"]["name"] == nil
 			evolutionarray << "None"
 		elsif pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0] == nil
 			evolutionarray << "None"	
@@ -382,4 +379,3 @@ class Pokeapi
 	end
 
 end
-
