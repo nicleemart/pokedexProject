@@ -15,7 +15,7 @@ require 'active_support/all'
 	@favorite = params[:favorite]
 
 
-#Checks if height exist. If height exist means that view page is coming from add pokemon page
+#Checks if gender exist. If gender exist means that view page is coming from add pokemon page
 #and will need to save record and display the info. 	
 	if params[:gender].present? != false
 
@@ -35,7 +35,7 @@ require 'active_support/all'
 	# Finally use the evolution ID to get the information about the Pokemon's evolution chain
 	@evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@evolution_id}")
 	@evolution_array = Pokeapi.api_evolution_array(@evolutions)
-	@abilities_array = Pokeapi.ability_names(@pokemon)
+
 
 
 	@stage1 = @evolution_array[0].capitalize
@@ -47,20 +47,6 @@ require 'active_support/all'
 
 	@type_array = Pokeapi.types(@pokemon)
 
-
-	# These all assign the elements in the Arrays to values within a Hash
-	@ability_hash = Pokeapi.ability_hash(@abilities_array)
-	@evolutions_hash = Pokeapi.evolution_hash(@evolution_array)
-	@types_hash = Pokeapi.types_hash(@type_array)
-
-	# Converts information to Hash structure for API file
-	@data_hash = Pokeapi.api_data_hash(@name, @height, @weight, @ability_hash, @types_hash, @evolutions_hash)
-
-	# Changes the data Hash to JSON
-	@json_data_hash = Pokeapi.to_json(@data_hash)
-	
-	# Save the JSON information in API file
-	Pokeapi.api_save_hash(@json_data_hash)
 
 	@new_pokemonarray = []
 	@new_pokemonarray << @name.capitalize
@@ -74,6 +60,7 @@ require 'active_support/all'
 	@new_pokemonarray << @stage2
 	@new_pokemonarray << @stage3
 
+	# @types_array = Pokeapi.types_length(@types_array)
 	# If pokemon have multiple types save to array and type variable. 
 	@type_array.each do |record|
 
@@ -83,9 +70,6 @@ require 'active_support/all'
 
 	end
 
-	@abilities_array.each do |ability|
-		@new_pokemonarray << ability
-	end
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)
@@ -112,8 +96,7 @@ require 'active_support/all'
 			@stage2 = @found_array[8]
 			@stage3 = @found_array[9]
 			@type = Pokedex.pokedex_display_type(@found_array)
-
-			
+	
 		else
 			@name = "No Pokemon Found"
 		end
