@@ -1,5 +1,6 @@
+@import 'https://fonts.googleapis.com/css?family=Bungee+Hairline|Open+Sans';
 body {
-	font-family: Helvetica;
+	font-family: "Open Sans", sans-serif;
 	background-color: #CE3358;
 	background-image: url("/images2/red_background.jpg");
 	background-size: cover;
@@ -77,7 +78,8 @@ a:hover{
 }
 .header{
 	display: flex;
-	font-size: 30px;
+	font-family: "Bungee Hairline", cursive;
+	font-size: 40px;
 	color: #f4f3f3;
 	padding-bottom: 10px;
 }
@@ -128,6 +130,10 @@ input.form {
 .viewAllPokemon__link{
 	padding-left: 10px;
 }
+.viewAllPokemon__link:hover{
+	background: radial-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+	border-radius: 90px;
+}
 .pokemonImage {
 	width: 100px;
 	height: 100px;
@@ -146,16 +152,35 @@ input.form {
 	padding: 10px;
 }
 .evolutions__text{
-	font-size: 22px;
+	font-size: 26px;
 }
-.banana{
+#showText{
+	color: #FFFFFF;
+}
+#showText:hover{
+	cursor: pointer;
+	color: #F7BF2E;
+}
+#hideText {
+	display: none;
+}
+#toggle {
+	display: none;
+}
+.evoWrapper{
 	display: flex;
 	flex-direction: row;
 }
+.evolutions__image {
+	flex-direction: column;
+}
 .evoImage{
-	width: 75px;
-	height: 75px;
+	width: 90px;
+	height: 90px;
 	padding: 5px;
+}
+.stage{
+	padding-left: 25px;
 }
 .editText{
 	font-size: 20px;
@@ -164,4 +189,13 @@ input.form {
 .favoriteHeart{
 	height: 15px;
 	width: 15px;
+}
+.searchResults {
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+}
+.wrapper {
+flex-direction: column;
+padding-left: 25px;
 }
