@@ -86,7 +86,8 @@ require 'active_support/all'
 
 		if @found_array != false
 
-			@height = @found_array[1].to_f / 10
+			@height = @found_array[1].to_f / 10 * 3.28
+			@height = @height.round(2)
 			@weight = @found_array[2].to_i / 4.54
 			@weight = @weight.round(2)
 			@gender = @found_array[3]

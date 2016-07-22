@@ -8,8 +8,12 @@
 if @search_results.count > 0  
 
 	@search_results.each do |record|
+
+		@height = record[1].to_f / 10 * 3.28
+		@height = @height.round(2)
 		@weight = record[2].to_i / 4.54
 		@weight = @weight.round(2)
+		
 
 	%>	
 	<div class="wrapper">
@@ -32,7 +36,7 @@ if @search_results.count > 0
 				Height:
 			</div>
 			<div class="stats__info">
-				<%= record[1].to_f / 10 %>
+				<%= @height %>
 			</div>
 		</div>
 
