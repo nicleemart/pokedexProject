@@ -13,12 +13,13 @@ window.addEventListener("load", function(){
 				auto.style.display = "none";
 			}
 
-			auto.options = ["Pikachu", "Dratini"];
+			auto.options = ["Pikachu"];
 			auto.innerHTML = (auto.options);
 
 		auto.addEventListener("click", function(){
+			// var text = document.getElementById("test");
 
-			search.innerHTML = (auto.options);
+			search.innerHTML = auto.options;
 
 		});
 

@@ -6,7 +6,7 @@ window.addEventListener("load", function(){
 		var evolutionImages = document.getElementById("toggle");
 		var hide = document.getElementById("hideText");
 		if (evolutionImages.style.display === "none"){
-				evolutionImages.style.display = "block";
+			evolutionImages.style.display = "block";
 			}
 
 			else {
