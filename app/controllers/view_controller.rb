@@ -15,7 +15,7 @@ require 'active_support/all'
 	@favorite = params[:favorite]
 
 
-#Checks if height exist. If height exist means that view page is coming from add pokemon page
+#Checks if gender exist. If gender exist means that view page is coming from add pokemon page
 #and will need to save record and display the info. 	
 	if params[:gender].present? != false
 
@@ -112,8 +112,7 @@ require 'active_support/all'
 			@stage2 = @found_array[8]
 			@stage3 = @found_array[9]
 			@type = Pokedex.pokedex_display_type(@found_array)
-
-			
+	
 		else
 			@name = "No Pokemon Found"
 		end

@@ -32,7 +32,7 @@
 
 	<% end 
 
-		if @stage2.blank? == false  %>
+		if @stage2 != "None"  %>
 
 			<!-- Image of Pokemon being viewed -->
 				<div class="evolutions__image">
@@ -41,7 +41,7 @@
 				</div>
  	<%  end 
 
-		if @stage3.blank? == false%>
+		if @stage3 != "None"%>
 
 			<!-- Image of Pokemon being viewed -->
 				<div class="evolutions__image">
@@ -49,9 +49,8 @@
 				<div class="stage"><%= @stage3 %></div>
 				</div>
 			</div>
-		</div>
-
  	<% end %>
+ 		</div>
 	</div>
 
 <div class="statsContainer">

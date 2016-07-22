@@ -236,12 +236,18 @@ class Pokeapi
 	end
 
 
+	# This method returns evolution path of singel pokemon
+	#
+	# Pokemon_info comes from api request
+	#
+	# RETURNS ARRAY with String Elements 
+
 	def Pokeapi.api_evolution_array(pokemon_info)
 
 
 		firstevolution = pokemon_info["chain"]["species"]["name"]
-		secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
-		thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+		# secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
+		# thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
 		evolutionarray =[]
 
 
@@ -250,16 +256,35 @@ class Pokeapi
 			evolutionarray << firstevolution
 		end
 
-		if secevolution.is_a? String
-			evolutionarray << secevolution
-		else
+		# If statement to check for null on second evolution
+		if pokemon_info["chain"]["evolves_to"][0] == nil
 			evolutionarray << "None"
+
+		elsif pokemon_info["chain"]["evolves_to"][0]["species"] == nil
+			evolutionarray << "None"
+		elsif pokemon_info["chain"]["evolves_to"][0]["species"]["name"] == nil
+			evolutionarray << "None"
+		else
+			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
 		end
 
-		if thirdevolution != "" && thirdevolution != nil
-			evolutionarray << thirdevolution
-		else
+		#If Statement to check for mull on third evolution
+
+		if pokemon_info["chain"]["evolves_to"][0] == nil
 			evolutionarray << "None"
+
+		elsif pokemon_info["chain"]["evolves_to"][0]["species"] == nil
+			evolutionarray << "None"
+		elsif pokemon_info["chain"]["evolves_to"][0]["species"]["name"] == nil
+			evolutionarray << "None"
+		elsif pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0] == nil
+			evolutionarray << "None"	
+		elsif pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"] == nil
+			evolutionarray << "None"
+		elsif pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"] == nil
+			evolutionarray << "None"
+		else
+			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
 		end
 
 		return evolutionarray
