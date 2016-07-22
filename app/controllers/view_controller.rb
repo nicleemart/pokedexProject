@@ -83,9 +83,9 @@ require 'active_support/all'
 
 	end
 
-	@abilities_array.each do |ability|
-		@new_pokemonarray << ability
-	end
+	# @abilities_array.each do |ability|
+	# 	@new_pokemonarray << ability
+	# end
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)

@@ -7,7 +7,6 @@ require "json"
 
 # @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
 
-
 class Pokedex
 
 
