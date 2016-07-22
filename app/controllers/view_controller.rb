@@ -74,6 +74,7 @@ require 'active_support/all'
 	@new_pokemonarray << @stage2
 	@new_pokemonarray << @stage3
 
+	# @types_array = Pokeapi.types_length(@types_array)
 	# If pokemon have multiple types save to array and type variable. 
 	@type_array.each do |record|
 
@@ -83,9 +84,6 @@ require 'active_support/all'
 
 	end
 
-	# @abilities_array.each do |ability|
-	# 	@new_pokemonarray << ability
-	# end
 
 	@pokedex_array = Pokedex.pokedex_all_records(@file)
 	Pokedex.pokedex_delete_record(@pokedex_array,@name,@file)

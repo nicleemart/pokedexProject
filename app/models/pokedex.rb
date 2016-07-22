@@ -5,11 +5,8 @@ require "pry"
 require "json"
 
 
-# @evolutions = HTTParty.get("http://pokeapi.co/api/v2/evolution-chain/#{@id}")
 
 class Pokedex
-
-
 
 	# This method saves a new Pokemon's information in a text file as an Array
 	#
@@ -204,6 +201,8 @@ class Pokeapi
 		return ability_names
 	end
 
+
+
 	# This method adds all the types belonging to the Pokemon passed in to an Array
 	#
 	# pokemon = the API request information for the Pokemon
@@ -217,6 +216,13 @@ class Pokeapi
 		return pokemon_types
 	end
 
+	# types_array = Pokeapi.types(pokemon)
+	# def Pokeapi.types_length(types_array)
+	# 	if types_array[1] == 1
+	# 		types_array[1] == ""
+	# 	end
+	# 	return types_array
+	# end
 	# This method selects the Pokemon's height
 	#
 	# pokemon = the request using the Pokemon's name from the API
@@ -245,21 +251,34 @@ class Pokeapi
 	def Pokeapi.api_evolution_array(pokemon_info)
 
 
+<<<<<<< HEAD
 		firstevolution = pokemon_info["chain"]["species"]["name"]
 		# secevolution = pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
 		# thirdevolution = pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+=======
+		firstevolution = 
+		secevolution = 
+		thirdevolution = 
+>>>>>>> a282c639ea3079048d0cd989e58d47e75c67d6ca
 		evolutionarray =[]
 
 
 		
-		if firstevolution.is_a?  String
-			evolutionarray << firstevolution
+		if pokemon_info["chain"]["species"]["name"].is_a?  String
+			evolutionarray << pokemon_info["chain"]["species"]["name"]
 		end
 
+<<<<<<< HEAD
 		# If statement to check for null on second evolution
 		if pokemon_info["chain"]["evolves_to"][0] == nil
+=======
+		if pokemon_info["chain"]["evolves_to"][0]["species"]["name"].is_a? String
+			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["species"]["name"]
+		else
+>>>>>>> a282c639ea3079048d0cd989e58d47e75c67d6ca
 			evolutionarray << "None"
 
+<<<<<<< HEAD
 		elsif pokemon_info["chain"]["evolves_to"][0]["species"] == nil
 			evolutionarray << "None"
 		elsif pokemon_info["chain"]["evolves_to"][0]["species"]["name"] == nil
@@ -285,12 +304,25 @@ class Pokeapi
 			evolutionarray << "None"
 		else
 			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+=======
+		if pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"] = nil
+			
+			evolutionarray << pokemon_info["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"]
+		else
+			
+			evolutionarray[2] << "None"
+>>>>>>> a282c639ea3079048d0cd989e58d47e75c67d6ca
 		end
 
 		return evolutionarray
 
 	end
 
+	# This method adds abilities to a Hash for API storage
+	# 
+	# abilities_array = Pokeapi.ability_names(pokemon)
+	#
+	# RETURNS A HASH
 	def Pokeapi.ability_hash(abilities_array)
 		ability_hash = {}
 			ability_hash["ability1"] = abilities_array[0]
@@ -299,6 +331,11 @@ class Pokeapi
 		return ability_hash
 	end
 
+	# This method adds evolution stages to a Hash for API storage
+	# 
+	# evolution_array = Pokeapi.api_evolution_array(pokemon_info)
+	#
+	# RETURNS A HASH
 	def Pokeapi.evolution_hash(evolution_array)
 		evolutions_hash = {}	
 			evolutions_hash["stage1"] = evolution_array[0]
@@ -307,6 +344,11 @@ class Pokeapi
 		return evolutions_hash
 	end
 
+	# This method adds types to a Hash for API storage
+	# 
+	# types_array = Pokeapi.types(pokemon)
+	#
+	# RETURNS A HASH
 	def Pokeapi.types_hash(types_array)
 		types_hash = {}
 			types_hash["type1"] = types_array[0]
@@ -315,12 +357,16 @@ class Pokeapi
 		return types_hash
 	end
 
+	# This method takes the sorted data taken from the API request and puts it into a Hash
+	#
 	# types_hash = Pokeapi.types_hash(types_array)
 	# evolutions_hash = Pokeapi.evolution_hash(evolution_array)
 	# ability_hash = Pokeapi.ability_hash(abilities_array)
 	# height = Pokeapi.height(pokemon)
 	# weight = Pokeapi.weight(pokemon)
 	# name = params[:name]
+	#
+	# RETURNS A HASH
 	def Pokeapi.api_data_hash(name, height, weight, ability_hash, types_hash, evolutions_hash)
 		data_hash = {}
 		
@@ -334,17 +380,33 @@ class Pokeapi
 		return data_hash
 	end
 
+	# This method formats the data Hash into JSON
+	#
+	# data_hash = Pokeapi.api_data_hash(name, height, weight, ability_hash, types_hash, evolutions_hash)
+	#
+	# RETURNS JSON (HASH)
 	def Pokeapi.to_json(data_hash)
 		data_hash.to_json
 	end
 
-	# data_hash = Pokeapi.api_data_hash(name, height, weight, abilities_array, types_array, evolution_array)
+	# This method saves the JSON data to a text file (API)
+	#
+	# json_data_hash = Pokeapi.to_json(data_hash)
+	#
+	# SAVES JSON
 	def Pokeapi.api_save_hash(json_data_hash)
-		require 'csv'
+		
 		#Open the file the new data will be saved in
-		File.open("api.txt", "a") do |apple|
+		File.open("Data_File/api.txt", "a") do |apple|
 			#Add the Array to the file
-			apple << json_data_hash
+			apple << json_data_hash + "\n"
 		end
 	end
+
 end
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> a282c639ea3079048d0cd989e58d47e75c67d6ca
