@@ -13,5 +13,14 @@ window.addEventListener("load", function(){
 				auto.style.display = "none";
 			}
 
+			auto.options = ["Pikachu", "Dratini"];
+			auto.innerHTML = (auto.options);
+
+		auto.addEventListener("click", function(){
+
+			search.innerHTML = (auto.options);
+
+		});
+
 	});
 });
