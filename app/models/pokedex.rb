@@ -43,6 +43,25 @@ class Pokedex
 		return new_array
 	end
 
+	# array_hash = Pokedex.change_the_arrays(all_as_arrays)
+	# given_name = name passed into url
+	def Pokedex.return_specific_hash(array_hash, given_name)
+		single_pokemon = []
+		array_hash.each do |hsh|
+			if hsh["name"] == given_name
+				single_pokemon.push(hsh)
+			end
+		end
+		if single_pokemon.empty?
+			return "<h1>There is no data for the Pokemon you have requested.</h1>" + "<br>" +
+
+			"<h3>Double check your spelling and try again just in case.</h3>"
+
+		else
+			return single_pokemon
+		end
+	end
+
 	# This method saves a new Pokemon's information in a text file as an Array
 	#
 	# new_pokemon = the Array of traits gathered from the user (via form)
