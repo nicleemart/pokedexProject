@@ -6,7 +6,39 @@ require "json"
 
 
 
+
 class Pokedex
+
+	def Pokedex.all(file)
+		all_as_arrays = Pokedex.pokedex_all_records(file)
+
+		
+	end
+
+	# all_as_arrays = Pokedex.all(file)
+	def Pokedex.change_the_arrays(all_as_arrays)
+		new_hash = {}
+		new_array = []
+
+		all_as_arrays.each do |pokemon|
+
+	
+		  new_hash["name"] = pokemon[0]
+		  new_hash["weight"] = pokemon[1]
+		  new_hash["height"] = pokemon[2]
+		  new_hash["gender"] = pokemon[3]
+		  new_hash["cp"] = pokemon[4]
+		  new_hash["hp"] = pokemon[5]
+		  new_hash["favorite"] = pokemon[6]
+		  new_hash["stage1"] = pokemon[7]
+		  new_hash["stage2"] = pokemon[8]
+		  new_hash["stage3"] = pokemon[9]
+		  new_hash["type"] = pokemon[10]
+		puts new_hash
+		end	
+
+
+	end
 
 	# This method saves a new Pokemon's information in a text file as an Array
 	#
@@ -274,29 +306,18 @@ class Pokeapi
 
 	end
 
-	# This method adds abilities to a Hash for API storage
-	# 
-	# abilities_array = Pokeapi.ability_names(pokemon)
-	#
-	# RETURNS A HASH
-	def Pokeapi.ability_hash(abilities_array)
-		ability_hash = {}
-			ability_hash["ability1"] = abilities_array[0]
-			ability_hash["ability2"] = abilities_array[1]
-			ability_hash["ability3"] = abilities_array[2]
-		return ability_hash
-	end
 
 	# This method adds evolution stages to a Hash for API storage
 	# 
-	# evolution_array = Pokeapi.api_evolution_array(pokemon_info)
+	# all_pokemon = Pokedex.pokedex_all_records(file)
 	#
 	# RETURNS A HASH
-	def Pokeapi.evolution_hash(evolution_array)
+	def Pokeapi.evolution_hash(all_pokemon)
 		evolutions_hash = {}	
-			evolutions_hash["stage1"] = evolution_array[0]
-			evolutions_hash["stage2"] = evolution_array[1]
-			evolutions_hash["stage3"] = evolution_array[2]
+
+			evolutions_hash["stage1"] = all_pokemon[7]
+			evolutions_hash["stage2"] = all_pokemon[8]
+			evolutions_hash["stage3"] = all_pokemon[9]
 		return evolutions_hash
 	end
 
@@ -336,30 +357,11 @@ class Pokeapi
 		return data_hash
 	end
 
-	# This method formats the data Hash into JSON
-	#
-	# data_hash = Pokeapi.api_data_hash(name, height, weight, ability_hash, types_hash, evolutions_hash)
-	#
-	# RETURNS JSON (HASH)
-	def Pokeapi.to_json(data_hash)
-		data_hash.to_json
-	end
 
-	# This method saves the JSON data to a text file (API)
-	#
-	# json_data_hash = Pokeapi.to_json(data_hash)
-	#
-	# SAVES JSON
-	def Pokeapi.api_save_hash(json_data_hash)
-		
-		#Open the file the new data will be saved in
-		File.open("Data_File/api.txt", "a") do |apple|
-			#Add the Array to the file
-			apple << json_data_hash + "\n"
-		end
-	end
+
+
 
 end
 
-
-
+# @testing = HTTParty.get("http://localhost:9292/api/all_pokemon")
+# binding.pry

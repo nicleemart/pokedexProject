@@ -6,8 +6,12 @@
 # end
 
 # This is for getting information about a ALL Pokemon
-# MyApp.get "/api/all_pokemon" do
-# 	@file = File.open('Data_File/api.json')
-# 	# @data_hash = JSON.parse(@file)
-# 	return @file
-# end
+MyApp.get "/api/all_pokemon" do
+	@file = 'Data_File/pokedex.csv'
+	@all_as_arrays = Pokedex.pokedex_all_records(@file)
+	@all = Pokedex.change_the_arrays(@all_as_arrays)
+
+	return @all.to_json
+
+
+end
