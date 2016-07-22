@@ -34,8 +34,9 @@ class Pokedex
 		  new_hash["stage2"] = pokemon[8]
 		  new_hash["stage3"] = pokemon[9]
 		  new_hash["type"] = pokemon[10]
-		puts new_hash
 		end	
+
+		return new_hash
 
 
 	end
@@ -80,12 +81,14 @@ class Pokedex
 		results_array = []
 		# Iterate over each of the Pokemon in the Pokedex
 		pokemon_array.each do |pokemon|
+			found = "no"
 			# Iterate over each trait of each of those Pokemon
-			pokemon.each do |trait|
+			pokemon.each do |trait| 
 				# If any of the traits match the search input
-				if trait == search_input
+				if trait == search_input && found == "no"
 					# Return those Pokemon
 					results_array << pokemon
+					found = "yes"
 				end
 			end
 		end
