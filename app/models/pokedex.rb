@@ -257,7 +257,7 @@ class Pokeapi
 			evolutionarray << "None"
 		end
 
-		if thirdevolution.is_a? String
+		if thirdevolution != "" && thirdevolution != nil
 			evolutionarray << thirdevolution
 		else
 			evolutionarray << "None"
@@ -320,28 +320,8 @@ class Pokeapi
 		#Open the file the new data will be saved in
 		File.open("api.txt", "a") do |apple|
 			#Add the Array to the file
-			apple << json_data_hash + "/n"
+			apple << json_data_hash
 		end
 	end
 end
-
-name = "gloom"
-height = 5
-weight = 78
-abilities_array = ["poison", "green beans"]
-types_array = ["grass", "orange"]
-evolution_array = ["oddish", "gloom", "vulplume"]
-
-ability_hash = Pokeapi.ability_hash(abilities_array)
-evolutions_hash = Pokeapi.evolution_hash(evolution_array)
-types_hash = Pokeapi.types_hash(types_array)
-file = "api.txt"
-
-data_hash = Pokeapi.api_data_hash(name, height, weight, ability_hash, types_hash, evolutions_hash)
-json_data_hash = Pokeapi.to_json(data_hash)
-Pokeapi.api_save_hash(json_data_hash)
-puts Pokeapi.to_json(data_hash)
-
-
-
 
