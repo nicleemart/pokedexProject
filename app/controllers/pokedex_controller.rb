@@ -9,7 +9,7 @@ MyApp.get "/" do
 	@no_pokemon_error = "Visit the Add Pokemon page to start building your Pokedex"
 	
 	@name = @random_favorite[0]
-	@height = @random_favorite[1]
+	@height = @random_favorite[1].to_f / 10
 	@weight = @random_favorite[2]
 	@gender = @random_favorite[3]
 	@cp = @random_favorite[4]
