@@ -13,13 +13,18 @@ window.addEventListener("load", function(){
 				auto.style.display = "none";
 			}
 
-			auto.options = ["Pikachu"];
-			auto.innerHTML = (auto.options);
+			auto.hgjghjgjhgjhg = ["Pikachu", "Vulpix"];
+
+			// loop through auto.hgjghjgjhgjhg (el)
+			// 	create new DOM node in 'auto'
+			// 		make that node a DIV
+			// 		into that div, place 'el'
+
 
 		auto.addEventListener("click", function(){
 			// var text = document.getElementById("test");
 
-			search.innerHTML = auto.options;
+			search.value = "banana";
 
 		});
 
