@@ -10,7 +10,8 @@ MyApp.get "/" do
 	
 	@name = @random_favorite[0]
 	@height = @random_favorite[1].to_f / 10
-	@weight = @random_favorite[2]
+	@weight = @random_favorite[2].to_i / 4.54
+	@weight = @weight.round(2)
 	@gender = @random_favorite[3]
 	@cp = @random_favorite[4]
 	@hp = @random_favorite[5]
