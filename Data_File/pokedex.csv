@@ -1,2 +1,6 @@
 Charmander,6,85,male,100,40,on,Charmander,Charmeleon,Charizard,Fire
 Gloom,8,86,female,35,87,on,Oddish,Gloom,Vileplume,Poison,Grass
+Pikachu,4,60,Female,75,32,,Pichu,Pikachu,Raichu,Electric,lightning-rod,static
+Dratini,18,33,Female,492,150,on,Dratini,Dragonair,Dragonite,Dragon,marvel-scale,shed-skin
+Dragonite,22,2100,Male,783,241,,Dratini,Dragonair,Dragonite,Flying,Dragon,multiscale,inner-focus
+Blastoise,16,855,Female,1003,231,,Squirtle,Wartortle,Blastoise,Water,rain-dish,torrent

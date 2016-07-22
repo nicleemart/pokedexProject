@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script type="text/javascript" src="/js/searchAutocomplete.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/global.css">
 <html>
 
@@ -21,10 +22,12 @@
 	</div>
 
 	<div class="searchBox">
-			<div class="search">
+			<div class="search" id="search">
 				<form action="/searchresults">
 					<input  method="get" name="search" type="text" placeholder="Search Pok&eacute;mon..." class="search__input" required><span class="search__icon"><img src="/images/searchIcon.png"></span>
 				</form>
+			</div>
+			<div id="autocomplete">
 			</div>
 		</div>
 	</div>

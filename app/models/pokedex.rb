@@ -314,10 +314,10 @@ class Pokeapi
 	end
 
 	# data_hash = Pokeapi.api_data_hash(name, height, weight, abilities_array, types_array, evolution_array)
-	def Pokeapi.api_save_hash(json_data_hash, file)
+	def Pokeapi.api_save_hash(json_data_hash)
 		require 'csv'
 		#Open the file the new data will be saved in
-		File.open(file, "a") do |apple|
+		File.open("/Data_File/api.txt", "a") do |apple|
 			#Add the Array to the file
 			apple << json_data_hash
 		end

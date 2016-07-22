@@ -68,6 +68,12 @@ a:hover{
 .form::-webkit-input-placeholder{
 	color: #232323;
 }
+#autocomplete{
+	display: none;
+	background-color: #FFFFFF;
+	height: 100px;
+	width: 100%;
+}
 .center{
 	display: flex;
 	flex-direction: column;
@@ -156,11 +162,11 @@ input.form {
 }
 #showText{
 	color: #FFFFFF;
+	padding: 5px;
 }
 #showText:hover{
 	cursor: pointer;
 	color: #F7BF2E;
-	padding: 5px;
 }
 #hideText {
 	display: none;
