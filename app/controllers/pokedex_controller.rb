@@ -29,5 +29,13 @@ MyApp.get "/" do
 	end
 	erb :"pokedex/home"
 
+end
+
+MyApp.get"/random_favorite" do
+
+	@file = 'Data_File/pokedex.csv'
+	@all_pokemon = Pokedex.pokedex_all_records(@file)
+	@favorites_list = Pokedex.pokedex_list_of_favorites(@all_pokemon,@file)
+	return random_favorite = Pokedex.pokedex_random_favorite(@favorites_list,@file)
 	
 end

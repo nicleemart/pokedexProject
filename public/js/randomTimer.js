@@ -1,22 +1,22 @@
-window.addEventListener("load", function(){
 
-	function refreshStats (){
+window.addEventListener("load", function() {
 
-	var runFunction = new XMLHttpRequest();
+            function refreshStats() {
 
+                var request = new XMLHttpRequest();
 
-  	function runFunction (){
-    	var stat = document.getElementsByClassName("stats__info");
-    	for (i = 0; i < stat.length; i++){
-    		// stat[i].innerHTML = e.target.responseText;
-    	}
-    }
+                    request.addEventListener("load", function(e) {
+                    	debugger;
+                            var stat = document.getElementsByClassName("stats__info");
+                            for (i = 0; i < stat.length; i++) {
+                                stat[i].innerHTML = e.target.responseText[i];
+                            }
+                        });
+                    
 
-		runFunction.open ("get", "http://localhost:9292", true);
-		runFunction.send();
+                    request.open("get", "/random_favorite", true);
+                    request.send();
+}
+                    setInterval(refreshStats, 7000);
 
-		setTimeout(refreshStats, 2000);
-
-	};
-
-});
+            });
